@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<title>NOIP 2017 总结</title>
+<title>noip2017</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/github-markdown.css">
 <style type="text/css">
@@ -186,7 +186,10 @@ vertical-align:1px;
 </head>
 <body>
 <h1>NOIP 2017 总结</h1>
-<p align="right">谷雨同学 2017年11月14日-15日</p>
+<p align="right">
+谷雨同学 2017年11月14日-15日<br>
+最后更新于2017年11月16日
+</p>
 <h2>总述</h2>
 <p>这是我第一次参加 NOIP 。我只不过刚刚学了一年而已，关于算法竞赛只是了解些皮毛而已。今天早些时候我拿到了我的源代码，于是便立即在<a href="https://www.luogu.org/">洛谷</a>上用<a href="https://www.luogu.org/contestnew/show/4442">“民间数据”</a>自测了一下。现汇报如下：</p>
 <table>
@@ -435,8 +438,7 @@ xht f[<span class="pl-c1">52</span>];
 <h2>cheese - 奶酪</h2>
 <p>用了一个DFS做出来的。首先在输入的同时用布尔型“邻接矩阵” <code>e[][]</code> 来记录两个洞是否相连，并判断是否通底部或顶部。如果通底部，把这个洞加入数组 <code>btm[]</code> 中，如果同顶部将 <code>top[]</code> 设为 <code>true</code> 。<br>
 再从 <code>btm[]</code> 中逐个DFS搜索，如果能搜到顶返回 <code>"Yes"</code> ,否则就是 <code>"No"</code> 。</p>
-<h4>一点疑问</h4>
-<p>有人说这道题判断是否连通时会超 <code>long long</code> 范围。我则不这么认为：坐标极值为 \( \pm 10^{9} \) ,坐标之差最大值为 \( 2 \times 10^{9} \) , 带入距离公式则根号下最大值为 \( 3 \times ( 2 \times 10^{9} )^{2} = 3 \times 4 \times 10^{18} = 1.2 \times 10^{19} \) 。而 <code>long long</code> 的最大值为 \( 9 \, 223 \, 372 \, 036 \, 854 \, 775 \, 807 = 9.22 \times 10^{19} \geq 1.2 \times 10^{12} \) ,所以应该不会超范围。</p>
+<p>然而这道题还是踩了个坑，因为判断是否连通时会超 <code>long long</code> 范围。坐标极值为 \( \pm 10^{9} \) ,坐标之差最大值为 \( 2 \times 10^{9} \) , 带入距离公式则根号下最大值为 \( 3 \times ( 2 \times 10^{9} )^{2} = 3 \times 4 \times 10^{18} = 1.2 \times 10^{19} \) 。而 <code>long long</code> 的最大值为 \( 9 \, 223 \, 372 \, 036 \, 854 \, 775 \, 807 = 9.22 \times 10^{18} &lt; 1.2 \times 10^{19} \) 。所以只能说洛谷的数据有点水，真正的得分应该到不了 AC 。</p>
 <h4>源代码</h4>
 <p>100分， AC 。</p>
 <div class="highlight highlight-source-c++"><pre>#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
