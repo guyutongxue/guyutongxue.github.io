@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>log</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/css/github-markdown.css">
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>SorA 开发/更新日志</h1>
+
+<h2>RC</h2>
+<h3>RC_0.5.0</h3>
+<p>全部 UI 设计完成，包括单独的关于界面。</p>
+<p>顺便加入百分比显示。</p>
+<h2>beta</h2>
+<h3>beta_0.4.1129 ~ beta_0.4.1129.3</h3>
+<p>从今天起开始设计。目前已经加入的图标有：</p>
+<ul>
+<li>Add</li>
+<li>AddHomework</li>
+<li>AppIcon</li>
+<li>Back</li>
+<li>Calendar</li>
+<li>Delete</li>
+<li>Down</li>
+<li>Edit</li>
+<li>History</li>
+<li>More</li>
+<li>Search</li>
+<li>Today</li>
+<li>Up</li>
+<li>Yes</li>
+</ul>
+<p>以后还需要处理文字按钮。</p>
+<p>最后简单构造了About页面。</p>
+<h3>beta_0.4.1128</h3>
+<p>今日大体上完成More界面（实现更改Subject和Tag）。</p>
+<p>无论如何，所有的基本功能都已经实现。下一步就是美化了——不过还需注意：</p>
+<ol>
+<li>关于界面应该需要开新屏幕</li>
+<li>是否加入完成百分比功能？</li>
+</ol>
+<p>关于图片与音频记录的功能应该是加不上了。时间还是太紧！我还有三天的时间。</p>
+<h2>alpha</h2>
+<h3>alpha_0.3.1127</h3>
+<p>今天计划完成，完美完成History界面的编写。内容包括：</p>
+<ol>
+<li>列出已有作业列表</li>
+<li>按关键词搜索</li>
+<li>按日期搜索</li>
+<li>查看跳转页面View</li>
+</ol>
+<p>在蓝叠上的测试效果还是很好的。</p>
+<p>最后简单做了一下More界面的布局。明天必须要把所有代码写完。我觉得还有点希望。</p>
+<h3>alpha_0.2.1126 ~ alpha_0.2.1126.2</h3>
+<p>昨日写作业写到很晚，又有亲戚来访打搅，故无进展。</p>
+<p>今天基本完成了Today界面和Modify界面。</p>
+<ol>
+<li>正如昨天所说，Tag功能使用Canvas实现——不过略显麻烦，但是使用效果还是很不错的。</li>
+<li>设立Other科目，为了保证后期的条理性，将Other设为第一项——这又显的很乱，但是是值得的。</li>
+<li>另外加入DATE数据库标签，更好地判断是否存有数据。</li>
+<li>Modify界面简单的总结：完成添加、删除、上移、下移、修改、存储、Tag等诸多功能。</li>
+</ol>
+<p>今天在伙伴的真机上测试了一下，发现字体太小，但是这个我无力解决，因为在内置模拟器和蓝叠上都没有这个问题。</p>
+<p>关于ListView更新数据的bug我是一点办法也没有。</p>
+<p>最后简单布局了一下History界面，然后写了个快速排序来保证日期的连贯性。感觉时间真的太紧张了，我明天必须把History基本写完，才能保证有足够的时间写前端。</p>
+<h3>alpha_0.1.1124</h3>
+<p>本来想用Canvas来解决，但是想必不仅麻烦，效果也不好。于是想到改用Emoji符号来显示图标。好在Emoji还是很全的，不过模拟器没有相关的Unicode文件，只在蓝叠里能显示（而且效果真的不错）。</p>
+<p>今天太晚了。我需要在周末加快速度。</p>
+<h3>alpha_0.1.1123</h3>
+<p>完善作业数据结构。四重YailList也是很烦。</p>
+<p>加入是否完成功能，点击切换。任务清单功能大体完成。</p>
+<p>完善Modify界面，目前可获取对应项字符串。</p>
+<p>这些的实现基础是基于List Pionter的，具体用法已注释。</p>
+<p>目前问题：由于任务列表列由ListView写成，所以两个List在滚动时无法统一，且不美观。这是一个很严重的问题，仅依靠布局是改不好的。</p>
+<h3>alpha_0.1.1122</h3>
+<p>首先决定放弃 Extension 。不然一是不会，二是工作量太大。所以 Tag 只能用ListPicker将就了。</p>
+<p>初步实现了数据存储并测试。完善了基本的操作逻辑。Today显示已完成，实现一部分页面跳转。</p>
+<p>设计 Modify 界面，初步完成数据读取。</p>
+<p>就是运行速度很是问题，但愿只是模拟器的锅。</p>
+<h3>alpha_0.0.1121</h3>
+<p>设计数据存储结构。设计基本操作逻辑。</p>
+<p>考虑到 Tag 功能的实用性，恐怕我需要自己写一个 Extension 。但是这个难度非常大。查阅了寥寥可数的相关资料，毫无头绪。</p>
+<p>被大佬 MayFly 打击信心。</p>
+<h3>alpha_0.0.1120</h3>
+<p>新建项目。</p>
+<p>制作Today页面基本架构，熟悉存储数据及列表操作。测试。</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
