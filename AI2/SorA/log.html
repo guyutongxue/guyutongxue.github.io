@@ -3,7 +3,6 @@
 <head>
 <title>log</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="/css/github-markdown.css">
 <style type="text/css">
 .highlight  { background: #ffffff; }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
@@ -181,6 +180,7 @@ margin-right:3px;
 vertical-align:1px;
 }
 </style>
+<link rel="stylesheet" type="text/css" href="/css/github-markdown.css">
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
@@ -188,11 +188,20 @@ vertical-align:1px;
 <h1>SorA 开发/更新日志</h1>
 
 <h2>RC</h2>
+<h3>RC_0.5.1</h3>
+<p><em>12月1日</em></p>
+<ul>
+<li>优化More界面，改ListView为Button</li>
+<li>修复少许错误</li>
+<li>优化汉化</li>
+</ul>
 <h3>RC_0.5.0</h3>
+<p><em>11月30日</em></p>
 <p>全部 UI 设计完成，包括单独的关于界面。</p>
 <p>顺便加入百分比显示。</p>
 <h2>beta</h2>
 <h3>beta_0.4.1129 ~ beta_0.4.1129.3</h3>
+<p><em>11月29日</em></p>
 <p>从今天起开始设计。目前已经加入的图标有：</p>
 <ul>
 <li>Add</li>
@@ -213,6 +222,7 @@ vertical-align:1px;
 <p>以后还需要处理文字按钮。</p>
 <p>最后简单构造了About页面。</p>
 <h3>beta_0.4.1128</h3>
+<p><em>11月28日</em></p>
 <p>今日大体上完成More界面（实现更改Subject和Tag）。</p>
 <p>无论如何，所有的基本功能都已经实现。下一步就是美化了——不过还需注意：</p>
 <ol>
@@ -222,6 +232,7 @@ vertical-align:1px;
 <p>关于图片与音频记录的功能应该是加不上了。时间还是太紧！我还有三天的时间。</p>
 <h2>alpha</h2>
 <h3>alpha_0.3.1127</h3>
+<p><em>11月27日</em></p>
 <p>今天计划完成，完美完成History界面的编写。内容包括：</p>
 <ol>
 <li>列出已有作业列表</li>
@@ -232,6 +243,7 @@ vertical-align:1px;
 <p>在蓝叠上的测试效果还是很好的。</p>
 <p>最后简单做了一下More界面的布局。明天必须要把所有代码写完。我觉得还有点希望。</p>
 <h3>alpha_0.2.1126 ~ alpha_0.2.1126.2</h3>
+<p><em>11月26日</em></p>
 <p>昨日写作业写到很晚，又有亲戚来访打搅，故无进展。</p>
 <p>今天基本完成了Today界面和Modify界面。</p>
 <ol>
@@ -244,24 +256,29 @@ vertical-align:1px;
 <p>关于ListView更新数据的bug我是一点办法也没有。</p>
 <p>最后简单布局了一下History界面，然后写了个快速排序来保证日期的连贯性。感觉时间真的太紧张了，我明天必须把History基本写完，才能保证有足够的时间写前端。</p>
 <h3>alpha_0.1.1124</h3>
+<p><em>11月24日</em></p>
 <p>本来想用Canvas来解决，但是想必不仅麻烦，效果也不好。于是想到改用Emoji符号来显示图标。好在Emoji还是很全的，不过模拟器没有相关的Unicode文件，只在蓝叠里能显示（而且效果真的不错）。</p>
 <p>今天太晚了。我需要在周末加快速度。</p>
 <h3>alpha_0.1.1123</h3>
+<p><em>11月23日</em></p>
 <p>完善作业数据结构。四重YailList也是很烦。</p>
 <p>加入是否完成功能，点击切换。任务清单功能大体完成。</p>
 <p>完善Modify界面，目前可获取对应项字符串。</p>
 <p>这些的实现基础是基于List Pionter的，具体用法已注释。</p>
 <p>目前问题：由于任务列表列由ListView写成，所以两个List在滚动时无法统一，且不美观。这是一个很严重的问题，仅依靠布局是改不好的。</p>
 <h3>alpha_0.1.1122</h3>
+<p><em>11月22日</em></p>
 <p>首先决定放弃 Extension 。不然一是不会，二是工作量太大。所以 Tag 只能用ListPicker将就了。</p>
 <p>初步实现了数据存储并测试。完善了基本的操作逻辑。Today显示已完成，实现一部分页面跳转。</p>
 <p>设计 Modify 界面，初步完成数据读取。</p>
 <p>就是运行速度很是问题，但愿只是模拟器的锅。</p>
 <h3>alpha_0.0.1121</h3>
+<p><em>11月21日</em></p>
 <p>设计数据存储结构。设计基本操作逻辑。</p>
 <p>考虑到 Tag 功能的实用性，恐怕我需要自己写一个 Extension 。但是这个难度非常大。查阅了寥寥可数的相关资料，毫无头绪。</p>
 <p>被大佬 MayFly 打击信心。</p>
 <h3>alpha_0.0.1120</h3>
+<p><em>11月20日</em></p>
 <p>新建项目。</p>
 <p>制作Today页面基本架构，熟悉存储数据及列表操作。测试。</p>
 </body>
