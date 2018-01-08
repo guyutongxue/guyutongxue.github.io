@@ -5,4 +5,3 @@
 
 ***
 Powered by **Guyutongxue**.
-Latest update on 2017.12.21.
