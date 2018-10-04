@@ -1,120 +1,33 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>Revue</title>
-<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<style>
-body{
-	background-color: black;
-}
-
-#container{
-	text-align: center;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%,-50%);
-}
-
-
-#title{
-	width: 400px;
-	height: 150px;
-	background: url(./audition.svg) no-repeat center center;
-	background-size: contain;
-	display: table;
-}
-
-#title-cell{
-	display: table-cell;
-	vertical-align: middle;
-}
-#title-content{
-	color: white;
-	font-size: 40px;
-	font-family: "MS Mincho"
-}
-
-#jptext{
-	color: white;
-	font-family: "SF Pro JP", "SF Pro Text", "Apple TP", "Myriad Set Pro", "SF Pro Icons", "Apple Legacy Chevron", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-#entext{
-	color: white;
-	font-family:Times New Roman;
-	font-style:Italic;
-}
-
-#image{
-	transform-origin: center center;
-}
-</style>
-<script type="text/javascript">
-
-var speed = 54.275;
-var deg = 0;
-var isPlaying = false;
-var interval;
-
-console.log("らかります。")
-
-function eventClick(){
-	if(isPlaying == false){
-		play();
-	}
-	else{
-		pause();
-	}
-}
-
-function play(){
-isPlaying=true;
-$("#au").get(0).play();
-var img = $("#image");
-
-interval = setInterval(function () {
-    img.css({
-        '-ms-transform': 'rotate(' + deg + 'deg)', /* IE 9 */
-        '-moz-transform': 'rotate(' + deg + 'deg)', /* Firefox */
-        '-webkit-transform': 'rotate(' + deg + 'deg)', /* Safari and Chrome */
-        '-o-transform': 'rotate(' + deg + 'deg)', /* Opera */
-        'transform': 'rotate(' + deg + 'deg)'
-    });
-    deg+=1;
-    if (deg >= 360) {
-        deg = 0;
-    }
-}, speed);
-}
-
-function pause(){
-	clearInterval(interval);
-	isPlaying = false;
-	$("#au").get(0).pause();
-}
-
-</script>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./main.css">
 </head>
 <body>
 
 <div id="container">
 	<audio id="au" src="./ki-ringtone.mp3" loop ></audio>
-	<div id="title">
+	<div class="item" id="title">
 		<div id="title-cell">
-			<h1 id="title-content">オーディション</h1>
+			<span id="title-content">オーディション</span>
 		</div>
 	</div>
-	<img src="./ki.png" id="image" onclick="eventClick()">
-	<div id="jptext">
-		お持ちおさい<br>
+	<img class="item" src="./ki.png" id="image" onclick="eventClick()">
+	<div class="item" id="jptext">
+		お持ちなさい<br>
 		あなたの望んだその星を
 	</div>
-	<p><embed src="./hana.svg" width="30" type="image/svg+xml"</p>
-	<div id="entext">
+	<div class="item" id="hana">
+		<embed src="./hana.svg" type="image/svg+xml">
+	</div>
+	<div class="item" id="entext">
 		And it shall be bestowed upon you,<br>
 		the Star which you have longed for—
 	</div>
 </div>
-
+<script type="text/javascript" src="./main.js"></script>
 </body>
 </html>
