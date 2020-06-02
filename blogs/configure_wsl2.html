@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Configure WSL with beauty</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="configure-wsl-with-beauty">Configure WSL with beauty</h1>
+<h2 id="update-to-newer-windows-version--18917from-insider-channel">Update to newer Windows version (&gt;= 18917)(from insider channel).</h2>
+<h2 id="enable-features-and-reboot">Enable features and reboot</h2>
+<pre><code class="language-PowerShell"><div>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+</div></code></pre>
+<h2 id="download-ubuntu-from-microsoft-store">Download Ubuntu from Microsoft Store.</h2>
+<pre><code class="language-PowerShell"><div>bash
+</div></code></pre>
+<p>To initialize the OS.</p>
+<h2 id="upgrade-version">Upgrade version</h2>
+<pre><code class="language-PowerShell"><div>wsl --set-version Ubuntu <span class="hljs-number">2</span>
+</div></code></pre>
+<p>You may be asked to install a core update pack. Just follow the instruction.</p>
+<h2 id="transfer-the-filesystem-to-an-other-place">Transfer the filesystem to an other place</h2>
+<pre><code class="language-PowerShell"><div>wsl --export Ubuntu D:\ubuntu.tar
+</div></code></pre>
+<p>Remove Ubuntu from Microsoft store.</p>
+<pre><code class="language-PowerShell"><div>wsl --import Ubuntu /path/to/your/favorite D:\ubuntu.tar --version <span class="hljs-number">2</span>
+</div></code></pre>
+<p>Modify Registry for the default user. Goto <code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss\</code>, where you may find a GUID stand for the distribute you just imported. Change the uid to the original one. You can find uid by tapping following command into bash:</p>
+<pre><code class="language-bash"><div>cat /etc/passwd | grep &lt;username&gt;
+</div></code></pre>
+<p>Try again login by <code>bash</code> or <code>wsl</code>.</p>
+<h2 id="prepare-for-windows-terminal">Prepare for Windows Terminal</h2>
+<p>Download Windows Terminal from Microsoft Store.</p>
+<p>Configure settings:</p>
+<pre><code class="language-JSON"><div>{
+    <span class="hljs-attr">"defaultProfile"</span>: <span class="hljs-string">"{8bb950c2-4343-563a-9788-e8a1d22d142f}"</span>, // GUID to the WSL
+    <span class="hljs-attr">"initialCols"</span>: <span class="hljs-number">100</span>,
+    <span class="hljs-attr">"initialRows"</span>: <span class="hljs-number">30</span>,
+    <span class="hljs-attr">"profiles"</span>: {
+        <span class="hljs-attr">"defaults"</span>: {
+            // Put settings here that you want to apply to all profiles
+            // <span class="hljs-attr">"fontFace"</span>: <span class="hljs-string">"等距更纱黑体 SC"</span>,
+            <span class="hljs-attr">"fontFace"</span>: <span class="hljs-string">"MesloLGS NF"</span>, // fix better with zsh-powerlevel10k, Chinese supported
+            <span class="hljs-attr">"fontSize"</span>: <span class="hljs-number">10</span>,
+            // <span class="hljs-attr">"useAcrylic"</span>: <span class="hljs-literal">true</span>,
+            // <span class="hljs-attr">"acrylicOpacity"</span>: <span class="hljs-number">0.7</span>
+        },
+        <span class="hljs-attr">"lists"</span>: [] //...
+    }
+}
+</div></code></pre>
+<p>Register to Explorer context:</p>
+<p>Regedit, change directory to  <code>HKEY_CLASSES_ROOT\Directory\Background\shell</code>.</p>
+<p>Add item <code>wt</code>, use string <code>Open Windows Terminal</code> as defaultl value, add a string called <code>Icon</code> if you want.</p>
+<p>Inside this item, add subitem called <code>command</code>. Use</p>
+<pre><code><code><div>&quot;C:\Users\Guyutongxue\AppData\Local\Microsoft\WindowsApps\wt.exe&quot; -d  %V\.
+</div></code></code></pre>
+<p>as the default value.</p>
+<h2 id="install-zsh-and-configure-with-theme">Install zsh and configure with theme</h2>
+<pre><code class="language-Bash"><div>sudo apt install zsh
+</div></code></pre>
+<pre><code class="language-Bash"><div>sh -c <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span>
+</div></code></pre>
+<pre><code class="language-Bash"><div>git <span class="hljs-built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="hljs-variable">$ZSH_CUSTOM</span>/themes/powerlevel10k
+</div></code></pre>
+<p>Set <code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code> in <code>~/.zshrc</code>.</p>
+<p>Type zsh and you can configure whatever you like.</p>
+
+    </body>
+    </html>

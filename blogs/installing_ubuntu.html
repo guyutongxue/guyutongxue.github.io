@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>安装 Ubuntu 记录</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="安装-ubuntu-记录">安装 Ubuntu 记录</h1>
+<p>我的 Win10 在崩溃后整整一个月又无法启动了。这次重装系统我决定在前些日子腾空的新硬盘上安装 Ubuntu ，以备不测之需。
+由于 Win10 提供了 WSL ，所以我对实体机 Linux 需求并不很高。而且上次在安装 Ubuntu 时发生了许多意外情况，导致安装失败，这次将成功的方法记录下来以便参考。</p>
+<h2 id="制作启动u盘">制作启动U盘</h2>
+<p>用 UltraISO 程序将下载好的 Ubuntu 18.04 Bionic Beaver ISO 文件烧录到一个空的U盘上。</p>
+<h2 id="从u盘启动">从U盘启动</h2>
+<p>重启按 <kbd>F2</kbd> 进入 UEFI BIOS 。</p>
+<hr>
+<h3 id="关闭-secure-boot-安全启动">关闭 Secure Boot 安全启动</h3>
+<p>以下选项为英文，中文操作方法相同。</p>
+<ol>
+<li>将 Boot 菜单下的 OS Type 设为 Windows UEFI 。</li>
+<li>进入 Key Management 。</li>
+<li>选中 Clear Secure Boot keys 。</li>
+<li>此时 Secure Boot 会被自动禁用。然后再将 OS Type 调回 Other OS 。</li>
+</ol>
+<hr>
+<p>关闭安全启动后，选择 UEFI 模式的 Ubuntu 安装介质启动。</p>
+<h2 id="安装流程">安装流程</h2>
+<p>大部分流程按照正常步骤即可。</p>
+<ul>
+<li>如果无法联网，不要勾选“第三方软件”。</li>
+<li>不要选择“与其它系统共存”，选择“其它选项（创建自己的分区）”。</li>
+</ul>
+<hr>
+<h3 id="分区说明">分区说明</h3>
+<p>此处主要参考</p>
+<p>选择未分配的空硬盘，点击 + 来挂载分区。</p>
+<ol>
+<li>
+<p>新建<strong>swap交换空间</strong>，选<strong>主分区</strong>和<strong>空间起始位置</strong>，大小设置 1~2 倍物理内存大小（我选择了1倍，即 16GB ）。</p>
+</li>
+<li>
+<p>新建<strong>efi系统分区</strong>，选<strong>逻辑分区</strong>和<strong>空间起始位置</strong>，大小不小于 256MB （我选择了 512MB ）。</p>
+</li>
+<li>
+<p>新建<strong>EXT4日志文件系统</strong>，挂载 <strong>/home</strong> ，选<strong>逻辑分区</strong>和<strong>空间起始位置</strong>，大小自定（我选择了剩余空间的 1/3 ，即 100GB ）。</p>
+</li>
+<li>
+<p>新建<strong>EXT4日志文件系统</strong>，挂载 <strong>/usr</strong> ，选<strong>逻辑分区</strong>和<strong>空间起始位置</strong>，大小自定（我选择了剩余空间的 3/4 ，即 150GB ）。</p>
+</li>
+<li>
+<p>新建<strong>EXT4日志文件系统</strong>，挂载 <strong>/</strong> ,选<strong>逻辑分区</strong>和<strong>空间起始位置</strong>，填满剩余空间。</p>
+</li>
+</ol>
+<p>将“安装引导启动器的设备”设为 <strong>efi系统分区</strong> 的分区。</p>
+<hr>
+<p>分区后继续安装即可。提示安装完成后拔掉U盘，然后按提示重启。</p>
+<h2 id="安装显卡驱动">安装显卡驱动</h2>
+<p>再重启后还是要先进BIOS，开启安全启动。</p>
+<hr>
+<h3 id="开启-secure-boot-安全启动">开启 Secure Boot 安全启动</h3>
+<p>以下选项为英文，中文操作方法相同。</p>
+<ol>
+<li>进入 Boot 菜单中的 Key Management 。</li>
+<li>选中 Install default Secure Boot Keys 。</li>
+<li>此时 Secure Boot 会被自动启用。</li>
+</ol>
+<hr>
+<p>随后重启。</p>
+<p>进入 GRUB 界面后，务必不要贸然进入系统，先禁用自带的 Nouveau 驱动。</p>
+<p>在 GRUB 中选中 Ubuntu ，按 <kbd>E</kbd> 键编辑启动设置。
+在倒数第二行 <code>quiet slash</code> 后加入 <code>acpi_osi=linux nomodeset</code> ，然后按 <kbd>Ctrl</kbd>+<kbd>X</kbd>启动。</p>
+<p>进入系统后，检测硬件驱动：</p>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> ubuntu-drivers devices</span>
+</div></code></pre>
+<p>然后自动安装推荐的 NVIDIA 驱动：</p>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> sudo ubuntu-drivers autoinstall</span>
+</div></code></pre>
+<p>习惯先安装文本编辑器 Vim，然后更改 GRUB 设置：</p>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> sudo vim /etc/modprobe.d/blacklist.conf</span>
+<span class="hljs-meta">$</span><span class="bash"> sudo vim /etc/modprobe.d/blacklist-nouveau.conf </span>
+</div></code></pre>
+<p>每一个文件最后添加一行：</p>
+<pre><code><code><div>blacklist nouveau
+</div></code></code></pre>
+<p>最后更新 GRUB 设置：</p>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> sudo update-intramfs -u</span>
+</div></code></pre>
+<p>重启后基本就完成了，可以尽情玩耍了。</p>
+<h2 id="附录">附录</h2>
+<h3 id="同步-windows-和-ubuntu-时间">同步 Windows 和 Ubuntu 时间</h3>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> timedatectl <span class="hljs-built_in">set</span>-local-rtc 1 --adjust-system-clock</span>
+</div></code></pre>
+<h3 id="如何修改-grub-启动项">如何修改 grub 启动项</h3>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> sudo vim /etc/default/grub</span>
+<span class="hljs-meta">$</span><span class="bash"> sudo update-grub</span>
+</div></code></pre>
+<h3 id="如何安装-ntfs-配置工具">如何安装 NTFS 配置工具</h3>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> sudo apt install ntfs-config</span>
+<span class="hljs-meta">$</span><span class="bash"> sudo ntfs-config</span>
+</div></code></pre>
+<h3 id="how-to-change-user-folders-to-en_us">How to change user folders to en_US</h3>
+<pre><code class="language-shell"><div><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">export</span> LANG=en_US</span>
+<span class="hljs-meta">$</span><span class="bash"> xdg-user-dirs-gtk-update</span>
+</div></code></pre>
+
+    </body>
+    </html>
