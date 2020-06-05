@@ -1,3 +1,5 @@
+<!-- @import "../css/noto-serif-font.css" -->
+
 # Configure WSL with beauty
 
 ## Update to newer Windows version (>= 18917)(from insider channel).
