@@ -1,89 +1,585 @@
-<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Configure WSL with beauty</title>
-        <style>
-</style>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        
-        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
-        
+<!DOCTYPE html><html><head>
+      <title>configure_wsl2</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  font-family: "Georgia", "Noto Serif SC", "Source Han Serif SC", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+}
+.markdown-preview.markdown-preview html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+.markdown-preview.markdown-preview body {
+  color: #444;
+  font-family: "Georgia", "Noto Serif SC", "Source Han Serif SC", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+  font-size: 12px;
+  line-height: 1.5em;
+  padding: 1em;
+  margin: auto;
+  max-width: 42em;
+  background: #fefefe;
+}
+.markdown-preview.markdown-preview a {
+  color: #0645ad;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview a:visited {
+  color: #0b0080;
+}
+.markdown-preview.markdown-preview a:hover {
+  color: #06e;
+}
+.markdown-preview.markdown-preview a:active {
+  color: #faa700;
+}
+.markdown-preview.markdown-preview a:focus {
+  outline: thin dotted;
+}
+.markdown-preview.markdown-preview a:hover,
+.markdown-preview.markdown-preview a:active {
+  outline: 0;
+}
+.markdown-preview.markdown-preview ::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #000;
+}
+.markdown-preview.markdown-preview ::selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #000;
+}
+.markdown-preview.markdown-preview a::-moz-selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #0645ad;
+}
+.markdown-preview.markdown-preview a::selection {
+  background: rgba(255, 255, 0, 0.3);
+  color: #0645ad;
+}
+.markdown-preview.markdown-preview p {
+  margin: 1em 0;
+}
+.markdown-preview.markdown-preview img {
+  max-width: 100%;
+}
+.markdown-preview.markdown-preview h1,
+.markdown-preview.markdown-preview h2,
+.markdown-preview.markdown-preview h3,
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5,
+.markdown-preview.markdown-preview h6 {
+  font-weight: normal;
+  color: #111;
+  line-height: 1em;
+}
+.markdown-preview.markdown-preview h4,
+.markdown-preview.markdown-preview h5,
+.markdown-preview.markdown-preview h6 {
+  font-weight: bold;
+}
+.markdown-preview.markdown-preview h1 {
+  font-size: 2.5em;
+}
+.markdown-preview.markdown-preview h2 {
+  font-size: 2em;
+}
+.markdown-preview.markdown-preview h3 {
+  font-size: 1.5em;
+}
+.markdown-preview.markdown-preview h4 {
+  font-size: 1.2em;
+}
+.markdown-preview.markdown-preview h5 {
+  font-size: 1em;
+}
+.markdown-preview.markdown-preview h6 {
+  font-size: 0.9em;
+}
+.markdown-preview.markdown-preview blockquote {
+  color: #666666;
+  margin: 0;
+  padding-left: 3em;
+  border-left: 0.5em #EEE solid;
+}
+.markdown-preview.markdown-preview hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #eee;
+  margin: 1em 0;
+  padding: 0;
+}
+.markdown-preview.markdown-preview pre,
+.markdown-preview.markdown-preview code,
+.markdown-preview.markdown-preview kbd,
+.markdown-preview.markdown-preview samp {
+  color: #000;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.98em;
+}
+.markdown-preview.markdown-preview pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.markdown-preview.markdown-preview b,
+.markdown-preview.markdown-preview strong {
+  font-weight: bold;
+}
+.markdown-preview.markdown-preview dfn {
+  font-style: italic;
+}
+.markdown-preview.markdown-preview ins {
+  background: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+.markdown-preview.markdown-preview mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+.markdown-preview.markdown-preview sub,
+.markdown-preview.markdown-preview sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-preview.markdown-preview sup {
+  top: -0.5em;
+}
+.markdown-preview.markdown-preview sub {
+  bottom: -0.25em;
+}
+.markdown-preview.markdown-preview ul,
+.markdown-preview.markdown-preview ol {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
+}
+.markdown-preview.markdown-preview li p:last-child {
+  margin: 0;
+}
+.markdown-preview.markdown-preview dd {
+  margin: 0 0 0 2em;
+}
+.markdown-preview.markdown-preview img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+.markdown-preview.markdown-preview table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+.markdown-preview.markdown-preview th {
+  border-bottom: 1px solid black;
+}
+.markdown-preview.markdown-preview td {
+  vertical-align: top;
+}
+@media only screen and (min-width: 480px) {
+  .markdown-preview.markdown-preview body {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .markdown-preview.markdown-preview body {
+    font-size: 16px;
+  }
+}
+@media print {
+  .markdown-preview.markdown-preview * {
+    background: transparent !important;
+    color: black !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+  .markdown-preview.markdown-preview body {
+    font-size: 12pt;
+    max-width: 100%;
+  }
+  .markdown-preview.markdown-preview a,
+  .markdown-preview.markdown-preview a:visited {
+    text-decoration: underline;
+  }
+  .markdown-preview.markdown-preview hr {
+    height: 1px;
+    border: 0;
+    border-bottom: 1px solid black;
+  }
+  .markdown-preview.markdown-preview a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  .markdown-preview.markdown-preview abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  .markdown-preview.markdown-preview .ir a:after,
+  .markdown-preview.markdown-preview a[href^="javascript:"]:after,
+  .markdown-preview.markdown-preview a[href^="#"]:after {
+    content: "";
+  }
+  .markdown-preview.markdown-preview pre,
+  .markdown-preview.markdown-preview blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+  .markdown-preview.markdown-preview tr,
+  .markdown-preview.markdown-preview img {
+    page-break-inside: avoid;
+  }
+  .markdown-preview.markdown-preview img {
+    max-width: 100% !important;
+  }
+  @page :left {
+    margin: 15mm 20mm 15mm 10mm;
+  }
+  @page :right {
+    margin: 15mm 10mm 15mm 20mm;
+  }
+  .markdown-preview.markdown-preview p,
+  .markdown-preview.markdown-preview h2,
+  .markdown-preview.markdown-preview h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  .markdown-preview.markdown-preview h2,
+  .markdown-preview.markdown-preview h3 {
+    page-break-after: avoid;
+  }
+}
+
+      </style>
     </head>
-    <body class="vscode-light">
-        <h1 id="configure-wsl-with-beauty">Configure WSL with beauty</h1>
-<h2 id="update-to-newer-windows-version--18917from-insider-channel">Update to newer Windows version (&gt;= 18917)(from insider channel).</h2>
-<h2 id="enable-features-and-reboot">Enable features and reboot</h2>
-<pre><code class="language-PowerShell"><div>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-</div></code></pre>
-<h2 id="download-ubuntu-from-microsoft-store">Download Ubuntu from Microsoft Store.</h2>
-<pre><code class="language-PowerShell"><div>bash
-</div></code></pre>
-<p>To initialize the OS.</p>
-<h2 id="upgrade-version">Upgrade version</h2>
-<pre><code class="language-PowerShell"><div>wsl --set-version Ubuntu <span class="hljs-number">2</span>
-</div></code></pre>
-<p>You may be asked to install a core update pack. Just follow the instruction.</p>
-<h2 id="transfer-the-filesystem-to-an-other-place">Transfer the filesystem to an other place</h2>
-<pre><code class="language-PowerShell"><div>wsl --export Ubuntu D:\ubuntu.tar
-</div></code></pre>
-<p>Remove Ubuntu from Microsoft store.</p>
-<pre><code class="language-PowerShell"><div>wsl --import Ubuntu /path/to/your/favorite D:\ubuntu.tar --version <span class="hljs-number">2</span>
-</div></code></pre>
-<p>Modify Registry for the default user. Goto <code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss\</code>, where you may find a GUID stand for the distribute you just imported. Change the uid to the original one. You can find uid by tapping following command into bash:</p>
-<pre><code class="language-bash"><div>cat /etc/passwd | grep &lt;username&gt;
-</div></code></pre>
-<p>Try again login by <code>bash</code> or <code>wsl</code>.</p>
-<h2 id="prepare-for-windows-terminal">Prepare for Windows Terminal</h2>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="configure-wsl-with-beauty">Configure WSL with beauty</h1>
+
+<h2 class="mume-header" id="update-to-newer-windows-version-18917from-insider-channel">Update to newer Windows version (&gt;= 18917)(from insider channel).</h2>
+
+<h2 class="mume-header" id="enable-features-and-reboot">Enable features and reboot</h2>
+
+<pre data-role="codeBlock" data-info="PowerShell" class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span>enable<span class="token operator">-</span>feature <span class="token operator">/</span>featurename:Microsoft<span class="token operator">-</span>Windows<span class="token operator">-</span>Subsystem<span class="token operator">-</span>Linux <span class="token operator">/</span>all <span class="token operator">/</span>norestart
+dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span>enable<span class="token operator">-</span>feature <span class="token operator">/</span>featurename:VirtualMachinePlatform <span class="token operator">/</span>all <span class="token operator">/</span>norestart
+</pre><h2 class="mume-header" id="download-ubuntu-from-microsoft-store">Download Ubuntu from Microsoft Store.</h2>
+
+<pre data-role="codeBlock" data-info="PowerShell" class="language-powershell">bash
+</pre><p>To initialize the OS.</p>
+<h2 class="mume-header" id="upgrade-version">Upgrade version</h2>
+
+<pre data-role="codeBlock" data-info="PowerShell" class="language-powershell">wsl <span class="token operator">--</span><span class="token function">set</span><span class="token operator">-</span>version Ubuntu 2
+</pre><p>You may be asked to install a core update pack. Just follow the instruction.</p>
+<h2 class="mume-header" id="transfer-the-filesystem-to-an-other-place">Transfer the filesystem to an other place</h2>
+
+<pre data-role="codeBlock" data-info="PowerShell" class="language-powershell">wsl <span class="token operator">--</span>export Ubuntu D:\ubuntu<span class="token punctuation">.</span>tar
+</pre><p>Remove Ubuntu from Microsoft store.</p>
+<pre data-role="codeBlock" data-info="PowerShell" class="language-powershell">wsl <span class="token operator">--</span>import Ubuntu <span class="token operator">/</span>path<span class="token operator">/</span>to<span class="token operator">/</span>your<span class="token operator">/</span>favorite D:\ubuntu<span class="token punctuation">.</span>tar <span class="token operator">--</span>version 2
+</pre><p>Modify Registry for the default user. Goto <code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss\</code>, where you may find a GUID stand for the distribute you just imported. Change the uid to the original one. You can find uid by tapping following command into bash:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">cat</span> /etc/passwd <span class="token operator">|</span> <span class="token function">grep</span> <span class="token operator">&lt;</span>username<span class="token operator">&gt;</span>
+</pre><p>Try again login by <code>bash</code> or <code>wsl</code>.</p>
+<h2 class="mume-header" id="prepare-for-windows-terminal">Prepare for Windows Terminal</h2>
+
 <p>Download Windows Terminal from Microsoft Store.</p>
 <p>Configure settings:</p>
-<pre><code class="language-JSON"><div>{
-    <span class="hljs-attr">"defaultProfile"</span>: <span class="hljs-string">"{8bb950c2-4343-563a-9788-e8a1d22d142f}"</span>, // GUID to the WSL
-    <span class="hljs-attr">"initialCols"</span>: <span class="hljs-number">100</span>,
-    <span class="hljs-attr">"initialRows"</span>: <span class="hljs-number">30</span>,
-    <span class="hljs-attr">"profiles"</span>: {
-        <span class="hljs-attr">"defaults"</span>: {
-            // Put settings here that you want to apply to all profiles
-            // <span class="hljs-attr">"fontFace"</span>: <span class="hljs-string">"等距更纱黑体 SC"</span>,
-            <span class="hljs-attr">"fontFace"</span>: <span class="hljs-string">"MesloLGS NF"</span>, // fix better with zsh-powerlevel10k, Chinese supported
-            <span class="hljs-attr">"fontSize"</span>: <span class="hljs-number">10</span>,
-            // <span class="hljs-attr">"useAcrylic"</span>: <span class="hljs-literal">true</span>,
-            // <span class="hljs-attr">"acrylicOpacity"</span>: <span class="hljs-number">0.7</span>
-        },
-        <span class="hljs-attr">"lists"</span>: [] //...
-    }
-}
-</div></code></pre>
-<p>Register to Explorer context:</p>
+<pre data-role="codeBlock" data-info="JSON" class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">&quot;defaultProfile&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{8bb950c2-4343-563a-9788-e8a1d22d142f}&quot;</span><span class="token punctuation">,</span> <span class="token comment">// GUID to the WSL</span>
+    <span class="token property">&quot;initialCols&quot;</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;initialRows&quot;</span><span class="token operator">:</span> <span class="token number">30</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;profiles&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;defaults&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Put settings here that you want to apply to all profiles</span>
+            <span class="token comment">// &quot;fontFace&quot;: &quot;&#x7B49;&#x8DDD;&#x66F4;&#x7EB1;&#x9ED1;&#x4F53; SC&quot;,</span>
+            <span class="token property">&quot;fontFace&quot;</span><span class="token operator">:</span> <span class="token string">&quot;MesloLGS NF&quot;</span><span class="token punctuation">,</span> <span class="token comment">// fix better with zsh-powerlevel10k, Chinese supported</span>
+            <span class="token property">&quot;fontSize&quot;</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+            <span class="token comment">// &quot;useAcrylic&quot;: true,</span>
+            <span class="token comment">// &quot;acrylicOpacity&quot;: 0.7</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;lists&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token comment">//...</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>Register to Explorer context:</p>
 <p>Regedit, change directory to  <code>HKEY_CLASSES_ROOT\Directory\Background\shell</code>.</p>
 <p>Add item <code>wt</code>, use string <code>Open Windows Terminal</code> as defaultl value, add a string called <code>Icon</code> if you want.</p>
 <p>Inside this item, add subitem called <code>command</code>. Use</p>
-<pre><code><code><div>&quot;C:\Users\Guyutongxue\AppData\Local\Microsoft\WindowsApps\wt.exe&quot; -d  %V\.
-</div></code></code></pre>
-<p>as the default value.</p>
-<h2 id="install-zsh-and-configure-with-theme">Install zsh and configure with theme</h2>
-<pre><code class="language-Bash"><div>sudo apt install zsh
-</div></code></pre>
-<pre><code class="language-Bash"><div>sh -c <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span>
-</div></code></pre>
-<pre><code class="language-Bash"><div>git <span class="hljs-built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="hljs-variable">$ZSH_CUSTOM</span>/themes/powerlevel10k
-</div></code></pre>
-<p>Set <code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code> in <code>~/.zshrc</code>.</p>
+<pre data-role="codeBlock" data-info class="language-"><code>&quot;C:\Users\Guyutongxue\AppData\Local\Microsoft\WindowsApps\wt.exe&quot; -d  %V\.
+</code></pre><p>as the default value.</p>
+<h2 class="mume-header" id="install-zsh-and-configure-with-theme">Install zsh and configure with theme</h2>
+
+<pre data-role="codeBlock" data-info="Bash" class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> zsh
+</pre><pre data-role="codeBlock" data-info="Bash" class="language-bash">sh -c <span class="token string">&quot;<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="token variable">)</span></span>&quot;</span>
+</pre><pre data-role="codeBlock" data-info="Bash" class="language-bash"><span class="token function">git</span> clone --depth<span class="token operator">=</span>1 https://github.com/romkatv/powerlevel10k.git <span class="token variable">$ZSH_CUSTOM</span>/themes/powerlevel10k
+</pre><p>Set <code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code> in <code>~/.zshrc</code>.</p>
 <p>Type zsh and you can configure whatever you like.</p>
 
-    </body>
-    </html>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,3 +1,5 @@
+<!-- @import "../css/noto-serif-font.css" -->
+
 # 安装 Ubuntu 记录
 
 我的 Win10 在崩溃后整整一个月又无法启动了。这次重装系统我决定在前些日子腾空的新硬盘上安装 Ubuntu ，以备不测之需。
