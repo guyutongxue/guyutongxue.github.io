@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "array",
+    "title": "List of Projects",
+    "items": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "title": "Project Name"
+            },
+            "img": {
+                "type": "string",
+                "format": "uri",
+                "title": "Showing Image"
+            },
+            "discription": {
+                "type": "string",
+                "title": "A brief discription to the project"
+            },
+            "link": {
+                "type": "string",
+                "format": "uri",
+                "title": "Link to the homepage"
+            },
+            "update": {
+                "type": "string",
+                "format": "date",
+                "title": "The recent update time"
+            }
+        },
+        "required": [
+            "name", "img"
+        ]
+    }
+}

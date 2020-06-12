@@ -4,10 +4,11 @@
     <title>Welcome</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
     <style>
         .side-bar {
             width: 60px;
@@ -32,58 +33,60 @@
 
 <body>
     <div class="container">
-        
-        <div class="jumbotron">
-            <h1>谷雨同学 | Guyutongxue</h1>
+
+        <div class="jumbotron text-center">
+            <h1 class="display-4">谷雨同学 | Guyutongxue</h1>
             <p>欢迎访问谷雨同学的个人网站</p>
         </div>
 
-        <div class="col">此网站处于并将长期处于建设阶段，因此界面不甚美观请您见谅。</div>
+        <div class="card bg-light text-center mb-3">此网站处于并将长期处于建设阶段，因此界面不甚美观请您见谅。</div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>项目 | Projects</h3>
+                <div class="row mt-3 mb-3" id="projects">
 
-        <div class="col-md-12">
-            <h3>项目 | Projects</h3>
-            <ul class="list-group">
-                <li class="list-group-item"><a href="https://guyutongxue.github.io/VSCodeConfigHelper">VS Code Config
-                        Helper</a><small> 2020/6/2</small></li>
-                <li class="list-group-item"><a
-                        href="https://marketplace.visualstudio.com/items?itemName=Guyutongxue.devcpp-theme">Dev-C++
-                        Theme for VS Code</a><small>
-                        2020/5/31</small></li>
-            </ul>
+                </div>
+            </div>
         </div>
-
-        <div class="col-md-6">
-            <h3>指导性博客文章 | Blogs</h3>
-            <ul class="list-group">
-                <li class="list-group-item"><a href="blogs/configure_wsl2.html">Configure WSL 2 with Windows
-                        Terminal</a><small> 2020/4/23</small></li>
-                <li class="list-group-item"><a href="blogs/installing_ubuntu.html">Windows 10 下安装 Ubuntu 双系统</a><small>
-                        2020/1/30</small></li>
-            </ul>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <h3>指导性博客文章 | Blogs</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="blogs/configure_wsl2.html">Configure WSL 2 with Windows
+                            Terminal</a><small> 2020/4/23</small></li>
+                    <li class="list-group-item"><a href="blogs/installing_ubuntu.html">Windows 10 下安装 Ubuntu
+                            双系统</a><small>
+                            2020/1/30</small></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>个人整理资料 | Personally organized information</h3>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="https://www.kdocs.cn/l/sz2WiBDRj">越狱工具全表</a><small> 2020/6/2
+                            更新</small></li>
+                    <li class="list-group-item"><a href="img/BMP.png">BMP 文件格式详解图</a><small> 2020/4/4</small></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-md-6">
-            <h3>个人整理资料 | Personally organized information</h3>
-            <ul class="list-group">
-                <li class="list-group-item"><a href="https://www.kdocs.cn/l/sz2WiBDRj">越狱工具全表</a><small> 2020/6/2
-                        更新</small></li>
-                <li class="list-group-item"><a href="img/BMP.png">BMP 文件格式详解图</a><small> 2020/4/4</small></li>
-            </ul>
-        </div>
-        <div class="col-md-12">
-            <h3>早期页面 | Old Archives</h3>
-            <p>此处收录了本网站建立初期（2018年及更早）的一些文章。</p>
-            <ul class="list-group">
-                <li class="list-group-item"><a href="old-archives/creation.html">个人网站搭建记录</a><small> 2017/11/4</small>
-                </li>
-                <li class="list-group-item"><a href="old-archives/noip2017.html"">NOIP 2017 总结</a><small> 2018/1/8</small></li>
-            </ul>
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <h3>早期页面 | Old Archives</h3>
+                <p>此处收录了本网站建立初期（2018年及更早）的一些文章。</p>
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="old-archives/creation.html">个人网站搭建记录</a><small>
+                            2017/11/4</small>
+                    </li>
+                    <li class="list-group-item"><a href="old-archives/noip2017.html"">NOIP 2017 总结</a><small> 2018/1/8</small></li>
+                </ul>
+            </div>    
         </div>
     </div>
     <div class=" side-bar">
-        <a href="pages/revue/index.html">
-            <img src="pages/revue/ki.png">
-        </a>
-    </div>
+                            <a href="pages/revue/index.html">
+                                <img src="pages/revue/ki.png">
+                            </a>
+            </div>
+            <script src="js/index.js"></script>
 </body>
 
 </html>

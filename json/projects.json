@@ -1,0 +1,23 @@
+[
+    {
+        "name": "VS Code Config Helper",
+        "img": "https://guyutongxue.github.io/VSCodeConfigHelper/assets/VSCodeConfigHelper.png",
+        "discription": "简单、快捷的 VS Code C++ 配置工具",
+        "link": "https://guyutongxue.github.io/VSCodeConfigHelper/",
+        "update": "2020-06-02"
+    },
+    {
+        "name": "Dev-C++ Theme",
+        "img": "https://github.com/Guyutongxue/DevCppTheme/raw/master/icon.png",
+        "discription": "仿 Dev-C++ 的 VS Code 主题",
+        "link": "https://marketplace.visualstudio.com/items?itemName=Guyutongxue.devcpp-theme",
+        "update": "2020-05-31"
+    },
+    {
+        "name": "Amazons",
+        "img": "https://s1.ax1x.com/2020/06/12/tXfFZ6.png",
+        "discription": "《计算概论 A》大作业——亚马逊棋，Windows平台下的纯控制台程序",
+        "link": "https://github.com/Guyutongxue/Amazons",
+        "update": "2020-01-01"
+    }
+]

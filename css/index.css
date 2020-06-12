@@ -1,0 +1,14 @@
+.project-card-img-container {
+    height  : 200px;
+    position: relative;
+}
+
+.project-card-img {
+    max-width : 100%;
+    max-height: 100%;
+    position  : absolute;
+    /* make center aligned*/
+    top       : 50%;
+    left      : 50%;
+    transform : translate(-50%, -50%);
+}
