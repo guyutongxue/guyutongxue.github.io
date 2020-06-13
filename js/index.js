@@ -4,7 +4,7 @@
         console.log(json);
         for (var i in json) {
             var htmlText = "\
-<div class='col-md-3'>\
+<div class='col-lg-3 col-md-4 mb-3'>\
     <div class='card project-card'>\
         <div class='card-img-top project-card-img-container'>\
             <img class='project-card-img' src='"+ json[i].img + "' alt='" + json[i].name + "'>\
