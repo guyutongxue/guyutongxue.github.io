@@ -30,14 +30,14 @@
     {
         "name": "Statistics Tool",
         "img": "https://s1.ax1x.com/2020/06/14/NSINSP.png",
-        "discription": "快速统计人名的工具。中学时经常用于统计回执、作业的收集情况。",
+        "discription": "快速统计人名的工具。中学时经常用于统计回执、作业的收集情况",
         "link": "https://github.com/Guyutongxue/StatisticsTool",
         "update": "2018-03-23"
     },
     {
         "name": "摇号器",
         "img": "https://s1.ax1x.com/2020/06/14/NSonts.png",
-        "discription": "简单的摇号器，支持一些高级选项如避开某号或确定某号。",
+        "discription": "简单的摇号器，支持一些高级选项如避开某号或确定某号",
         "link": "https://github.com/Guyutongxue/RandomTool",
         "update": "2018-03-09"
     }
