@@ -1,3 +1,4 @@
+// charset: UTF-8 注意编码格式防止乱码
 (function () {
     var target = document.getElementById("projects");
     $.getJSON("/json/projects.json", function (json) {
