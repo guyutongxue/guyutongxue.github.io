@@ -1,9 +1,24 @@
 // charset: UTF-8 注意编码格式防止乱码
 (function () {
     var target = document.getElementById("projects");
-    $.getJSON("/json/projects.json", function (json) {
+    $.getJSON("json/projects.json", function (json) {
         console.log(json);
         for (var i in json) {
+            var update_time = undefined;
+            if (typeof([i].update) != "undefined") {
+                update_time = new Date(json[i].update);
+            } else {
+                $.ajax({
+                    type: "GET",
+                    url: "https://api.github.com/repos/" + json[i].github,
+                    async: false,
+                    timeout: 1000,
+                    success: function(body) {
+                        update_time = new Date(body.updated_at);
+                        console.log(update_time);
+                    }
+                })
+            }
             var htmlText = "\
 <div class='col-lg-3 col-md-4 mb-3'>\
     <div class='card project-card'>\
@@ -15,7 +30,7 @@
             <p class='card-text'>"+ json[i].discription + "</p>\
             <div class='d-flex justify-content-between align-items-center'>\
                 <a class='btn btn-sm btn-dark' target='_blank' href='"+ json[i].link + "'>查看</a>\
-                <small>"+ json[i].update + "</small>\
+                <small>"+ update_time.toLocaleDateString() + "</small>\
             </div>\
         </div>\
     </div>\

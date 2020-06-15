@@ -27,6 +27,11 @@
                 "type": "string",
                 "format": "date",
                 "title": "The recent update time"
+            },
+            "github": {
+                "type": "string",
+                "pattern" : "^[^/]+/[^/]+$",
+                "title": "The GitHub repository by user/repo"
             }
         },
         "required": [
