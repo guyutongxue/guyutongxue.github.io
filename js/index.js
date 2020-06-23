@@ -14,8 +14,15 @@
                     async: false,
                     timeout: 1000,
                     success: function(body) {
-                        update_time = new Date(body.updated_at);
+                        update_time = new Date(body.pushed_at);
                         console.log(update_time);
+                    },
+                    error: function() {
+                        update_time = {
+                            toLocaleDateString: function() {
+                                return undefined;
+                            }
+                        }
                     }
                 })
             }

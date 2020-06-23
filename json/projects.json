@@ -14,6 +14,13 @@
         "github": "Guyutongxue/DevCppTheme"
     },
     {
+        "name": "Dev-C++ 5.12",
+        "img": "https://guyutongxue.github.io/orwelldevcpp/renew_icon.png",
+        "discription": "Dev-C++ 的非官方最新版",
+        "link": "https://guyutongxue.github.io/orwelldevcpp",
+        "github": "Guyutongxue/orwelldevcpp"
+    },
+    {
         "name": "Amazons",
         "img": "https://s1.ax1x.com/2020/06/12/tXfFZ6.png",
         "discription": "《计算概论 A》大作业——亚马逊棋，Windows平台下的纯控制台程序",
