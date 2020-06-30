@@ -1,4 +1,4 @@
-<!-- @import "../css/noto-serif-font.css" -->
+<script src="../js/markdown.js"></script>
 
 # Configure WSL with beauty
 
