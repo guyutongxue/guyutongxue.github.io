@@ -1,11 +1,34 @@
 // charset: UTF-8 注意编码格式防止乱码
+
+function changeLang(text) {
+    $('div[data-lang]').hide();
+    $('a.project-tab').removeClass('active');
+    $('div[data-lang='+ text +']').show();
+    $('#langId' + text).addClass('active');
+    if ($('#projects div:visible').length > 0) {
+        $('#noneIndicator').hide();
+    } else {
+        $('#noneIndicator').show();
+    }
+}
+
 (function () {
-    var target = document.getElementById("projects");
+    let tabs = document.querySelector('#projectTabs');
+    $.getJSON("json/language.json", function(json){
+        for (let i in json) {
+            let htmlText = '\
+<a class="project-tab btn btn-light ml-2 mr-2 mb-2" id="langId'+ json[i].id +'" href="javascript:changeLang(\''+ json[i].id +'\');void(0)">\
+    <img width="30" src="https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@master/icons/' + json[i].icon + '.svg" alt = "' + json[i].text + '" title="' + json[i].text + '">\
+</a>';
+            tabs.innerHTML += htmlText;
+        }
+    });
+    let projects = document.querySelector("#projects");
     $.getJSON("json/projects.json", function (json) {
         console.log(json);
-        for (var i in json) {
-            var htmlText = "\
-<div class='col-lg-3 col-md-4 mb-3'>\
+        for (let i in json) {
+            let htmlText = "\
+<div class='col-lg-3 col-md-4 mb-3' data-lang='" + json[i].lang + "'>\
     <div class='card project-card'>\
         <div class='card-img-top project-card-img-container'>\
             <img class='project-card-img' src='"+ json[i].img + "' alt='" + json[i].name + "'>\
@@ -14,14 +37,17 @@
             <h4 class='card-title'>"+ json[i].name + "</h4>\
             <p class='card-text'>"+ json[i].discription + "</p>\
             <div class='d-flex justify-content-between align-items-center'>\
+                " + (typeof(json[i].link) != "undefined" ? "\
                 <a class='btn btn-sm btn-dark' target='_blank' href='"+ json[i].link + "'>查看</a>\
+                " : "") + "\
                 <small class='update-time'> </small>\
             </div>\
         </div>\
     </div>\
 </div>";
-            target.innerHTML += htmlText;
+            projects.innerHTML += htmlText;
         }
+        changeLang('csharp');
         for (var i in json) {
             var update_time = undefined;
             if (typeof([i].update) != "undefined") {

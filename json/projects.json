@@ -1,13 +1,22 @@
 [
     {
         "name": "VS Code Config Helper",
+        "lang": "csharp",
         "img": "https://guyutongxue.github.io/VSCodeConfigHelper/assets/VSCodeConfigHelper.png",
         "discription": "简单、快捷的 VS Code C++ 配置工具",
         "link": "https://guyutongxue.github.io/VSCodeConfigHelper/",
         "github": "Guyutongxue/VSCodeConfigHelper"
     },
     {
+        "name": "个人网站",
+        "lang": "html",
+        "img": "/pages/avatar/img/2007.png",
+        "discription": "你现在看到的这个网站",
+        "github": "Guyutongxue/guyutongxue.github.io"
+    },
+    {
         "name": "Dev-C++ Theme",
+        "lang": "json",
         "img": "https://github.com/Guyutongxue/DevCppTheme/raw/master/icon.png",
         "discription": "仿 Dev-C++ 的 VS Code 主题",
         "link": "https://marketplace.visualstudio.com/items?itemName=Guyutongxue.devcpp-theme",
@@ -15,6 +24,7 @@
     },
     {
         "name": "Dev-C++ 5.12",
+        "lang": "delphi",
         "img": "https://guyutongxue.github.io/orwelldevcpp/renew_icon.png",
         "discription": "Dev-C++ 的非官方最新版",
         "link": "https://guyutongxue.github.io/orwelldevcpp",
@@ -22,6 +32,7 @@
     },
     {
         "name": "Amazons",
+        "lang": "cpp",
         "img": "https://s1.ax1x.com/2020/06/12/tXfFZ6.png",
         "discription": "《计算概论 A》大作业——亚马逊棋，Windows平台下的纯控制台程序",
         "link": "https://github.com/Guyutongxue/Amazons",
@@ -29,6 +40,7 @@
     },
     {
         "name": "copyfile 2",
+        "lang": "csharp",
         "img": "https://s1.ax1x.com/2020/06/14/NSISzV.png",
         "discription": "自动复制插入计算机的存储设备的内容（中学时用来对付某些老师的课件）",
         "link": "https://github.com/Guyutongxue/copyfile2",
@@ -36,6 +48,7 @@
     },
     {
         "name": "Statistics Tool",
+        "lang": "csharp",
         "img": "https://s1.ax1x.com/2020/06/14/NSINSP.png",
         "discription": "快速统计人名的工具。中学时经常用于统计回执、作业的收集情况",
         "link": "https://github.com/Guyutongxue/StatisticsTool",
@@ -43,6 +56,7 @@
     },
     {
         "name": "摇号器",
+        "lang": "vb",
         "img": "https://s1.ax1x.com/2020/06/14/NSonts.png",
         "discription": "简单的摇号器，支持一些高级选项如避开某号或确定某号",
         "link": "https://github.com/Guyutongxue/RandomTool",

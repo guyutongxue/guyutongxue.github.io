@@ -9,9 +9,12 @@
                 "type": "string",
                 "title": "Project Name"
             },
+            "lang": {
+                "type": "string",
+                "title": "Programming language"
+            },
             "img": {
                 "type": "string",
-                "format": "uri",
                 "title": "Showing Image"
             },
             "discription": {
@@ -20,7 +23,6 @@
             },
             "link": {
                 "type": "string",
-                "format": "uri",
                 "title": "Link to the homepage"
             },
             "update": {
@@ -35,7 +37,7 @@
             }
         },
         "required": [
-            "name", "img"
+            "name", "img", "lang"
         ]
     }
 }
