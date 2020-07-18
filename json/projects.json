@@ -10,7 +10,7 @@
     {
         "name": "个人网站",
         "lang": "html",
-        "img": "/pages/avatar/img/2007.png",
+        "img": "pages/avatar/img/2007.png",
         "discription": "你现在看到的这个网站",
         "github": "Guyutongxue/guyutongxue.github.io"
     },
@@ -21,14 +21,6 @@
         "discription": "仿 Dev-C++ 的 VS Code 主题",
         "link": "https://marketplace.visualstudio.com/items?itemName=Guyutongxue.devcpp-theme",
         "github": "Guyutongxue/DevCppTheme"
-    },
-    {
-        "name": "Dev-C++ 5.12",
-        "lang": "delphi",
-        "img": "https://guyutongxue.github.io/orwelldevcpp/renew_icon.png",
-        "discription": "Dev-C++ 的非官方最新版",
-        "link": "https://guyutongxue.github.io/orwelldevcpp",
-        "github": "Guyutongxue/orwelldevcpp"
     },
     {
         "name": "Amazons",

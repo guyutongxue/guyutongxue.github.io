@@ -25,11 +25,6 @@
         "icon": "file_type_markdown"
     },
     {
-        "id": "delphi",
-        "text": "Delphi",
-        "icon": "file_type_delphi"
-    },
-    {
         "id": "vb",
         "text": "Visual Basic .NET",
         "icon": "file_type_vb"
