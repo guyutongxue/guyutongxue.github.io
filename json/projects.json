@@ -15,6 +15,13 @@
         "github": "Guyutongxue/guyutongxue.github.io"
     },
     {
+        "name": "越狱工具速查",
+        "lang": "html",
+        "img": "https://ipsw.me/assets/devices/iPhone12,3.png",
+        "discription": "快速查询 iOS 越狱状态",
+        "github": "Guyutongxue/JailbreakQuery"
+    },
+    {
         "name": "Dev-C++ Theme",
         "lang": "json",
         "img": "https://github.com/Guyutongxue/DevCppTheme/raw/master/icon.png",
