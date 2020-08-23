@@ -1,5 +1,13 @@
 [
     {
+      "name": "谷雨同学的 C++ 教程",
+      "lang": "markdown",
+      "discription": "",
+      "link": "https://guyutongxue.gitee.io/mycpptutorial/",
+      "img": "https://guyutongxue.gitee.io/mycpptutorial/assets/isocpplogo.svg",
+      "github": "Guyutongxue/MyCppTutorial"
+    },
+    {
         "name": "VS Code Config Helper",
         "lang": "csharp",
         "img": "https://guyutongxue.github.io/VSCodeConfigHelper/assets/VSCodeConfigHelper.png",
