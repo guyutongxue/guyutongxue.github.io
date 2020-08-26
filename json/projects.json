@@ -42,7 +42,7 @@
         "name": "Amazons",
         "lang": "cpp",
         "img": "https://s1.ax1x.com/2020/06/12/tXfFZ6.png",
-        "discription": "《计算概论 A》大作业——亚马逊棋，Windows平台下的纯控制台程序",
+        "discription": "《计算概论 A》大作业：亚马逊棋，Windows平台下的纯控制台程序",
         "link": "https://github.com/Guyutongxue/Amazons",
         "github": "Guyutongxue/Amazons"
     },
@@ -69,5 +69,13 @@
         "discription": "简单的摇号器，支持一些高级选项如避开某号或确定某号",
         "link": "https://github.com/Guyutongxue/RandomTool",
         "github": "Guyutongxue/RandomTool"
+    },
+    {
+        "name": "七言绝句生成项目",
+        "lang": "python",
+        "img": "https://s1.ax1x.com/2020/08/25/dghVqH.png",
+        "discription": "《人工智能引论》合作作业：给出主题句生成一首七绝",
+        "link": "pdf/ai_intro.pdf",
+        "github": "Guyutongxue/ChinesePoetryGeneration"
     }
 ]

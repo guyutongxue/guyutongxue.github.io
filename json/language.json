@@ -28,5 +28,10 @@
         "id": "vb",
         "text": "Visual Basic .NET",
         "icon": "file_type_vb"
+    },
+    {
+        "id": "python",
+        "text": "Python",
+        "icon": "file_type_python"
     }
 ]
