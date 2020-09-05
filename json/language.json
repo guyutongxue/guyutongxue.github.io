@@ -20,6 +20,11 @@
         "icon": "file_type_light_json"
     },
     {
+        "id": "typescript",
+        "text": "TypeScript",
+        "icon": "file_type_typescript"
+    },
+    {
         "id": "markdown",
         "text": "Markdown",
         "icon": "file_type_markdown"

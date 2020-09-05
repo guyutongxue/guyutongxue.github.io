@@ -37,7 +37,7 @@ html { font-size : 100%; overflow-y : scroll; -webkit-text-size-adjust: 100%; -m
 <p>64 位的 Windows 系统，以及至少 30 GB 空间（这个我不确定，但是越大越好）。（显然，电脑性能越高越好。）</p>
 <h3 id="获取-msys2">获取 MSYS2</h3>
 <p>因为你需要一个在 Windows 环境下的 Bash 兼容 Shell，所以这里用到的是 MSYS2。</p>
-<p>前往<a href="https://www.msys2.org/">官网</a>下载并安装 MSYS2。将安装位置选择在拥有足够空间的磁盘上（放心，这个安装程序并不写入注册表）。然后，按照官方的说明，在 msys2.exe 中执行软件包更新：</p>
+<p>前往<a href="https://www.msys2.org/">官网</a>下载并安装 MSYS2。将安装位置选择在拥有足够空间的磁盘上。然后，按照官方的说明，在 msys2.exe 中执行软件包更新：</p>
 <blockquote>
 <p>使用清华镜像源以获得更快的速度。参考<a href="https://mirrors.tuna.tsinghua.edu.cn/help/msys2/">此处</a>。</p>
 </blockquote>
@@ -87,7 +87,7 @@ git <span class="hljs-built_in">clone</span> https://github.com/niXman/mingw-bui
 </tr>
 <tr>
 <td><code>--threads=&lt;thread&gt;</code></td>
-<td>多线程模型：<code>posix</code> 或 <code>win32</code>。通行的做法是 64 位用 <code>posix</code>，32 位用 <code>win32</code>。</td>
+<td>多线程模型：<code>posix</code> 或 <code>win32</code>。通行的做法是用 <code>posix</code>。</td>
 </tr>
 <tr>
 <td><code>--enable-languages=&lt;langs&gt;</code></td>
@@ -136,6 +136,10 @@ git <span class="hljs-built_in">clone</span> https://github.com/niXman/mingw-bui
 </table>
 <p>这个脚本甚至还提供了自动上传至 SourceForge 的功能，这里没有需求不再提及。</p>
 <p>整个编译流程（不包括下载）大约需要数个小时的时间，取决于你的计算机性能。</p>
+<blockquote>
+<p>如果下载出现问题，尝试切换网络环境。若手动下载，则在 <code>MARKERS</code> 文件夹内添加标记。<br>
+如果编译出现问题，我没有办法。尝试重新编译时，需要先重新配置。删除所有 <code>config.cache</code> 和 <code>_configure.marker</code>。</p>
+</blockquote>
 <h3 id="完成">完成</h3>
 <p>编译完成后，<code>$HOME/mingw-gcc-10.2.0/</code> 下面的 <code>mingw32</code> 和 <code>mingw64</code> 可供你享用了。</p>
 

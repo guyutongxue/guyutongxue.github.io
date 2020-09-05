@@ -39,6 +39,14 @@
         "github": "Guyutongxue/DevCppTheme"
     },
     {
+        "name": "VSC Cpp Reference",
+        "lang": "typescript",
+        "img": "https://raw.githubusercontent.com/Guyutongxue/VSC_CppReference/master/img/logo.png",
+        "discription": "在 VS Code 中快速查阅 C++ 文档",
+        "github": "Guyutongxue/VSC_CppReference",
+        "link": "https://marketplace.visualstudio.com/items?itemName=Guyutongxue.cpp-reference"
+    },
+    {
         "name": "Amazons",
         "lang": "cpp",
         "img": "https://s1.ax1x.com/2020/06/12/tXfFZ6.png",
