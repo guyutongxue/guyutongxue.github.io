@@ -28,7 +28,7 @@ html { font-size : 100%; overflow-y : scroll; -webkit-text-size-adjust: 100%; -m
     <body class="vscode-light">
         <script src="../js/markdown.js"></script>
 <h1 id="configure-wsl-with-beauty">Configure WSL with beauty</h1>
-<h2 id="update-to-newer-windows-version--18917from-insider-channel">Update to newer Windows version (&gt;= 18917)(from insider channel).</h2>
+<h2 id="update-to-newer-windows-version--18917">Update to newer Windows version (&gt;= 18917).</h2>
 <h2 id="enable-features-and-reboot">Enable features and reboot</h2>
 <pre><code class="language-PowerShell"><div>dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
@@ -71,9 +71,9 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
     }
 }
 </div></code></pre>
-<p>Register to Explorer context:</p>
+<h2 id="register-to-explorer-context">Register to Explorer context</h2>
 <p>Regedit, change directory to  <code>HKEY_CLASSES_ROOT\Directory\Background\shell</code>.</p>
-<p>Add item <code>wt</code>, use string <code>Open Windows Terminal</code> as defaultl value, add a string called <code>Icon</code> if you want.</p>
+<p>Add item <code>wt</code>, use string <code>Open Windows Terminal</code> as default value, add a string called <code>Icon</code> if you want.</p>
 <p>Inside this item, add subitem called <code>command</code>. Use</p>
 <pre><code><code><div>&quot;C:\Users\Guyutongxue\AppData\Local\Microsoft\WindowsApps\wt.exe&quot; -d  %V\.
 </div></code></code></pre>

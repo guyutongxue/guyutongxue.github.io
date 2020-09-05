@@ -2,7 +2,7 @@
 
 # Configure WSL with beauty
 
-## Update to newer Windows version (>= 18917)(from insider channel).
+## Update to newer Windows version (>= 18917).
 
 ## Enable features and reboot
 
@@ -67,11 +67,11 @@ Configure settings:
 }
 ```
 
-Register to Explorer context:
+## Register to Explorer context (Optional)
 
 Regedit, change directory to  `HKEY_CLASSES_ROOT\Directory\Background\shell`.
 
-Add item `wt`, use string `Open Windows Terminal` as defaultl value, add a string called `Icon` if you want.
+Add item `wt`, use string `Open Windows Terminal` as default value, add a string called `Icon` if you want.
 
 Inside this item, add subitem called `command`. Use
 ```

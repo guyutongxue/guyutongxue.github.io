@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>搭建你自己的 MinGW</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+html { font-size : 100%; overflow-y : scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust : 100%; } body { color : #444; font-family: "Georgia", "Noto Serif SC", "Source Han Serif SC", Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif; font-size : 14px; line-height: 1.5em; padding : 1em; margin : auto; max-width : 42em; background : #fefefe; } a { color : #0645ad; text-decoration: none; } a:visited { color: #0b0080; } a:hover { color: #06e; } a:active { color: #faa700; } a:focus { outline: thin dotted; } a:hover, a:active { outline: 0; } ::-moz-selection { background: rgba(255, 255, 0, 0.3); color : #000 } ::selection { background: rgba(255, 255, 0, 0.3); color : #000 } a::-moz-selection { background: rgba(255, 255, 0, 0.3); color : #0645ad } a::selection { background: rgba(255, 255, 0, 0.3); color : #0645ad } p { margin: 1em 0; } img { max-width: 100%; } h1, h2, h3, h4, h5, h6 { font-weight: normal; color : #111; line-height: 1em; } h4, h5, h6 { font-weight: bold; } h1 { font-size: 2.5em; } h2 { font-size: 2em; } h3 { font-size: 1.5em; } h4 { font-size: 1.2em; } h5 { font-size: 1em; } h6 { font-size: 0.9em; } blockquote { color : #666666; margin : 0; padding-left: 3em; border-left : 0.5em #EEE solid; } hr { display : block; height : 2px; border : 0; border-top : 1px solid #aaa; border-bottom: 1px solid #eee; margin : 1em 0; padding : 0; } pre, code, kbd, samp { color : #000; font-family: Consolas, 'Courier New', monospace; font-size : 0.98em; } pre { white-space: pre; white-space: pre-wrap; word-wrap : break-word; } b, strong { font-weight: bold; } dfn { font-style: italic; } ins { background : #ff9; color : #000; text-decoration: none; } mark { background : #ff0; color : #000; font-style : italic; font-weight: bold; } sub, sup { font-size : 75%; line-height : 0; position : relative; vertical-align: baseline; } sup { top: -0.5em; } sub { bottom: -0.25em; } ul, ol { margin : 1em 0; padding: 0 0 0 2em; } li p:last-child { margin: 0 } dd { margin: 0 0 0 2em; } img { border : 0; -ms-interpolation-mode: bicubic; vertical-align : middle; } table { border-collapse: collapse; border-spacing : 0; width : 100%; } th { border-bottom: 1px solid black; } td { vertical-align: top; } @media only screen and (min-width: 480px) { body { font-size: 16px; } } /* @media only screen and (min-width: 768px) { body { font-size: 18px; } } */ @media print { * { background: transparent !important; color : black !important; filter : none !important; -ms-filter: none !important; } body { font-size: 12pt; max-width: 100%; } a, a:visited { text-decoration: underline; } hr { height : 1px; border : 0; border-bottom: 1px solid black; } a[href]:after { content: " ("attr(href) ")"; } abbr[title]:after { content: " ("attr(title) ")"; } .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } pre, blockquote { border : 1px solid #999; padding-right : 1em; page-break-inside: avoid; } tr, img { page-break-inside: avoid; } img { max-width: 100% !important; } @page :left { margin: 15mm 20mm 15mm 10mm; } @page :right { margin: 15mm 10mm 15mm 20mm; } p, h2, h3 { orphans: 3; widows : 3; } h2, h3 { page-break-after: avoid; } }
+</style>
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-light">
+        <script src="../js/markdown.js"></script>
+<h1 id="搭建你自己的-mingw">搭建你自己的 MinGW</h1>
+<h2 id="前言">前言</h2>
+<p>目前的 MinGW 发行版要么没有更新（官方 MinGW-w64）、要么没有免安装版本（TDM-GCC）、要么缺少 GDB 的 Pretty-Printing（WinLibs）。所以我萌生了手动搭建 MinGW 的想法。</p>
+<p>经过长达十多天的探索，终于成功搭建出了完整的 MinGW。现将过程陈述于下。</p>
+<h2 id="过程">过程</h2>
+<p style="color:red">我不保证所有人都能按照此说明搭建成功。</p>
+<h3 id="基本配置">基本配置</h3>
+<p>64 位的 Windows 系统，以及至少 30 GB 空间（这个我不确定，但是越大越好）。（显然，电脑性能越高越好。）</p>
+<h3 id="获取-msys2">获取 MSYS2</h3>
+<p>因为你需要一个在 Windows 环境下的 Bash 兼容 Shell，所以这里用到的是 MSYS2。</p>
+<p>前往<a href="https://www.msys2.org/">官网</a>下载并安装 MSYS2。将安装位置选择在拥有足够空间的磁盘上（放心，这个安装程序并不写入注册表）。然后，按照官方的说明，在 msys2.exe 中执行软件包更新：</p>
+<blockquote>
+<p>使用清华镜像源以获得更快的速度。参考<a href="https://mirrors.tuna.tsinghua.edu.cn/help/msys2/">此处</a>。</p>
+</blockquote>
+<pre><code class="language-sh"><div>pacman -Syu <span class="hljs-comment"># 执行后窗口将退出，此时重新启动 msys2.exe</span>
+pacman -Su
+</div></code></pre>
+<h3 id="获取依赖包">获取依赖包</h3>
+<p>通过 <code>pacman</code> 安装以下软件包：</p>
+<pre><code class="language-sh"><div>pacman -S lndir git subversion tar zip p7zip make patch automake autoconf libtool flex bison gettext gettext-devel wget sshpass texinfo autogen dejagnu
+</div></code></pre>
+<h3 id="获取构建脚本">获取构建脚本</h3>
+<p>定位到家目录，并下载主角 <code>mingw-builds</code> 脚本。这个是 MinGW-w64 官方维护者 niXman 所写的：</p>
+<pre><code class="language-sh"><div><span class="hljs-built_in">cd</span>
+git <span class="hljs-built_in">clone</span> https://github.com/niXman/mingw-builds.git -b develop
+</div></code></pre>
+<p>注意选用 <code>develop</code> 分支而非 <code>master</code>。</p>
+<p style="color:red">我使用的版本为 <code>0f20ed4</code>，不保证将来更新的版本完全符合下面的流程。</p>
+<p>你可以前往 <code>mingw-builds/library/config.sh</code>，将变量 <code>MINGW_W64_PKG_STRING</code> 改成你的名字——这样编译出来的 GCC 版本中将会留下你的名字！</p>
+<h3 id="开整">开整！</h3>
+<p>回到 <code>mingw-builds</code> 目录，然后开整：</p>
+<pre><code class="language-sh"><div><span class="hljs-built_in">cd</span> ~/mingw-builds
+<span class="hljs-comment"># 64 位</span>
+./build --mode=gcc-10.2.0 --arch=x86_64 --exceptions=seh --threads=posix --<span class="hljs-built_in">enable</span>-languages=c,c++ --<span class="hljs-built_in">jobs</span>=6 --cflags=<span class="hljs-string">'-Wno-format'</span>
+<span class="hljs-comment"># 32 位</span>
+./build --mode=gcc-10.2.0 --arch=i686 --exceptions=dwarf --threads=win32 --<span class="hljs-built_in">enable</span>-languages=c,c++ --<span class="hljs-built_in">jobs</span>=6 --cflags=<span class="hljs-string">'-Wno-format'</span>
+</div></code></pre>
+<p>其中它们的含义是：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--mode=gcc-&lt;version&gt;</code></td>
+<td>版本：搭建哪个版本的 GCC</td>
+</tr>
+<tr>
+<td><code>--arch=&lt;arch&gt;</code></td>
+<td>目标架构：<code>x86_64</code> （64 位）或 <code>i686</code> （32 位）。</td>
+</tr>
+<tr>
+<td><code>--exceptions=&lt;except&gt;</code></td>
+<td>异常处理模型：<code>seh</code> 或 <code>dwarf</code> 或 <code>sjlj</code>。通行的做法是 64 位用 <code>seh</code>，32 位用 <code>dwarf</code>。</td>
+</tr>
+<tr>
+<td><code>--threads=&lt;thread&gt;</code></td>
+<td>多线程模型：<code>posix</code> 或 <code>win32</code>。通行的做法是 64 位用 <code>posix</code>，32 位用 <code>win32</code>。</td>
+</tr>
+<tr>
+<td><code>--enable-languages=&lt;langs&gt;</code></td>
+<td>生成哪些语言的编译器：从 <code>ada,c,c++,fortran,objc,obj-c++</code> 中选择若干。</td>
+</tr>
+<tr>
+<td><code>--jobs=&lt;n&gt;</code></td>
+<td>设置 make 时多核并行数。</td>
+</tr>
+<tr>
+<td><code>--cflags=&lt;flags&gt;</code></td>
+<td>设置编译 C 时的参数：我在这里害惨了，如果不加 <code>-Wno-format</code> 会在编译 GCC 时出现错误。</td>
+</tr>
+</tbody>
+</table>
+<p>还有这些常用参数：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--buildroot=&lt;path&gt;</code></td>
+<td>设置构建路径。默认是在 <code>~</code>。</td>
+</tr>
+<tr>
+<td><code>--bootstrap</code></td>
+<td>编译 GCC 时自举。</td>
+</tr>
+<tr>
+<td><code>--fetch-only</code></td>
+<td>只下载解压源代码，不构建。</td>
+</tr>
+<tr>
+<td><code>--bin-compress</code></td>
+<td>将编译完成的 MinGW 自动打成压缩包。</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>查看全部参数的含义。</td>
+</tr>
+</tbody>
+</table>
+<p>这个脚本甚至还提供了自动上传至 SourceForge 的功能，这里没有需求不再提及。</p>
+<p>整个编译流程（不包括下载）大约需要数个小时的时间，取决于你的计算机性能。</p>
+<h3 id="完成">完成</h3>
+<p>编译完成后，<code>$HOME/mingw-gcc-10.2.0/</code> 下面的 <code>mingw32</code> 和 <code>mingw64</code> 可供你享用了。</p>
+
+    </body>
+    </html>
