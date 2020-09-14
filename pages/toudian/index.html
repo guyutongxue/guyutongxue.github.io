@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta charset=" UTF-8 ">
+    <title>投点公式</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .footer {
+            background-color: #f5f5f5;
+            position: fixed;
+            width: 100%;
+            margin: auto;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        #notify {
+            position: fixed;
+            margin: auto;
+            top: 10px;
+            right: 0;
+            left: 0;
+            z-index: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <h1 class="display-4 text-center my-4">投点公式</h1>
+            <div id="box">
+                <table id="innerBox" class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>限选人数</th>
+                            <th>已选人数</th>
+                            <th>快乐值&nbsp;&nbsp;<button id="help" class="btn btn-sm btn-secondary">?</button></th>
+                            <th>推荐投点</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p id="xuhao" style="text-align:center">1</p>
+                            </td>
+                            <td><input type="text" size=5 class="input1"></td>
+                            <td><input type="text" size=5 class="input2"></td>
+                            <td><input type="text" size=8 class="input3"></td>
+                            <td>
+                                <p id="jieguo" style="text-align:center">?</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+                <div class="row">
+                    <div class="col d-flex flex-row justify-content-between">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-dark" id="addp">加课</button>
+                            <button class="btn btn-outline-dark" id="delp">减课</button>
+                        </div>
+                        <button class="btn btn-success" id="calp">计算</button>
+                    </div>
+                </div>
+            </div>
+            <div id="detail" style="white-space: pre-line;display: none;">
+                <hr>
+                <div class="alert alert-success" id="hint">
+                </div>
+            </div>
+        </div>
+        <div id="notify" class="toast" data-delay="1500">
+            <div class="toast-header">
+                <strong class="mr-auto">提示</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" >
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="toast-body" id="toastBody"></div>
+        </div>
+    </main>
+    <footer class="footer pt-3">
+        <div class="container text-muted">
+            <p>模型来源树洞 <a href=https://pkuhelper.pku.edu.cn/hole/##1182418>1182418</a>，JavaScript 原版来源 <a
+                    href="https://wyjjmzx.github.io/pku/toudian">@wyjjmzx</a></p>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
