@@ -42,7 +42,7 @@ function setFormula(n) {
         result += "\\textcolor{#0070c0}{+}";
         signNum = 1;
     } else {
-        result += "-";
+        result += "\\textcolor{#0070c0}{-}";
         signNum = -1;
     }
     let frac = str.slice(5, 8);
