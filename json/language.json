@@ -35,6 +35,11 @@
         "icon": "file_type_vb"
     },
     {
+        "id": "java",
+        "text": "Java",
+        "icon": "file_type_java"
+    },
+    {
         "id": "python",
         "text": "Python",
         "icon": "file_type_python"

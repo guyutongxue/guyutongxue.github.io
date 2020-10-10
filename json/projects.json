@@ -79,6 +79,14 @@
         "github": "Guyutongxue/RandomTool"
     },
     {
+        "name": "SorA",
+        "lang": "java",
+        "img": "https://guyutongxue.github.io/SorA/assets/AppIcon~1000x1000@Rect.png",
+        "discription": "SorA: a homework Tracking App 可记录历史的作业管理工具",
+        "link": "https://guyutongxue.github.io/SorA",
+        "github": "Guyutongxue/SorA"
+    },
+    {
         "name": "七言绝句生成项目",
         "lang": "python",
         "img": "https://s1.ax1x.com/2020/08/25/dghVqH.png",
