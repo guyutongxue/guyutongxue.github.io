@@ -35,6 +35,7 @@ const char2 = [
     [14, '美冬', 'https://patchwiki.biligame.com/images/pcr/c/ce/fbvjbat2po9fy580a3jyj0z2q4tmf2l.png'],
     [15, '深月', 'https://patchwiki.biligame.com/images/pcr/e/ed/mez3hg9iq9s5h6gor8ih6om9n9ln2za.png'],
     [16, '铃', 'https://patchwiki.biligame.com/images/pcr/0/02/al8yiod9vehdtaov9pgs41uovntnkr2.png'],
+    [17,'茉莉','https://patchwiki.biligame.com/images/pcr/9/98/rkq7tbhhd1h9stgh7kagoh6ag9kl6p5.png'],
 
 ];
 const char3 = [
@@ -54,13 +55,18 @@ const char3 = [
     [14, '姬塔', 'https://patchwiki.biligame.com/images/pcr/7/7f/j62dyqwinraqa1jhcey51t2xgpl3kkq.png'],
     [15, '亚里莎', 'https://patchwiki.biligame.com/images/pcr/7/7c/9mlr4cmt1yol6qam0k5eetgqpoy9wao.png'],
     [16, '伊莉亚', 'https://patchwiki.biligame.com/images/pcr/e/e2/10hawbdrcs5cv32ynab7ofxw2bfutrg.png'],
-    [17, '镜华', 'https://patchwiki.biligame.com/images/pcr/1/11/kf7jk1e35kfnqqvdd9l0y5f408ktm40.png'],
-    [18, '智', 'https://patchwiki.biligame.com/images/pcr/d/dd/rwvxsrizn5d3ta9gxnv7t0v7cza7y56.png'],
-    [1000, '佩可莉姆（夏日）', 'https://patchwiki.biligame.com/images/pcr/8/83/mb18kfcfo4ozorh0j8bplmve049poyd.png'],
-    [1001, '铃莓（夏日）', 'https://patchwiki.biligame.com/images/pcr/2/23/f2dljlbsid6btv912hunyohnebqe3n1.png'],
-    [1002, '凯露（夏日）', 'https://patchwiki.biligame.com/images/pcr/8/8f/42rzcdui2rtnpf4je2h94wyz45k5kue.png'],
-    [1003, '珠希（夏日）', 'https://patchwiki.biligame.com/images/pcr/7/7c/3g315v3otrc7tgxhl7snky4qdl7iaqm.png'],
-    [1004, '忍（万圣节）', 'https://patchwiki.biligame.com/images/pcr/8/80/hwmi41hx1nqfpn2yru2v3g4xi3xo377.png'],
+    [17,'镜华','https://patchwiki.biligame.com/images/pcr/1/11/kf7jk1e35kfnqqvdd9l0y5f408ktm40.png'],
+    [18,'智','https://patchwiki.biligame.com/images/pcr/d/dd/rwvxsrizn5d3ta9gxnv7t0v7cza7y56.png'],
+    [1000,'佩可莉姆（夏日）','https://patchwiki.biligame.com/images/pcr/8/83/mb18kfcfo4ozorh0j8bplmve049poyd.png'],
+    [1001,'铃莓（夏日）','https://patchwiki.biligame.com/images/pcr/2/23/f2dljlbsid6btv912hunyohnebqe3n1.png'],
+    [1002,'凯露（夏日）','https://patchwiki.biligame.com/images/pcr/8/8f/42rzcdui2rtnpf4je2h94wyz45k5kue.png'],
+    [1003,'珠希（夏日）','https://patchwiki.biligame.com/images/pcr/7/7c/3g315v3otrc7tgxhl7snky4qdl7iaqm.png'],
+    [1004,'环奈','https://patchwiki.biligame.com/images/pcr/3/38/0elbbe9le5j5zwrv3zkfvs6wak616ff.png'],
+    [1005,'忍（万圣节）','https://patchwiki.biligame.com/images/pcr/8/80/hwmi41hx1nqfpn2yru2v3g4xi3xo377.png'],
+    [1006,'美咲（万圣节）','https://patchwiki.biligame.com/images/pcr/2/2f/772lsuc3hyalufceswg0esamcllhr9n.png'],
+    [1007,'克里斯提娜','https://patchwiki.biligame.com/images/pcr/6/64/0fiboyjsfpidpeiqy5olahr76tuh5v3.png'],
+    [1008,'绫音（圣诞节）','https://patchwiki.biligame.com/images/pcr/e/e7/o9jg48nqow11dheuce4ia0pfsi9pwri.png'],
+    [1009,'千歌（圣诞节）','https://patchwiki.biligame.com/images/pcr/d/dd/jqdfzc8ruvgeuv09bvgrdmhc5la017c.png'],
 
 ];
 
