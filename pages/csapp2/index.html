@@ -1,13 +1,81 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>CSAPP Library C++ version</title>
 </head>
+
 <body>
     <h1>CSAPP Library (C++ version)</h1>
     <p>Here provides C++ version of CSAPP Library (<code>csapp.h</code>, <code>csapp.c</code>). Download:
-    <a href="./csapp2.cpp" download="csapp2.cpp">csapp2.cpp</a> <a href="./csapp2.h" download="csapp2.h">csapp2.h</a></p>
+        <a href="./csapp2.cpp" download="csapp2.cpp">csapp2.cpp</a> <a href="./csapp2.h"
+            download="csapp2.h">csapp2.h</a>
+    </p>
     <hr>
-    <p>This library was modified by Guyutongxue. These files were distributed under <a href="http://www.wtfpl.net">WTFPL</a>.</p>
+    <h2>Changes (Read me first!)</h2>
+    <h3>General changes</h3>
+    <ul>
+        <li><strong>All names are declared under <code>csapp</code> namespace.</strong> You should use this library by
+            <code>csapp::</code> prefix or <code>using namespace csapp;</code>.
+        </li>
+        <li><code>unix_error, posix_error, dns_error, gai_error, app_error</code> now throw exception
+            <code>SystemException</code> instead of exit normally. You may catch them in your code.</li>
+        <li>All macro are changed to <code>constexpr</code> declaration.</li>
+        <li>Some necessary <code>const</code>-qualifiers are added.</li>
+        <li>Async-unsafe functions are removed.</li>
+    </ul>
+    <h3>Specific functions</h3>
+    <ul>
+        <li><code>Bind</code> is changed to:
+            <code><pre>template&lt;typename T&gt;
+void Bind(int s, const SockAddrT& my_sock);</pre></code>
+            where <code>SockAddrT</code> is any type can store a socket address. (This avoid privious <code>(SA*)</code>
+            cast.) <br>
+            This function bind file descriptor <code>s</code> to socket address <code>my_sock</code>.
+        </li>
+        <li><code>Accept</code> is changed to:
+            <code><pre>template&lt;typename T&gt;
+int Accept(int s, SockAddrT& addr, socklen_t* socklen = nullptr);</pre></code>
+            where <code>SockAddrT</code> is any type can store a socket address. (This avoid privious <code>(SA*)</code>
+            cast.) If parameter <code>socklen</code> is not given, then it will be a pointer to
+            <code>sizeof(SockAddrT)</code>.<br>
+            This function accept request from listening file descriptor <code>s</code> and store the client socket
+            address to <code>addr</code>. If <code>socklen</code> is provided, the length of client socket will be
+            stored at <code>*socklen</code>.
+        </li>
+        <li><code>Getnameinfo</code> is changed to:</li>
+        <code><pre>template&lt;typename T&gt;
+std::pair&lt;std::string, std::string&gt; Getnameinfo(const SockAddrT& sa);</pre></code>
+        where <code>SockAddrT</code> is any type can store a socket address. (This avoid privious <code>(SA*)</code>
+        cast.) <br>
+        This function get the host name and service name from <code>sa</code>. The return value is a pair of
+        <code>(hostname, servename)</code>.
+    </ul>
+    <h3>RIO with class</h3>
+    <h4>unbuffered-RIO</h4>
+    <p>The unbuffered RIO is now static member function of class <code>Rio</code>. </p>
+    <code><pre>rio_readn is changed to csapp::Rio::readn
+rio_writen is changed to csapp::Rio::writen</pre></code>
+    I also provide an overload for <code>Rio::writen</code>:
+    <code><pre>void Rio::writen(int fd, const std::string_view& s);</pre></code>
+    This function do unbuffered-RIO-write to <code>fd</code> with content stored in <code>s</code>. (You should know
+    that <code>std::string_view</code> is a wrapper for <code>char*</code>.)
+    <h4>buffered-RIO</h4>
+    The <code>Rio</code> class object is a wrapper for original <code>rio_t</code>. The buffered-RIO member functions
+    are:
+    <code><pre>class RIO {
+public:
+    Rio(int fd);                              // The constructor, originally rio_readinitb
+    size_t readnb(char* s, size_t bytes);     // Original rio_readnb
+    std::string readnb(size_t bytes);         // std::string overload for rio_readnb
+    size_t readlineb(char* s, size_t maxlen); // Original rio_readlineb
+    std::string readlineb(size_t maxlen);     // std::string overload for rio_readlineb
+};</pre></code>
+    <strong>Remember that <code>std::string</code> is bad for storing byte-stream.</strong> You should always use
+    C-array or <code>std::array</code> for storing bytes.
+    <hr>
+    <p>This library was modified by Guyutongxue. These files were distributed under <a
+            href="http://www.wtfpl.net">WTFPL</a>.</p>
 </body>
+
 </html>
