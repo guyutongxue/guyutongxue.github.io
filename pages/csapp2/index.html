@@ -20,7 +20,7 @@
         </li>
         <li><code>unix_error, posix_error, dns_error, gai_error, app_error</code> now throw exception
             <code>SystemException</code> instead of exit normally. You may catch them in your code.</li>
-        <li>All macro are changed to <code>constexpr</code> declaration.</li>
+        <li>All macros are changed to <code>constexpr</code> declaration.</li>
         <li>Some necessary <code>const</code>-qualifiers are added.</li>
         <li>Async-unsafe functions are removed.</li>
     </ul>
@@ -73,6 +73,14 @@ public:
 };</pre></code>
     <strong>Remember that <code>std::string</code> is bad for storing byte-stream.</strong> You should always use
     C-array or <code>std::array</code> for storing bytes.
+    <hr>
+    <h2>How to use</h2>
+    <ol>
+        <li>Make sure you have a C++ compiler installed. The C++ compiler should support most of C++17 features. If you use GCC, version above 7.5.0 is recommended.</li>
+        <li><code>g++ -std=c++17 -c csapp2.cpp -o csapp.o</code></li>
+        <li>(Optional)<code>ar rv libcsapp.a csapp.o</code></li>
+        <li>Add <code>csapp.o</code> or <code>-lcsapp</code> into your compile command. If you use static library, you may need to add <code>-L</code> option.</li>
+    </ol>
     <hr>
     <p>This library was modified by Guyutongxue. These files were distributed under <a
             href="http://www.wtfpl.net">WTFPL</a>.</p>
