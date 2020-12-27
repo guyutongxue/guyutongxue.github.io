@@ -27,14 +27,14 @@
     <h3>Specific functions</h3>
     <ul>
         <li><code>Bind</code> is changed to:
-            <code><pre>template&lt;typename T&gt;
+            <code><pre>template&lt;typename SockAddrT&gt;
 void Bind(int s, const SockAddrT& my_sock);</pre></code>
             where <code>SockAddrT</code> is any type can store a socket address. (This avoid privious <code>(SA*)</code>
             cast.) <br>
             This function bind file descriptor <code>s</code> to socket address <code>my_sock</code>.
         </li>
         <li><code>Accept</code> is changed to:
-            <code><pre>template&lt;typename T&gt;
+            <code><pre>template&lt;typename SockAddrT&gt;
 int Accept(int s, SockAddrT& addr, socklen_t* socklen = nullptr);</pre></code>
             where <code>SockAddrT</code> is any type can store a socket address. (This avoid privious <code>(SA*)</code>
             cast.) If parameter <code>socklen</code> is not given, then it will be a pointer to
@@ -44,7 +44,7 @@ int Accept(int s, SockAddrT& addr, socklen_t* socklen = nullptr);</pre></code>
             stored at <code>*socklen</code>.
         </li>
         <li><code>Getnameinfo</code> is changed to:</li>
-        <code><pre>template&lt;typename T&gt;
+        <code><pre>template&lt;typename SockAddrT&gt;
 std::pair&lt;std::string, std::string&gt; Getnameinfo(const SockAddrT& sa);</pre></code>
         where <code>SockAddrT</code> is any type can store a socket address. (This avoid privious <code>(SA*)</code>
         cast.) <br>
