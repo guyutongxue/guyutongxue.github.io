@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/eventemitter3@latest/umd/eventemitter3.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/animejs/3.2.1/anime.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./common.css">
+    <style>
+        #lockReadImg {
+            display: none;
+            position: absolute;
+            left: 200px;
+            top: 625px;
+        }
+        #writeCnt {
+            position: absolute;
+            right: 75px;
+            top: 375px;
+            width: 100px;
+            height: 50px;
+            font-family: Consolas, 'Courier New', Courier, monospace;
+            font-size: 40px;
+            text-align: center;
+            background: #ffffff80;
+        }
+    </style>
+    <link rel="stylesheet" href="spinner.css">
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1 class="pt-4">第二类读者-写者问题</h1> <small>Guyutongxue</small>
+    </div>
+    <div id="canvas">
+        <div id="buttons">
+            <button class="btn btn-dark" onclick="addReader2()">添加读者</button>
+            <button class="btn btn-danger" onclick="addWriter2()">添加写者</button>
+        </div>
+        <div id="ranges">
+            <span>
+                <label for="readRange">读取时间</label>
+                <input id="readRange" type="range" min="200" max="5000" name="readRange" value="2000"></span>
+            <span>
+                <label for="writeRange">写入时间</label>
+                <input id="writeRange" type="range" min="200" max="5000" name="writeRange" value="3000"></span>
+        </div>
+        <img src="rw2.png" height="750" width="1000">
+        <div id="readCnt">0</div>
+        <div id="writeCnt">0</div>
+        <img id="nobookImg" src="nobook.png">
+        <img id="penImg" src="pen.png">
+        <img id="lockImg" src="close.png">
+        <img id="lockReadImg" src="close.png">
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+
+</html>

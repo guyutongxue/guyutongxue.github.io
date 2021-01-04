@@ -1,0 +1,88 @@
+#canvas {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    height: 750px;
+    width: 1000px;
+    text-align: center;
+}
+#readCnt {
+    position: absolute;
+    left: 75px;
+    top: 375px;
+    width: 100px;
+    height: 50px;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+    font-size: 40px;
+    text-align: center;
+    background: #ffffff80;
+}
+#nobookImg {
+    display: none;
+    position: absolute;
+    left: 275px;
+    top: 331px;
+}
+#penImg {
+    display: none;
+    position: absolute;
+    left: 460px;
+    top: 293px;
+}
+#lockImg {
+    display: none;
+    position: absolute;
+    left: 600px;
+    top: 500px;
+}
+.reader, .writer {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    box-shadow: 0 0 0 4px white;
+    opacity: 0;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 40px;
+    font-family: Consolas, 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.reader {
+    background-color: black;
+}
+.writer {
+    background-color: red;
+}
+#buttons {
+    position: absolute;
+    top: 40px;
+    left: 250px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.btn {
+    position: relative;
+    width: 200px;
+    height: 80px;
+    font-size: 2em;
+}
+#ranges {
+    position: absolute;
+    top: 130px;
+    left: 250px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#ranges div {
+    width: 200px;
+    overflow: hidden;
+}
