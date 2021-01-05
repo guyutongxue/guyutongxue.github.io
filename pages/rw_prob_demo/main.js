@@ -264,7 +264,7 @@ async function lockReadDoor(obj, reading = true) {
         targets: obj[0],
         left: 250 + mp * 100 * Math.random(),
         top: 625 + 100 * Math.random(),
-        duration: 200,
+        duration: 1000,
         easing: 'easeInOutExpo'
     }).finished;
     while (readMutex) {
@@ -275,19 +275,12 @@ async function lockReadDoor(obj, reading = true) {
         targets: obj[0],
         left: 250,
         top: 675,
-        duration: 1000,
+        duration: 200,
         easing: 'easeInOutExpo'
     }).finished;
     $("#lockReadImg").show();
 }
-async function unlockReadDoor(obj) {
-    await anime({
-        targets: obj[0],
-        left: 250,
-        top: 675,
-        duration: 1000,
-        easing: 'easeInOutExpo'
-    }).finished;
+function unlockReadDoor() {
     readMutex = false;
     $("#lockReadImg").hide();
     readMutexEE.emit('unlock');
@@ -319,16 +312,23 @@ async function addReader2() {
     setReadCnt(readCnt + 1);
     if (readCnt === 1) {
         await lockDoor(reader);
+        await anime({
+            targets: reader[0],
+            left: 250,
+            top: 675,
+            duration: 1000,
+            easing: 'easeInOutExpo'
+        }).finished;
     }
     unlockReadCnt();
-    await unlockReadDoor(reader);
+    unlockReadDoor();
     position = getReadingPt();
     // go to read point
     await anime({
         targets: reader[0],
         left: position.x,
         top: position.y,
-        duration: 1000,
+        duration: 300,
         easing: 'easeInOutExpo'
     }).finished;
     // reading
@@ -414,7 +414,14 @@ async function addWriter2() {
     await lockWriteCnt();
     setWriteCnt(writeCnt - 1);
     if (writeCnt === 0) {
-        await unlockReadDoor(writer);
+        await anime({
+            targets: writer[0],
+            left: 250,
+            top: 675,
+            duration: 1000,
+            easing: 'easeInOutExpo'
+        }).finished;
+        unlockReadDoor();
     }
     unlockWriteCnt();
     await anime({
@@ -423,7 +430,7 @@ async function addWriter2() {
         top: 675,
         opacity: 0,
         duration: 800,
-        easing: 'easeOutExpo'
+        easing: 'easeInOutExpo'
     }).finished;
     writer.remove();
 }
