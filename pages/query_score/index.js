@@ -29,6 +29,7 @@ function get() {
                 </table>`);
             const tr = $('#scoreTable-' + xq).append('<tr>');
             tr.append(`<td id='nameData'>
+                <span class="badge badge-pill badge-info">${i.xf} 学分</span>
                 <a target='_blank' href='https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/courseDetail/getCourseDetail.do?kclx=BK&course_seq_no=${i.zxjhbh}'>
                     ${i.kcmc}
                 </a>
