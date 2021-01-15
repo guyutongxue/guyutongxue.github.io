@@ -1,3 +1,13 @@
+/**
+ * 
+ * @param {string} str 
+ */
+function parseTeacher(str) {
+    const dash = str.indexOf('-');
+    const dollar = str.indexOf('$');
+    return str.substring(dash + 1, dollar);
+}
+
 function get() {
     $('#tableContainer').children().remove();
     $.getJSON("https://pkuhelper.pku.edu.cn/api_xmcp/isop/scores?user_token=" + $('#userToken').val()).done(json => {
@@ -22,7 +32,7 @@ function get() {
                 <a target='_blank' href='https://elective.pku.edu.cn/elective2008/edu/pku/stu/elective/controller/courseDetail/getCourseDetail.do?kclx=BK&course_seq_no=${i.zxjhbh}'>
                     ${i.kcmc}
                 </a>
-                <span class='text-black-50'>（${new RegExp("(?<=-).+?(?=\$)").exec(i.skjsxm)[0]}）</span>
+                <span class='text-black-50'>（${parseTeacher(i.skjsxm)}）</span>
             </td>`);
             tr.append(`<td id='scoreData'>${i.xqcj}</td>`);
             tr.append(`<td id='gpData'>${i.jd}</td>`);
