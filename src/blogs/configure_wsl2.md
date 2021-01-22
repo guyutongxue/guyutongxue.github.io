@@ -93,6 +93,16 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
-Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
+```Bash
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
 
-Type zsh and you can configure whatever you like.
+In file `~/.zshrc`:
+
+```Bash
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
+plugins=( ... zsh-autosugeestions zsh-syntax-highlighting)
+```
