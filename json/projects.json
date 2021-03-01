@@ -93,5 +93,13 @@
         "discription": "《人工智能引论》合作作业：给出主题句生成一首七绝",
         "link": "pdf/ai_intro.pdf",
         "github": "Guyutongxue/ChinesePoetryGeneration"
+    },
+    {
+        "name": "Dev-C++ 7",
+        "lang": "typescript",
+        "img": "https://github.com/Guyutongxue/devcpp7/raw/master/src/assets/icons/favicon.png",
+        "discription": "使用 Angular + Electron 构建的小型 C++ 开发环境",
+        "link": "https://github.com/Guyutongxue/devcpp7",
+        "github": "Guytongxue/devcpp7"
     }
 ]
