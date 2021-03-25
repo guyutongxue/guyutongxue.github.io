@@ -12,7 +12,7 @@
 <style>
     em {
         font-style: normal !important;
-        font-family: 方正楷体简体, 华文楷体, 楷体, 楷体GB2312
+        font-family: "Georgia", 方正楷体简体, 华文楷体, 楷体, 楷体GB2312
     }
     cite {
         font-style: normal;
@@ -65,16 +65,16 @@
 
 <details><summary>费马小定理的证明</summary>
   
-> **引理 1.1** $\forall a,b,c\in\mathbb Z$，$m\in\mathbb N^+$，且 $(m,c)\xlongequal{\text{def}}\operatorname{GCD}(m,c)=1$，则当 $ac\equiv bc\pmod m$ 时，$a\equiv b\pmod m$。  
->> 证明：条件$\rArr ac-bc\equiv0\pmod m\rArr (a-b)c\equiv 0\pmod m$。因 $m,c$ 互素，故可约去 $c$，得 $a-b\equiv0\pmod m$。即得。  
+> **引理 1.1** *$\forall a,b,c\in\mathbb Z$，$m\in\mathbb N^+$，且 $(m,c)\xlongequal{\text{def}}\operatorname{GCD}(m,c)=1$，则当 $ac\equiv bc\pmod m$ 时，$a\equiv b\pmod m$。*
+>> *证明*：条件$\rArr ac-bc\equiv0\pmod m\rArr (a-b)c\equiv 0\pmod m$。因 $m,c$ 互素，故可约去 $c$，得 $a-b\equiv0\pmod m$。即得。  
 >
-> **引理 1.2** $\mathbb Z\ni m>1$，$b\in\mathbb Z$，$(m,b)=1$。若 $a_1,a_2,\cdots,a_m$ 是模 $m$ 的一个完全剩余系，则 $ba_1,ba_2,\cdots,ba_m$ 也是模 $m$ 的一个完全剩余系。  
+> **引理 1.2** *$\mathbb Z\ni m>1$，$b\in\mathbb Z$，$(m,b)=1$。若 $a_1,a_2,\cdots,a_m$ 是模 $m$ 的一个完全剩余系，则 $ba_1,ba_2,\cdots,ba_m$ 也是模 $m$ 的一个完全剩余系。*
 >> 完全剩余系：在模 $m$ 的剩余类中各取一个元素，这 $m$ 个数构成了模 $m$ 的完全剩余系。
 >>> 剩余类：根据整数 $a\in\mathbb Z$ 除以 $n$ 得到的余数将 $\mathbb Z$ 划分为 $n$ 个等价类，$a$ 所在的等价类记作 $[a]$。又称同余类。
 >>
->> 证明：反设存在 $1\leqslant i<j\leqslant m$ 满足 $ba_i\equiv ba_j\pmod m$，则根据**引理 1.1** 得 $a_i\equiv a_j\pmod m$。这不满足 $a[i],a[j]$ 构成模 $m$ 的完全剩余系，矛盾。故对于 $\forall 1\leqslant i<j\leqslant m$，$ba_i\not\equiv b_aj\pmod m$，即它们构成完全剩余系。
+>> *证明*：反设存在 $1\leqslant i<j\leqslant m$ 满足 $ba_i\equiv ba_j\pmod m$，则根据**引理 1.1** 得 $a_i\equiv a_j\pmod m$。这不满足 $a[i],a[j]$ 构成模 $m$ 的完全剩余系，矛盾。故对于 $\forall 1\leqslant i<j\leqslant m$，$ba_i\not\equiv b_aj\pmod m$，即它们构成完全剩余系。
 >
-> 证明：对于素数 $p$，构造模 $p$ 的完全剩余系
+> *证明*：对于素数 $p$，构造模 $p$ 的完全剩余系
 > $$P=\{1,2,\cdots,p-1\}$$
 > 因为 $(a,p)=1$ （$p$ 是素数，$a$ 不是 $p$ 的倍数，故两者互素），由**引理 1.2** 得
 > $$A=\{a,2a,\cdots,(p-1)a\}$$
@@ -135,7 +135,7 @@ $$\tag{1}(X+a)^n\equiv X^n+a\pmod n$$
 
 <cite>（此处指左右两个多项式的每一项系数关于 $n$ 同余；或者说对于 $\forall X$ 同余式总成立。）</cite>
 
-证明：当 $0<i<n$ 时，$((X+a)^n-(X^n+a))$ 中 $X^i$ 项的系数为 $\binom nia^{n-i}$<cite>（二项式定理）</cite>。
+*证明*：当 $0<i<n$ 时，$((X+a)^n-(X^n+a))$ 中 $X^i$ 项的系数为 $\binom nia^{n-i}$<cite>（二项式定理）</cite>。
 
 假设 $n$ 是素数。则 $\binom ni\equiv0\pmod n$ 且多项式所有的系数皆为 $0$。
 
@@ -143,11 +143,11 @@ $$\tag{1}(X+a)^n\equiv X^n+a\pmod n$$
 
 > 这是因为：
 > 
-> **引理 2.1.1** $\forall a,b\in\mathbb Z$，$a$ 是 $b$ 的整倍数，若 $b\equiv1\pmod p$，则$\dfrac ab\equiv a\pmod p$。
->> 证明：设 $a=tb,\ b=sp+1$。则 $\dfrac ab\equiv t\equiv tsp+t\equiv a\pmod p$。
+> **引理 2.1.1** *$\forall a,b\in\mathbb Z$，$a$ 是 $b$ 的整倍数，若 $b\equiv1\pmod p$，则$\dfrac ab\equiv a\pmod p$。*
+>> *证明*：设 $a=tb,\ b=sp+1$。则 $\dfrac ab\equiv t\equiv tsp+t\equiv a\pmod p$。
 > 
-> **引理 2.1.2** $\forall a,b\in\mathbb Z$，$a$ 是 $b$ 的整倍数，$p$ 是素数且 $(p,b)=1$，则 $\dfrac ab\equiv ab^{p-2}\pmod p$。
->> 证明：由费马小定理得 $b^{p-1}\equiv1\pmod p$。故 $\dfrac ab=\dfrac{ab^{p-2}}{b^{p-1}}$。由 **引理 2.1.2** 得 $\dfrac{ab^{p-2}}{b^{p-1}}\equiv ab^{p-2}\pmod p$。
+> **引理 2.1.2** *$\forall a,b\in\mathbb Z$，$a$ 是 $b$ 的整倍数，$p$ 是素数且 $(p,b)=1$，则 $\dfrac ab\equiv ab^{p-2}\pmod p$。*
+>> *证明*：由费马小定理得 $b^{p-1}\equiv1\pmod p$。故 $\dfrac ab=\dfrac{ab^{p-2}}{b^{p-1}}$。由 **引理 2.1.2** 得 $\dfrac{ab^{p-2}}{b^{p-1}}\equiv ab^{p-2}\pmod p$。
 > 
 > 则由**引理 2.1.2** 得 $\displaystyle\binom ni\operatorname{mod}n=\frac{n(n-1)\cdots(n-i+1)}{i!}\operatorname{mod}n=n(n-1)\cdots(n-i+1)\cdot(i!)^{n-2}\operatorname{mod}n=0$。
 
@@ -207,13 +207,13 @@ $\mathbb N$ 和 $\mathbb Z$ 分别表示自然数集和整数集。对于给定�
 
 <details><summary>“容易看出”的证明</summary>
 
-> **引理 3.0.1** 若 $x\equiv1\pmod r$，则对于 $\forall n\in\mathbb N$，$x^n\equiv1\pmod r$。
->> 证明：设 $x=pr+1$，$p\in\mathbb Z$。则
+> **引理 3.0.1** *若 $x\equiv1\pmod r$，则对于 $\forall n\in\mathbb N$，$x^n\equiv1\pmod r$。*
+>> *证明*：设 $x=pr+1$，$p\in\mathbb Z$。则
 >> $$(pr+1)^n=\sum_{i=0}^n\binom ni(pr)^i$$
 >> 对于 $\forall i>0$，显然 $r\mid(pr)^i$，此时 $\binom ni(pr)^i$ 这些项都整除 $r$。当 $i=0$ 时，$\binom ni(pr)^i=1$。所以 $x^n=(pr+1)^n\equiv1\pmod r$。
 >
-> **引理 3.0.2（费马-欧拉定理）** $a^{\varphi(r)}\equiv1\pmod{r}$ 对任意满足 $(a,r)=1$ 的 $a$ 和 $r$ 成立。
->> 证明：设 $x_1,x_2,\cdots,x_{\varphi(r)}$ 为小于 $r$ 的与 $r$ 互素的正整数。考虑集合 $\{ax_1,\cdots, ax_{\varphi(r)}\}$，其满足如下性质：
+> **引理 3.0.2（费马-欧拉定理）** *$a^{\varphi(r)}\equiv1\pmod{r}$ 对任意满足 $(a,r)=1$ 的 $a$ 和 $r$ 成立。*
+>> *证明*：设 $x_1,x_2,\cdots,x_{\varphi(r)}$ 为小于 $r$ 的与 $r$ 互素的正整数。考虑集合 $\{ax_1,\cdots, ax_{\varphi(r)}\}$，其满足如下性质：
 >> - 每个元素关于 $r$ 的模互不相等。否则，$\exists i,j$ 使得 $ax_i\equiv ax_j\pmod r$，则 $r\mid(ax_i-ax_j)$；另一方面由 $a,r$ 互素、$|x_i-x_j|<r$ 得到 $r\nmid a(x_i-x_j)$，矛盾。
 >> - $(ax_i\operatorname{mod}r,r)=1$ 对于 $\forall i$ 成立。这可由最大公约数的积性得出：$(a,r)=1\wedge(x_i,r)=1\rArr(ax_i,r)=1\rArr(ax_i\operatorname{mod}r,r)=1$。
 >> 
@@ -222,7 +222,7 @@ $\mathbb N$ 和 $\mathbb Z$ 分别表示自然数集和整数集。对于给定�
 >> 显然 $x_1x_2\cdots x_{\varphi(r)}$ 与 $r$ 互素，可以消去，于是得到：
 >> $$a^{\varphi(r)}\equiv1\pmod r$$
 >
-> 证明：设 $\varphi(n)=k\mathrm o_r(a)+p$，$k\in\mathbb Z,1<p<n$。则 $a^{\varphi(n)}=(a^{\mathrm o_r(a)})^k\cdot a^p$。即 $a^p=\dfrac{a^{\varphi n}}{(a^{\mathrm o_r(a)})^k}$。由于 $a^{\mathrm o_r(a)}\equiv1\pmod r$，由**引理 3.0.1** 知 $(a^{\mathrm o_r(a)})^k\equiv1\pmod r$。再由**引理 2.1.1** 和**引理3.0.2** 知 $a^p\equiv a^{\varphi(r)}\equiv1\pmod r$。即 $p<\mathrm o_r(a)$ 也满足 $a^p\equiv1\pmod r$，与 $\mathrm o_r(a)$ 的定义矛盾。所以 $p=0$，$\mathrm o_r(a)\mid\varphi(r)$。 
+> *证明*：设 $\varphi(n)=k\mathrm o_r(a)+p$，$k\in\mathbb Z,1<p<n$。则 $a^{\varphi(n)}=(a^{\mathrm o_r(a)})^k\cdot a^p$。即 $a^p=\dfrac{a^{\varphi n}}{(a^{\mathrm o_r(a)})^k}$。由于 $a^{\mathrm o_r(a)}\equiv1\pmod r$，由**引理 3.0.1** 知 $(a^{\mathrm o_r(a)})^k\equiv1\pmod r$。再由**引理 2.1.1** 和**引理3.0.2** 知 $a^p\equiv a^{\varphi(r)}\equiv1\pmod r$。即 $p<\mathrm o_r(a)$ 也满足 $a^p\equiv1\pmod r$，与 $\mathrm o_r(a)$ 的定义矛盾。所以 $p=0$，$\mathrm o_r(a)\mid\varphi(r)$。 
 
 
 </details>
@@ -234,11 +234,11 @@ $$\operatorname{LCM}(m)\geqslant 2^m$$
 
 <details><summary>引理 3.1 的证明</summary>
 
-> **引理 3.1.1** 函数
+> **引理 3.1.1** *函数*
 > $$\tag{2.1}F(m,n)=\sum_{i=0}^{n-m}\frac{(-1)^i\binom{n-m}i}{m+i}$$
-> 在 $m,n\in\mathbb N,1\leqslant m\leqslant n$ 上定义，则有恒等式
+> *在 $m,n\in\mathbb N,1\leqslant m\leqslant n$ 上定义，则有恒等式*
 > $$\tag{2.2}F(m,n)=\begin{cases}\dfrac1{m\binom nm},&m>0\\0,&m=0\end{cases}$$
->> 证明：用数学归纳法对 $n-m$ 做归纳。
+>> *证明*：用数学归纳法对 $n-m$ 做归纳。
 >> 当 $n-m=0$ 时，$F(m,n)=0$ 是显然的。
 >> 假设 $n-m=r$ 时引理成立。考虑 $n-m=r+1$ 的情形：
 >> $$\begin{aligned}
@@ -257,7 +257,7 @@ $$\operatorname{LCM}(m)\geqslant 2^m$$
 >> \end{aligned}$$
 >> 这就证明了等式 $(2.2)$ 的正确性。
 >
-> 证明：注意到**引理 3.1.1** 的式 $(2.1)$ 右侧分母只有 $m,(m+1),\cdots,n$，所以约分之后 $F(m,n)$ 的最简形式分母也只能是 $\{m,(m+1),\cdots,n\}$ 的子集的积。所以它必然整除 $\operatorname{LCM}(n)$。运用式 $(2.2)$ 即得：
+> *证明*：注意到**引理 3.1.1** 的式 $(2.1)$ 右侧分母只有 $m,(m+1),\cdots,n$，所以约分之后 $F(m,n)$ 的最简形式分母也只能是 $\{m,(m+1),\cdots,n\}$ 的子集的积。所以它必然整除 $\operatorname{LCM}(n)$。运用式 $(2.2)$ 即得：
 > $$\left.m\binom nm\middle|\operatorname{LCM}(n)\right.$$
 > 由于 $\operatorname{LCM}(2n)\mid\operatorname{LCM}(2n+1)$，故有
 > $$\tag{2.3}\left.n\binom{2n}n\middle|\operatorname{LCM}(2n+1)\right.$$
@@ -345,7 +345,7 @@ $$\operatorname{LCM}(m)\geqslant 2^m$$
 
 **引理 4.2** *如果 $n$ 是素数，则算法 1 返回 $\tt PRIME$。*
 
-证明：如果 $n$ 是素数，则行 2 和行 5 条件不会被满足，故前 6 行不会返回 $\tt COMPOSITE$。根据**引理 2.1**，行 10 的条件也不会满足，故 11 行返回 $\tt COMPOSITE$ 也不会执行。所以，算法必然会在行 8 或者行 12 返回 $\tt PRIME$。
+*证明*：如果 $n$ 是素数，则行 2 和行 5 条件不会被满足，故前 6 行不会返回 $\tt COMPOSITE$。根据**引理 2.1**，行 10 的条件也不会满足，故 11 行返回 $\tt COMPOSITE$ 也不会执行。所以，算法必然会在行 8 或者行 12 返回 $\tt PRIME$。
 
 <details><summary>解释</summary>
 
@@ -479,7 +479,7 @@ $$(f(X))^m\equiv f(X^m)\pmod{X^r-1,p}$$
 
 **引理 4.5** *如果 $m$ 和 $m'$ 是关于 $f(X)$ 内省的，则 $mm'$ 也关于它内省。*
 
-证明：因为 $m$ 关于 $f(X)$ 内省，故有：
+*证明*：因为 $m$ 关于 $f(X)$ 内省，故有：
 $$(f(X))^{m\cdot m'}\equiv (f(X^m))^{m'}\pmod{X^r-1,p}$$
 同样地，因为 $m'$ 是关于 $f(X)$ 内省的，在 $f(X)$ 中用 $X^m$ 替换 $X$ 后得到：
 $$\begin{aligned}
@@ -493,7 +493,7 @@ $$(f(X))^{m\cdot m'}\equiv f(X^{m\cdot m'})\pmod{X^r-1,p}\ \blacksquare$$
 
 **引理 4.6** *若 $m$ 关于 $f(X)$ 和 $g(X)$ 内省，则它关于 $f(X)\cdot g(X)$ 也是内省的。*
 
-证明：我们有：
+*证明*：我们有：
 $$\begin{aligned}
 (f(X)\cdot g(X))^m&=(f(X))^m\cdot(g(X))^m\\
 &\equiv f(X^m)\cdot g(X^m)\pmod{X^r-1,p}\ \blacksquare
@@ -550,7 +550,7 @@ $$\begin{aligned}
 
 **引理 4.7**（Hendrik Lenstra Jr.）*$|\mathcal G|\geqslant\displaystyle\binom{t+l}{t-1}$。*
 
-证明：首先注意到因为 $h(X)$ 是分圆多项式 $Q_r(X)$ 的因式，所以 $X$ 是 $\mathbb F$ 的 $r$ 次本原单位根<cite>（？）</cite>。
+*证明*：首先注意到因为 $h(X)$ 是分圆多项式 $Q_r(X)$ 的因式，所以 $X$ 是 $\mathbb F$ 的 $r$ 次本原单位根<cite>（？）</cite>。
 
 我们将要证明 $P$ 中次数小于 $t$ 的任意两个不同的多项式会映射到 $\mathcal G$ 中的不同元素。令 $f(X)$ 和 $g(X)$ 是 $P$ 中的这样两个多项式。假设在 $\mathbb F$ 中 $f(X)=g(X)$。<cite>（即 $f(X)\equiv g(X)\pmod{h(X),p}$。）</cite>令 $m\in I$。我们同样有在 $\mathbb F$ 中 $(f(X))^m=(g(X))^m$。因为 $m$ 关于 $f$ 和 $g$ 内省，而且 $h(X)$ 整除 $X^r-1$，所以我们得到了在 $\mathbb F$ 上：
 $$f(X^m)=g(X^m)$$
@@ -600,7 +600,7 @@ $$f(X^m)=g(X^m)$$
 
 **引理 4.8** *如果 $n$ 不是 $p$ 的整数次幂，则 $|G|\leqslant n^{\sqrt t}$。*
 
-证明：考虑 $I$ 的如下子集：
+*证明*：考虑 $I$ 的如下子集：
 $$\hat I=\left\{\left(\frac np\right)^i\cdot p^j\ \middle|\ 0\leqslant i,j\leqslant\lfloor\sqrt t\rfloor\right\}$$
 
 如果 $n$ 不是 $p$ 的整数次幂，则集合 $\hat I$ 拥有 $(\lfloor\sqrt t\rfloor+1)^2>t$ 个互异的数。因为 $|G|=t$，所以 $\hat I$ 中至少存在两个数在模 $r$ 后得到了相同的值。记这两个数为 $m_1$ 和 $m_2$，不妨设 $m_1>m_2$。现在我们有：
@@ -630,9 +630,9 @@ $$(f(X))^{m_1}=(f(X))^{m_2}$$
 
 控制了 $\mathcal G$ 的大小之后，我们终于做好了证明算法正确性的准备：
 
-**引理 4.9** 如果算法返回 $\tt PRIME$，则 $n$ 是素数。
+**引理 4.9** *如果算法返回 $\tt PRIME$，则 $n$ 是素数。*
 
-证明：假设算法返回了 $\tt PRIME$。记 $t=|G|,\ l=\lceil\sqrt{\varphi(r)}\log n\rceil$，那么**引理 4.7** 表明：
+*证明*：假设算法返回了 $\tt PRIME$。记 $t=|G|,\ l=\lceil\sqrt{\varphi(r)}\log n\rceil$，那么**引理 4.7** 表明：
 $$\begin{aligned}
 |\mathcal G|&\geqslant\binom{t+l}{t-1}\\
 &\geqslant\binom{l+1+\lfloor\sqrt t\log n\rfloor}{\lfloor\sqrt t\log n\rfloor}&&\text{（由于 $t>\sqrt t\log n$）}\\
@@ -651,8 +651,8 @@ $$\begin{aligned}
 >
 > 第四个不等号是因为：
 > 
-> **引理 4.9.1** 设 $A>1$，则 $\displaystyle\binom{2A+1}A>2^{A+1}$。
->> 证明：使用归纳法。当 $A=2$ 时，命题 $10>8$ 显然成立。下设 $A=k-1$ 时命题成立，则
+> **引理 4.9.1** *设 $A>1$，则 $\displaystyle\binom{2A+1}A>2^{A+1}$。*
+>> *证明*：使用归纳法。当 $A=2$ 时，命题 $10>8$ 显然成立。下设 $A=k-1$ 时命题成立，则
 >> $$\begin{aligned}
 >> \binom{2k+1}k&=\binom{2k}k+\binom{2k}{k-1}\\
 >> &=\binom{2k-1}k+2\binom{2k-1}{k-1}+\binom{2k-1}{k-2}\\
@@ -685,21 +685,27 @@ $$\begin{aligned}
 
 **定理 5.1** *此算法的渐进时间复杂度为 $\tilde O(\log^\frac{21}2n)$。*
 
-证明：行 2 的判断所需要的渐进时间复杂度为 $\tilde O(\log^3 n)$ [vzGG]。
+*证明*：行 2 的判断所需要的渐进时间复杂度为 $\tilde O(\log^3 n)$ [vzGG]。
+
+<details><summary>解释</summary>
+
+> 如果 $n=a^b$，则 $b<\log n+1$。顺序检查每个 $b$，在 $[1,n]$ 中二分查找一个 $a$ 使得 $a^b=n$。使用快速幂算法，检查的时间复杂度为 $\tilde O(\log n)$，查找 $b$ 和 $a$ 各需要 $O(\log n)$，故总的时间为 $\tilde O(\log^3n)$。
+
+</details>
 
 行 4 的赋值需要找到一个 $r$ 满足 $\mathrm o_r(n)>\log^2 n$。这可以通过连续地尝试 $r$ 的值并检查 $n^k\equiv1\pmod r$ 对于每个 $k\leqslant\log^2n$ 是否成立。对于一个给定的 $r$，这最多需要 $O(\log^2n)$ 次带模乘法，因此需要 $\tilde O(\log^2n\log r)$ 的时间。由**引理 4.3** 我们知道只有 $O(\log^5n)$ 个 $r$ 需要尝试。所以这一步赋值总的时间复杂度为 $\tilde O(\log^7n)$。
 
 行 5 的判断需要计算 $r$ 个数的最大公约数。每次最大公约数的求解都需要 $O(\log n)$ 的时间 [vzGG]，所以总的时间复杂度为 $O(r\log n)=O(\log^6n)$。行 7 的判断只需要 $O(\log n)$ 即可完成。
 
-行 9 开始的循环需要验证 $\lfloor\sqrt{\varphi r}\log n\rfloor$ 个同余式。每一个同余式需要 $O(\log n)$ 次 $r$ 次多项式的乘法，且多项式的系数为 $O(\log n)$ 级别的。所以每个同余式的验证可在 $\tilde O(r\log^2n)$ 的时间内完成。所以整个循环的时间复杂度为 $\tilde O(r\sqrt{\varphi r}\log^3n)=\tilde O(r^\frac32\log^3n)=\tilde O(\log^\frac{21}2n)$。这个时间复杂度的级别超过了其它步骤的时间复杂度，所以它也是整个算法的时间复杂度。$\blacksquare$
+行 9 开始的循环需要验证 $\lfloor\sqrt{\varphi(r)}\log n\rfloor$ 个同余式。每一个同余式需要 $O(\log n)$ 次 $r$ 次多项式的乘法，且多项式的系数为 $O(\log n)$ 级别的。所以每个同余式的验证可在 $\tilde O(r\log^2n)$ 的时间内完成。所以整个循环的时间复杂度为 $\tilde O(r\sqrt{\varphi(r)}\log^3n)=\tilde O(r^\frac32\log^3n)=\tilde O(\log^\frac{21}2n)$。这个时间复杂度的级别超过了其它步骤的时间复杂度，所以它也是整个算法的时间复杂度。$\blacksquare$
 
 此算法的时间复杂度可以通过提高对 $r$ 的估计来优化（如**引理 4.3**所做的那样）。当然，最好的方案是 $r=O(\log^2n)$，在这种情形下整个算法的时间复杂度将为 $\tilde O(\log^6n)$。事实上，通过以两个猜想作为前提，存在找到一个这样的 $r$ 的可能性：（下文中的 $\ln$ 为自然对数）
 
-**阿庭猜想（Artin's conjecture）** 对于任何给定的非完全平方的数 $n\in\mathbb N$，满足 $q<m$ 且 $\mathrm o_q(n)=q-1$ 的素数 $q$ 的个数在渐进意义上由 $A(n)\cdot\frac m{\ln m}$ 个，其中 $A(n)$ 为阿庭常数，$A(n)>0.35$。
+*阿庭猜想（<i>Artin's conjecture</i>）* 对于任何给定的非完全平方的数 $n\in\mathbb N$，满足 $q<m$ 且 $\mathrm o_q(n)=q-1$ 的素数 $q$ 的个数在渐进意义上由 $A(n)\cdot\frac m{\ln m}$ 个，其中 $A(n)$ 为阿庭常数，$A(n)>0.35$。
 
-**苏菲-热尔曼素数密度猜想（Sophie-Germain Prime Density Conjecture）** 若素数 $q$ 满足 $q\leqslant m$ 且 $2q+1$ 也是素数，则称它为苏菲-热尔曼素数。苏菲-热尔曼素数在渐进意义上有 $\frac{2C_2m}{\ln^2m}$ 个，其中 $C_2$ 是孪生素数常数（大约地估计为 $0.66$）。
+*苏菲-热尔曼素数密度猜想（<i>Sophie-Germain Prime Density Conjecture</i>）* 若素数 $q$ 满足 $q\leqslant m$ 且 $2q+1$ 也是素数，则称它为苏菲-热尔曼素数。苏菲-热尔曼素数在渐进意义上有 $\frac{2C_2m}{\ln^2m}$ 个，其中 $C_2$ 是孪生素数常数（大约地估计为 $0.66$）。
 
-阿庭猜想如果在 $m=O(\log^2n)$ 时成立，则立即可推出满足性质的 $r=O(\log^2n)$。目前在证明阿庭猜想方面已经有许多进展 [GM]，[GMM]，[HB]，而且已经被证明：如果广义黎曼猜想成立则其成立。
+阿庭猜想如果在 $m=O(\log^2n)$ 时成立，则立即可推出满足性质的 $r=O(\log^2n)$。目前在证明阿庭猜想方面已经有许多进展 [GM]，[GMM]，[HB]，而且已经被*证明*：如果广义黎曼猜想成立则其成立。
 
 如果第二个猜想成立，则我们可以得到 $r=\tilde O(\log^2n)$。
 
@@ -714,7 +720,7 @@ $$|\{q\mid q\text{是素数},\ q\leqslant x\wedge P(q-1)>q^\frac23\}|\geqslant c
 
 **定理 5.3** *此算法的渐进时间复杂度为 $\tilde O(\log^\frac{15}2n)$。*
 
-证明：正如之前所陈述的，满足 $P(q-1)>q^\frac23$ 的素数 $q$ 的高密度表明行 4 会找到一个 $r=O(\log^3 n)$ 的满足要求的 $r$。这使得整个算法的时间复杂度下降至 $\tilde O(\log^\frac{15}2n)$。$\blacksquare$
+*证明*：正如之前所陈述的，满足 $P(q-1)>q^\frac23$ 的素数 $q$ 的高密度表明行 4 会找到一个 $r=O(\log^3 n)$ 的满足要求的 $r$。这使得整个算法的时间复杂度下降至 $\tilde O(\log^\frac{15}2n)$。$\blacksquare$
 
 最近，Hendrik Lenstra 和 Carl Pomerance [LP1] 提出了我们的算法的改进版本，它的时间复杂度可以被证明为 $\tilde O(\log^6 n)$。
 
@@ -724,9 +730,9 @@ $$|\{q\mid q\text{是素数},\ q\leqslant x\wedge P(q-1)>q^\frac23\}|\geqslant c
 
 如果下述猜想成立，则可以改进算法时间复杂度到 $\tilde O(\log^3 n)$。这个猜想在 [BP] 中给出，并在 [KS] 中验证了在 $r\leqslant100$ 和 $n\leqslant10^10$ 的情形下成立：
 
-**猜想 6.1** 如果 $r$ 是素数，不整除 $n$，且
+**猜想 6.1** *如果 $r$ 是素数，不整除 $n$，且*
 $$\tag{6}(X-1)^n\equiv X^n-1\pmod{X^r-1,n}$$
-则 $n$ 要么是素数，要么 $n^2\equiv1\pmod r$。
+*则 $n$ 要么是素数，要么 $n^2\equiv1\pmod r$。*
 
 如果猜想成立，则我们可以略微改进算法来找到第一个不整除 $n^2-1$ 的 $r$。这样的 $r$ 可以被确定落在区间 $[2, 4\log n]$ 中。这是因为小于 $x$ 的素数的乘积至少为 $\mathrm e^x$（参见 [Apo]）。之后，我们可以测试同余式 $(6)$ 是否成立。验证同余式所需的时间为 $\tilde O(r\log^2n)$。这使得整个算法的时间复杂度为 $\tilde O(\log^3n)$。
 
@@ -798,6 +804,7 @@ $$\tag{6}(X-1)^n\equiv X^n-1\pmod{X^r-1,n}$$
 - https://blog.csdn.net/qq_43488473/article/details/106317566
 - https://blog.csdn.net/weixin_43902708/article/details/89854566
 - https://blog.csdn.net/Mysterium/article/details/7916139
+- Agrawal Manindra,Kayal Neeraj,Saxena Nitin. Errata: PRIMES is in P[J]. Annals of Mathematics,2019,189(1).
 
 鸣谢：
 - 郭嘉睿同学给予的知识层面的讲解与补充
