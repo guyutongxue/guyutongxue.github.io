@@ -369,7 +369,7 @@ $$\operatorname{LCM}(m)\geqslant 2^m$$
 
 <cite>（原文的证明被认为是错误的。以下证明取自 <i>Errata: PRIMES is in P</i>。）</cite>
 
-当 $n=2$ 时证明是平凡的，只需取 $r=3$ 即可使命题满足。下假设 $n>2$，此时 $\lceil\log^5n\rceil>10$ 从而可以使用**引理 3.1**。观察到满足 $m^k\leqslant B=\lceil\log^5n\rceil\ ,m\geqslant2$ 的最大的 $k$ 为 $\lfloor\log B\rfloor$。先考虑令 $s$ 为最小的不整除
+*证明*：当 $n=2$ 时证明是平凡的，只需取 $r=3$ 即可使命题满足。下假设 $n>2$，此时 $\lceil\log^5n\rceil>10$ 从而可以使用**引理 3.1**。观察到满足 $m^k\leqslant B=\lceil\log^5n\rceil\ ,m\geqslant2$ 的最大的 $k$ 为 $\lfloor\log B\rfloor$。先考虑令 $s$ 为最小的不整除
 $$n^{\lfloor\log B\rfloor}\cdot\prod_{i=1}^{\lfloor\log^2n\rfloor}(n^i-1)$$
 的正整数。那么 $s$ 有多小呢？注意到：
 $$n^{\lfloor\log B\rfloor}\cdot\prod_{i=1}^{\lfloor\log^2n\rfloor}(n^i-1)<n^{\lfloor\log B\rfloor+\frac12\log^2n\cdot(\log^2n+1)}\leqslant n^{\log^4n}\leqslant2^{\log^5n}\leqslant2^B$$
@@ -677,7 +677,8 @@ $$\begin{aligned}
 > 那么，由于**引理 4.9** 得到了 $|G|>n^{\sqrt t}$，根据**引理 4.8** 的逆否，得知 $n$ 必然为 $p$ 的整数次幂。然而，如果 $n$ 是 $p$ 的二次及以上的幂。那么算法在行 2 就提前结束了。所以，$n$ 只能是 $p$ 的一次幂，即 $n=p$。根据之前的构造，$p$ 是 $n$ 的素因子，所以 $n$ 是素数。
 
 </details>
-<br>
+
+这就完成了**定理 4.1** 的证明。
 
 ## 5. 时间复杂度分析与改进
 
