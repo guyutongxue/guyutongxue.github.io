@@ -72,7 +72,7 @@
 >> 完全剩余系：在模 $m$ 的剩余类中各取一个元素，这 $m$ 个数构成了模 $m$ 的完全剩余系。
 >>> 剩余类：根据整数 $a\in\mathbb Z$ 除以 $n$ 得到的余数将 $\mathbb Z$ 划分为 $n$ 个等价类，$a$ 所在的等价类记作 $[a]$。又称同余类。
 >>
->> *证明*：反设存在 $1\leqslant i<j\leqslant m$ 满足 $ba_i\equiv ba_j\pmod m$，则根据**引理 1.1** 得 $a_i\equiv a_j\pmod m$。这不满足 $a[i],a[j]$ 构成模 $m$ 的完全剩余系，矛盾。故对于 $\forall 1\leqslant i<j\leqslant m$，$ba_i\not\equiv b_aj\pmod m$，即它们构成完全剩余系。
+>> *证明*：反设存在 $1\leqslant i<j\leqslant m$ 满足 $ba_i\equiv ba_j\pmod m$，则根据**引理 1.1** 得 $a_i\equiv a_j\pmod m$。这不满足 $a[i],a[j]$ 构成模 $m$ 的完全剩余系，矛盾。故对于 $\forall 1\leqslant i<j\leqslant m$，$ba_i\not\equiv ba_j\pmod m$，即它们构成完全剩余系。
 >
 > *证明*：对于素数 $p$，构造模 $p$ 的完全剩余系
 > $$P=\{1,2,\cdots,p-1\}$$
@@ -583,7 +583,7 @@ $$f(X^m)=g(X^m)$$
 > 
 > $X+i$ 不是零多项式的原因是：只有当 $X+i$ 整除以 $h(X)$ 时才会被模到 $0$，但 $\partial(h(X))>1$ 且 $\partial(X+i)=1$，故不可能有 $h(X)\mid X+i$，所以 $X+i$ 总不是零多项式。
 > 
-> 关于多项式数量：$i$ 次多项式相当于从 $l+1$ 个一次多项式中可重复地取出 $i$ 个，即 $\displaystyle\left(\!\!\binom {l+1}i\!\!\right)=\binom{l+1-i-1}{i}=\binom{l+i}i$。
+> 关于多项式数量：$i$ 次多项式相当于从 $l+1$ 个一次多项式中可重复地取出 $i$ 个，即 $\displaystyle\left(\!\!\binom {l+1}i\!\!\right)=\binom{l+1+i-1}{i}=\binom{l+i}i$。
 >> 重复组合：从 $n$ 个元素中取出 $r$ 个元素，但这 $r$ 个元素可以重复出现，则组合数量即为 $H_n^r$，也记作 $\displaystyle\left(\!\!\binom nr\!\!\right)$。其中，$H_n^r=C_{n+r-1}^r$。
 >
 > 那么，小于 $t$ 次的多项式总数至少为：
