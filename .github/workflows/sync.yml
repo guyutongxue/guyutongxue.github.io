@@ -1,0 +1,17 @@
+name: Sync
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync to Coding
+      uses: wearerequired/git-mirror-action@master
+      env:
+          SSH_PRIVATE_KEY: ${{ secrets.SYNC_PRIVATE_KEY }}
+      with:
+          source-repo: "git@github.com:Guyutongxue/guyutongxue.github.io.git"
+          destination-repo: "git@gitee.com:guyutongxue/guyutongxue.git"
