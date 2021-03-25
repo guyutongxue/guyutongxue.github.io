@@ -729,7 +729,7 @@ $$|\{q\mid q\text{是素数},\ q\leqslant x\wedge P(q-1)>q^\frac23\}|\geqslant c
 
 在我们的算法中，行 9 的循环需要 $\lfloor\sqrt{\varphi(r)}\log n\rfloor$ 的时间去确定群 $\mathcal G$ 的大小足够大。如果我们能够证明存在更小的 $(X+a)$ 集合来生成满足要求大小的群，那么这个循环的迭代次数可以被减少，这看上去是有可能做到的。
 
-如果下述猜想成立，则可以改进算法时间复杂度到 $\tilde O(\log^3 n)$。这个猜想在 [BP] 中给出，并在 [KS] 中验证了在 $r\leqslant100$ 和 $n\leqslant10^10$ 的情形下成立：
+如果下述猜想成立，则可以改进算法时间复杂度到 $\tilde O(\log^3 n)$。这个猜想在 [BP] 中给出，并在 [KS] 中验证了在 $r\leqslant100$ 和 $n\leqslant10^{10}$ 的情形下成立：
 
 **猜想 6.1** *如果 $r$ 是素数，不整除 $n$，且*
 $$\tag{6}(X-1)^n\equiv X^n-1\pmod{X^r-1,n}$$
