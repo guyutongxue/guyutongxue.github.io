@@ -153,13 +153,15 @@ $$\tag{1}(X+a)^n\equiv X^n+a\pmod n$$
 
 </details>
 
-假设 $n$ 是合数。考虑 $n$ 的一个素因子 $q$。取最大的整数 $k$ 满足 $q^k\mid n$ <cite>（原文使用 $\parallel$ 记号（exact division symbol））</cite>。则 $q^k$ 不整除 $\binom nq$。又因为 $a^{n-q}$ 互素，因此 $X^q$ 项的系数在模 $n$ 的意义下非零。所以多项式 $((X+a)^n-(X^n+a))$ 在 $\mathbb Z_n$ 上不恒等于 $0$。$\blacksquare$
+假设 $n$ 是合数。考虑 $n$ 的一个素因子 $q$。取最大的整数 $k$ 满足 $q^k\mid n$ <cite>（原文使用 $\parallel$ 记号（exact division symbol））</cite>。则 $q^k$ 不整除 $\binom nq$，且它 $a^{n-q}$ 互素。因此 $X^q$ 项的系数在模 $n$ 的意义下非零。所以多项式 $((X+a)^n-(X^n+a))$ 在 $\mathbb Z_n$ 上不恒等于 $0$。$\blacksquare$
 
 <details><summary>解释</summary>
 
-> 这是因为：设 $n=tq^k$ 其中 $q\nmid t$，则 $\displaystyle\binom nq=\frac{n(n-1)\cdots(n-q+1)}{q!}=tq^{k-1}\frac{(n-1)\cdots(n-q+1)}{(q-1)!}=tq^{k-1}\binom {n-1}{q-1}$。由 **引理 2.1.2** 知，$\displaystyle\binom{n-1}{q-1}\equiv\big((n-1)\cdots(n-q+1)\big)\big((q-1)!\big)^{q-2}\pmod q$，而右侧两个因子都不整除于 $q$（前者不含 $q$ 的整倍数，后者都小于 $q$）。所以 $\displaystyle q\nmid\binom{n-1}{q-1}$。所以 $q\nmid t\displaystyle\binom{n-1}{q-1}$。所以 $q^k\nmid\displaystyle\binom nq$。
+> 设 $n=tq^k$ 其中 $q\nmid t$，则 $\displaystyle\binom nq=\frac{n(n-1)\cdots(n-q+1)}{q!}=tq^{k-1}\frac{(n-1)\cdots(n-q+1)}{(q-1)!}=tq^{k-1}\binom {n-1}{q-1}$。由 **引理 2.1.2** 知，$\displaystyle\binom{n-1}{q-1}\equiv\big((n-1)\cdots(n-q+1)\big)\big((q-1)!\big)^{q-2}\pmod q$，而右侧两个因子都不整除于 $q$（前者不含 $q$ 的整倍数，后者都小于 $q$）。所以 $\displaystyle q\nmid\binom{n-1}{q-1}$。所以 $q\nmid t\displaystyle\binom{n-1}{q-1}$。所以 $q^k\nmid\displaystyle\binom nq$。
+> 
+> 由于 $a$ 和 $n$ 互素，故 $a$ 和 $q^k$ 也互素。进而 $a^{n-q}$ 和 $q^k$ 也互素。
 >
-> 这里要证明多项式 $((X+a)^n-(X^n+a))$ 的 $X^q$ 项系数不整除于 $n$，从而证明同余式不成立。已知这一项的系数为 $\binom nqa^{n-q}$，刚刚证明了 $\binom nq$ 不整除于 $n$；又因为 $n,a$ 互素，所以 $a^{n-q}$ 也不整除于 $n$，所以整个系数不整除于 $n$。
+> 这里要证明多项式 $((X+a)^n-(X^n+a))$ 的 $X^q$ 项系数不整除于 $n$，从而证明同余式不成立。已知这一项的系数为 $\binom nqa^{n-q}$，刚刚证明了 $\binom nq$ 不整除于 $n$；又因为 $n,a$ 互素，所以 $a^{n-q}$ 也不整除于 $n$。由于这两者互素，所以它们的乘积——即整个系数也不整除于 $n$。
 
 </details>
 
