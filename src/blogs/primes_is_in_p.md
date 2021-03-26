@@ -153,7 +153,7 @@ $$\tag{1}(X+a)^n\equiv X^n+a\pmod n$$
 
 </details>
 
-假设 $n$ 是合数。考虑 $n$ 的一个素因子 $q$。取最大的整数 $k$ 满足 $q^k\mid n$ <cite>（原文使用 $\parallel$ 记号（exact division symbol））</cite>。则 $q^k$ 不整除 $\binom nq$。又因为 $a^{n-q}$ 互素，因此 $X^q$ 项的系数在模 $n$ 的意义下非零。所以多项式 $((X+a)^n-(x^n+a))$ 在 $\mathbb Z_n$ 上不恒等于 $0$。$\blacksquare$
+假设 $n$ 是合数。考虑 $n$ 的一个素因子 $q$。取最大的整数 $k$ 满足 $q^k\mid n$ <cite>（原文使用 $\parallel$ 记号（exact division symbol））</cite>。则 $q^k$ 不整除 $\binom nq$。又因为 $a^{n-q}$ 互素，因此 $X^q$ 项的系数在模 $n$ 的意义下非零。所以多项式 $((X+a)^n-(X^n+a))$ 在 $\mathbb Z_n$ 上不恒等于 $0$。$\blacksquare$
 
 <details><summary>解释</summary>
 
