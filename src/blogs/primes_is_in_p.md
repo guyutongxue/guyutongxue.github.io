@@ -600,7 +600,7 @@ $$f(X^m)=g(X^m)$$
 
 对于 $n$ 不是 $p$ 的整数次幂的情形，$\mathcal G$ 的大小也可以有上界：
 
-**引理 4.8** *如果 $n$ 不是 $p$ 的整数次幂，则 $|G|\leqslant n^{\sqrt t}$。*
+**引理 4.8** *如果 $n$ 不是 $p$ 的整数次幂，则 $|\mathcal G|\leqslant n^{\sqrt t}$。*
 
 *证明*：考虑 $I$ 的如下子集：
 $$\hat I=\left\{\left(\frac np\right)^i\cdot p^j\ \middle|\ 0\leqslant i,j\leqslant\lfloor\sqrt t\rfloor\right\}$$
@@ -634,7 +634,7 @@ $$(f(X))^{m_1}=(f(X))^{m_2}$$
 
 **引理 4.9** *如果算法返回 $\tt PRIME$，则 $n$ 是素数。*
 
-*证明*：假设算法返回了 $\tt PRIME$。记 $t=|G|,\ l=\lceil\sqrt{\varphi(r)}\log n\rceil$，那么**引理 4.7** 表明：
+*证明*：假设算法返回了 $\tt PRIME$。记 $t=|G|,\ l=\lfloor\sqrt{\varphi(r)}\log n\rfloor$，那么**引理 4.7** 表明：
 $$\begin{aligned}
 |\mathcal G|&\geqslant\binom{t+l}{t-1}\\
 &\geqslant\binom{l+1+\lfloor\sqrt t\log n\rfloor}{\lfloor\sqrt t\log n\rfloor}&&\text{（由于 $t>\sqrt t\log n$）}\\
