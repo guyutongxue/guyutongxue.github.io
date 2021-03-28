@@ -394,7 +394,7 @@ $$n^{\lfloor\log B\rfloor}\cdot\prod_{i=1}^{\lfloor\log^2n\rfloor}(n^i-1)<n^{\lf
 </details>
 
 （第二个不等式对于任意 $n\geqslant2$ 成立。）由**引理 3.1**，前 $B$ 个正整数的最小公倍数最少为 $2^B$。于是，$s\leqslant B$。所以结果是，$s$ 中与 $n$ 互素的因子为 $\dfrac{s}{(s,n^{\lfloor\log B\rfloor})}$，记其为 $r$。更进一步，根据 $s$ 的选择我们已经有 $r$ 不整除
-$$\sum_{i=1}^{\lfloor\log^2n\rfloor}(n^i-1)$$
+$$\prod_{i=1}^{\lfloor\log^2n\rfloor}(n^i-1)$$
 
 <details><summary>解释</summary>
 
