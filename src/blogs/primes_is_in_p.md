@@ -294,14 +294,14 @@ $$\operatorname{LCM}(m)\geqslant 2^m$$
             \RETURN {$\tt COMPOSITE$}
         \ENDIF
         \STATE $r$ $\larr$ 满足 $\mathrm o_r(n)>\log^2n$ 的最小的 $r$
-        \IF{存在 $a\leqslant r$, s.t. $1<(a,n)< r$}
+        \IF{存在 $a\leqslant r$, s.t. $1<(a,n)< n$}
             \RETURN {$\tt COMPOSITE$}
         \ENDIF
         \IF{$n\leqslant r$}
             \RETURN {$\tt PRIME$}
         \ENDIF
         \FOR{$a \larr 1$ \TO $\lfloor\sqrt{\varphi(r)}\log n\rfloor$}
-            \IF{$(X+a)^n\not\equiv X^n+a\pmod{X^r-1.n}$}
+            \IF{$(X+a)^n\not\equiv X^n+a\pmod{X^r-1,n}$}
                 \RETURN {$\tt COMPOSITE$}
             \ENDIF
         \ENDFOR
