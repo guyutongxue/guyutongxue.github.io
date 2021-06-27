@@ -9,8 +9,14 @@ function parseTeacher(str) {
 }
 
 function get() {
+    const token = $('#userToken').val();
+    Cookies.set('query_score_token', token);
     $('#tableContainer').children().remove();
-    $.getJSON("https://pkuhelper.pku.edu.cn/api_xmcp/isop/scores?user_token=" + $('#userToken').val()).done(json => {
+    $.getJSON(`https://pkuhelper.pku.edu.cn/api_xmcp/isop/scores?user_token=${token}`).done((/** @type {import("./result").Result)} */ json ) => {
+        if (json.success === false) {
+            alert(json.errMsg);
+            return;
+        }
         const scores = json.cjxx;
         for (const i of scores) {
             const xq = i.xndpx + '-' + i.xq;
@@ -45,3 +51,10 @@ function get() {
         alert('获取失败');
     });
 }
+
+$(() => {
+    const cookie = Cookies.get('query_score_token');
+    if (typeof cookie !== "undefined") {
+        $('#userToken').val(cookie);
+    }
+})

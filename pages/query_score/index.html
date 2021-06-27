@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title></title>
+    <title>查分页面</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <style>
         #userToken {
             width: 100%
@@ -16,7 +17,6 @@
 </head>
 
 <body>
-    <script src="index.js"></script>
     <div class="container">
         <noscript><div class="alert alert-danger">此浏览器不支持。</div></noscript>
         <h1>简单的查成绩页面</h1>
@@ -31,7 +31,10 @@
         </ul>
         </div>
         <div id="tableContainer"></div>
+        <hr>
+        <p class="text-muted">※ 此页面正在使用 Cookie。</p>
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>
