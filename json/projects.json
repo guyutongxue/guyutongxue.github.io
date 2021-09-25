@@ -9,11 +9,11 @@
     },
     {
         "name": "VS Code Config Helper",
-        "lang": "csharp",
+        "lang": "cpp",
         "img": "https://guyutongxue.github.io/VSCodeConfigHelper/assets/VSCodeConfigHelper.png",
         "discription": "简单、快捷的 VS Code C++ 配置工具",
-        "link": "https://guyutongxue.github.io/VSCodeConfigHelper/",
-        "github": "Guyutongxue/VSCodeConfigHelper"
+        "link": "https://vscch3.vercel.app",
+        "github": "Guyutongxue/VSCodeConfigHelper3"
     },
     {
         "name": "个人网站",

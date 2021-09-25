@@ -47,7 +47,7 @@ function changeLang(text) {
 </div>";
             projects.innerHTML += htmlText;
         }
-        changeLang('csharp');
+        changeLang('cpp');
         for (var i in json) {
             var update_time = undefined;
             if (typeof([i].update) != "undefined") {
