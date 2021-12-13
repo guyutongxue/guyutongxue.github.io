@@ -77,6 +77,22 @@
         "discription": "五岛润，出自动画/小说《天使的 3P》"
     },
     {
+        "date": "1801",
+        "discription": "神崎日照，出自动画/漫画《调教咖啡厅》"
+    },
+    {
+        "date": "1804",
+        "discription": "夜叉神天衣，出自动画/小说《龙王的工作》"
+    },
+    {
+        "date": "1807",
+        "discription": "萌田薰子，出自动画/漫画《Comic Girls》"
+    },
+    {
+        "date": "1810",
+        "discription": "御原凛音，出自动画/游戏《ISLAND》"
+    },
+    {
         "date": "1901",
         "discription": "卡迪纳尔（Cardinal，原名莉瑟莉丝），出自动画/小说《刀剑神域》"
     },
@@ -119,5 +135,9 @@
     {
         "date": "2107",
         "discription": "菲谢尔，出自游戏《原神》"
+    },
+    {
+        "date": "2112",
+        "discription": "珊瑚宫心海，出自游戏《原神》"
     }
 ]
