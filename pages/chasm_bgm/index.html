@@ -1,43 +1,109 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chasm BGM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'hywh85';
+            src: url('hk4e_zh-cn.ttf');
+        }
 
+        body {
+            margin: 0;
+            min-width: 800px;
+            background-color: black;
+            font-family: hywh85, sans-serif;
+        }
+
+        main {
+            margin: 0 8rem;
+            position: relative;
+        }
+
+        .point {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .point.active {
+            background-color: #ffc107;
+        }
+
+        .point.disabled {
+            color: gainsboro;
+            cursor: not-allowed;
+        }
+
+        #chasmMap {
+            width: 100%;
+        }
+
+        #tySwitcher {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #tySwitcher .text {
+            padding: 25px 0;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+    </style>
 </head>
+
 <body>
+    <main>
+        <div id="tySwitcher">
+            <span class="text">层岩巨渊·地下矿区<br> BGM 切换演示</span>
+            <div class="btn-group">
+                <button class="switch-btn btn btn-secondary" data-ty="1" onclick="tySwitch(1)">
+                    Env 1
+                </button>
+                <button class="switch-btn btn btn-secondary" data-ty="2" onclick="tySwitch(2)">
+                    Env 2
+                </button>
+                <button class="switch-btn btn btn-secondary" data-ty="0" onclick="tySwitch(0)">
+                    Battle
+                </button>
+            </div>
+        </div>
+        <div>
+            <div class="point disabled" style="top: 30%; left: 77%" data-place="0">
+                主矿区
+            </div>
+            <div class="point active" style="top: 60%; left: 58%" data-place="1" onclick="placeSwitch(1)">
+                无名遗迹
+            </div>
+            <div class="point" style="top: 45%; left: 43%" data-place="2" onclick="placeSwitch(2)">
+                地下水泽
+            </div>
+            <div class="point" style="top: 75%; left: 45%" data-place="3" onclick="placeSwitch(3)">
+                荧光狭道
+            </div>
+            <div class="point" style="top: 65%; left: 8%" data-place="4" onclick="placeSwitch(4)">
+                寒天之钉
+            </div>
+        </div>
+        <img id="chasmMap" src="chasm.png" alt="Map of The Chasm">
 
-    <ol>
-        <!-- <li>
-            主矿区
-            <button onclick="play(0)">go</button>
-        </li> -->
-        <li>
-            无名遗迹
-            <button onclick="play(1)">go</button>
-            <button onclick="play(1, 1)">go</button>
-            <button onclick="play(1, 2)">go</button>
-        </li>
-        <li>
-            地下水泽
-            <button onclick="play(2)">go</button>
-            <button onclick="play(2, 1)">go</button>
-            <button onclick="play(2, 2)">go</button>
-        </li>
-        <li>
-            荧光狭道
-            <button onclick="play(3)">go</button>
-            <button onclick="play(3, 1)">go</button>
-            <button onclick="play(3, 2)">go</button>
-        </li>
-        <li>
-            寒天之钉
-            <button onclick="play(4)">go</button>
-            <button onclick="play(4, 1)">go</button>
-        </li>
-    </ol>
-    <button onclick="stop()">stop</button>
-    <img style="width: 100%" src="chasm.png" alt="Map of The Chasm">
-
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
