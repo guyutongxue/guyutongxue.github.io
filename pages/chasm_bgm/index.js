@@ -12,7 +12,7 @@ function generateHowl(/** @type {string[]} */ name, /** @type {number} */ no) {
     return name.map(n => new Howl({
         src: [n],
         sprite: {
-            d: [START[no], END[no], true]
+            d: [START[no], END[no] - START[no], true]
         },
     }));
 }
