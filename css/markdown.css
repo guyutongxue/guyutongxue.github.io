@@ -44,9 +44,9 @@ body {
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word;
-  padding    : 1em;
-  margin     : auto;
-  max-width  : 42em;
+  padding: 1em;
+  margin: auto;
+  max-width: 42em;
 }
 
 .octicon {
@@ -848,4 +848,15 @@ pre tt {
 
 ::-webkit-calendar-picker-indicator {
   filter: invert(50%);
+}
+
+@media print {
+  pre > code {
+    white-space: pre-wrap;
+    word-wrap  : break-word;
+  }
+
+  pre blockquote {
+    page-break-inside: avoid;
+  }
 }
