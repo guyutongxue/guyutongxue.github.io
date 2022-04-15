@@ -410,17 +410,6 @@ g-emoji img {
   height: 1em;
 }
 
-::before {
-  display: table;
-  content: "";
-}
-
-::after {
-  display: table;
-  clear: both;
-  content: "";
-}
-
 body > *:first-child {
   margin-top: 0 !important;
 }
