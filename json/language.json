@@ -10,6 +10,11 @@
         "icon": "file_type_cpp"
     },
     {
+        "id": "rust",
+        "text": "Rust",
+        "icon": "file_type_rust"
+    },
+    {
         "id": "html",
         "text": "HTML",
         "icon": "file_type_html"
