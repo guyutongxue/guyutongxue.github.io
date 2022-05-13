@@ -5,7 +5,7 @@ const START = [
     0, 1572, 2049, 4032, 1477
 ];
 const END = [
-    0, 224719, 254105, 236132, 243061
+    230000, 224719, 254105, 236132, 243061
 ];
 
 function generateHowl(/** @type {string[]} */ name, /** @type {number} */ no) {
@@ -20,7 +20,7 @@ function generateHowl(/** @type {string[]} */ name, /** @type {number} */ no) {
 /** @type {Howl[][]} */
 const AUDIOS = [
     [
-        "1.b.mp3",
+        "1.b.2.mp3",
         "1.b.mp3", // TODO
         "1.b.mp3",
     ],
