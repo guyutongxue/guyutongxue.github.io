@@ -1,12 +1,12 @@
 <!-- title: PRIMES is in P -->
 
 <!-- Pseudocode JS -->
-<script src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js""></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
-<script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js"></script>
+<script src="https://unpkg.com/katex@0.11.0/dist/katex.min.js""></script>
+<link rel="stylesheet" href="https://unpkg.com/pseudocode@latest/build/pseudocode.min.css">
+<script src="https://unpkg.com/pseudocode@latest/build/pseudocode.min.js"></script>
 <!-- end -->
 <!-- JQuery -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="../js/markdown.js"></script>
 
 <style>

@@ -18,7 +18,7 @@ function changeLang(text) {
         for (let i in json) {
             let htmlText = '\
 <a class="project-tab btn btn-light ml-2 mr-2 mb-2" id="langId'+ json[i].id +'" href="javascript:changeLang(\''+ json[i].id +'\');void(0)">\
-    <img width="30" src="https://cdn.jsdelivr.net/gh/vscode-icons/vscode-icons@master/icons/' + json[i].icon + '.svg" alt = "' + json[i].text + '" title="' + json[i].text + '">\
+    <img width="30" src="https://dderevjanik.github.io/vscode-icons-js-example/icons/' + json[i].icon + '.svg" alt = "' + json[i].text + '" title="' + json[i].text + '">\
 </a>';
             tabs.innerHTML += htmlText;
         }
