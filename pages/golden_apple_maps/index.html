@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<title></title>
+<style>
+  :root {
+  }
+  @counter-style spaces {
+    system: additive;
+    additive-symbols: 1 "\a";
+  }
+  .container {
+    --container-width: 800px;
+    counter-reset: ctrl;
+    --controller-width: 6em;
+    --map-width: calc(var(--container-width) - var(--controller-width));
+    --map-height: var(--map-width);
+    --controller-left: calc(0.7 * var(--map-width));
+    --map-offset-top: calc(-0.05 * var(--map-height));
+    --map-offset-left: calc(-0.15 * var(--map-width));
+    position: relative;
+    width: var(--container-width);
+    height: var(--map-height);
+    user-select: none;
+    overflow: hidden;
+  }
+  .img {
+    position: absolute;
+    width: var(--map-width);
+    height: var(--map-height);
+    margin-top: var(--map-offset-top);
+    margin-left: var(--map-offset-left);
+
+  }
+  .island-container {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+  }
+  .island {
+    visibility: hidden;
+    z-index: 10;
+    clip-path: inset(100px 100px 100px 100px);
+  }
+  .hidden {
+    display: none;
+  }
+  input[type="radio"]:checked + .island-container > .island {
+    visibility: visible;
+  }
+  input[type="radio"]:checked + .island-container > .controller {
+    font-weight: bold;
+    cursor: auto;
+    color: unset;
+  }
+  .controller-space::after {
+    counter-increment: ctrl;
+    white-space: pre;
+    content: counter(ctrl, spaces);
+  }
+  .controller {
+    position: absolute;
+    display: block;
+    width: var(--controller-width);
+    left: var(--controller-left);
+    pointer-events: auto;
+    padding: 0 1em;
+    cursor: pointer;
+  }
+  .controller:hover {
+    color: gray;
+  }
+  .controller-divider::before {
+    counter-increment: ctrl;
+    white-space: pre;
+    content: counter(ctrl, spaces);
+  }
+  .controller-divider {
+    font-style: italic;
+    position: absolute;
+    left: var(--controller-left);
+    margin-left: 0.5em;
+    z-index: -1;
+    color: darkgray;
+  }
+</style>
+<div class="container">
+  <img class="img" src="./background.png" />
+  <div class="controller-divider">布丁岛</div>
+  <input
+    type="radio"
+    name="buding"
+    id="budingOriginal"
+    class="hidden"
+    checked
+  />
+  <div class="island-container">
+    <img class="img island" src="./buding-original.png" />
+    <span class="controller-space"></span>
+    <label for="budingOriginal" class="controller">初始状态</label>
+  </div>
+  <input type="radio" name="buding" id="budingII" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-inazuma-inazuma.png" />
+    <span class="controller-space"></span>
+    <label for="budingII" class="controller">浮光&times;浮光</label>
+  </div>
+  <input type="radio" name="buding" id="budingIL" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-inazuma-liyue.png" />
+    <span class="controller-space"></span>
+    <label for="budingIL" class="controller">浮光&times;磐固</label>
+  </div>
+  <input type="radio" name="buding" id="budingIM" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-inzuma-mondstadt.png" />
+    <span class="controller-space"></span>
+    <label for="budingIM" class="controller">浮光&times;优悠</label>
+  </div>
+  <input type="radio" name="buding" id="budingLI" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-liyue-inazuma.png" />
+    <span class="controller-space"></span>
+    <label for="budingLI" class="controller">磐固&times;浮光</label>
+  </div>
+  <input type="radio" name="buding" id="budingLL" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-liyue-liyue.png" />
+    <span class="controller-space"></span>
+    <label for="budingLL" class="controller">磐固&times;磐固</label>
+  </div>
+  <input type="radio" name="buding" id="budingLM" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-liyue-mondstadt.png" />
+    <span class="controller-space"></span>
+    <label for="budingLM" class="controller">磐固&times;优悠</label>
+  </div>
+  <input type="radio" name="buding" id="budingMI" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-mondstadt-inazuma.png" />
+    <span class="controller-space"></span>
+    <label for="budingMI" class="controller">优悠&times;浮光</label>
+  </div>
+  <input type="radio" name="buding" id="budingML" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-mondstadt-liyue.png" />
+    <span class="controller-space"></span>
+    <label for="budingML" class="controller">优悠&times;磐固</label>
+  </div>
+  <input type="radio" name="buding" id="budingMM" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./buding-mondstadt-mondstadt.png" />
+    <span class="controller-space"></span>
+    <label for="budingMM" class="controller">优悠&times;优悠</label>
+  </div>
+  <div class="controller-divider">破破岛</div>
+  <input type="radio" name="popo" id="popoOriginal" class="hidden" checked />
+  <div class="island-container">
+    <img class="img island" src="./popo-original.png" />
+    <span class="controller-space"></span>
+    <label for="popoOriginal" class="controller">初始状态</label>
+  </div>
+  <input type="radio" name="popo" id="popo1" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./popo-1.png" />
+    <span class="controller-space"></span>
+    <label for="popo1" class="controller">形态 I</label>
+  </div>
+  <input type="radio" name="popo" id="popo2" class="hidden" />
+  <div class="island-container">
+    <img class="img island" src="./popo-2.png" />
+    <span class="controller-space"></span>
+    <label for="popo2" class="controller">形态 II</label>
+  </div>
+  <div class="controller-divider">双双岛</div>
+  <input type="radio" name="shuangshuang" id="shuangshuangOriginal" class="hidden" checked />
+  <div class="island-container">
+    <img class="img island" src="./shuangshuang-original.png" />
+    <span class="controller-space"></span>
+    <label for="shuangshuangOriginal" class="controller">初始状态</label>
+  </div>
+  <div class="controller-divider">危危岛</div>
+  <input type="radio" name="weiwei" id="weiweiOriginal" class="hidden" checked />
+  <div class="island-container">
+    <img class="img island" src="./weiwei-original.png" />
+    <span class="controller-space"></span>
+    <label for="weiweiOriginal" class="controller">初始状态</label>
+  </div>
+</div>
