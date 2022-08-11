@@ -196,6 +196,7 @@
           quoteHit = false;
         }
       }
+      rev += '"';
       // 反转为正向字符串
       return Array.from(rev).reverse().join(&quot;&quot;);
     })
@@ -231,7 +232,7 @@
 <ul>
 <li>分析程序处于两个状态之一：引号内状态或引号外状态。</li>
 <li>初始的状态是引号外状态。</li>
-<li>任何状态下遇到字符 <code>^</code>，则取消接下来字符的特殊含义（即“被转义”）。带有特殊含义的字符包括 <code>(</code> <code>@</code> <code>&amp;</code> <code>|</code> <code>&lt;</code> <code>&gt;</code> <code>;</code> <code>,</code> <code>=</code> <code> </code> Tab、回车和一些其它控制字符。</li>
+<li>任何状态下遇到字符 <code>^</code>，则取消接下来字符的特殊含义（即“被转义”）。带有特殊含义的字符包括 <code>^</code> <code>"</code> <code>(</code> <code>@</code> <code>&amp;</code> <code>|</code> <code>&lt;</code> <code>&gt;</code> <code>;</code> <code>,</code> <code>=</code> <code> </code> Tab、回车和一些其它控制字符，但回车符不能被转义。</li>
 <li>任何状态下遇到字符 <code>&quot;</code>，切换程序状态（已经被转义的除外）。</li>
 <li>处于引号外状态时：
 <ul>
