@@ -18,5 +18,6 @@
   "devDependencies": {
     "rehype-katex": "^6.0.3",
     "remark-math": "^5.1.1"
-  }
+  },
+  "packageManager": "pnpm@8.6.0"
 }
