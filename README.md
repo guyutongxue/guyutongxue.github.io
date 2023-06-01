@@ -1,7 +1,7 @@
 # Guyutongxue Personal Website
 
-[https://guyutongxue.github.io/](https://guyutongxue.github.io/) based on **GitHub Pages**.
+https://guyutongxue.site/ based on **GitHub Pages**.
 
 
 ***
-Powered by **Bootstrap**.
+Powered by **Astro**.

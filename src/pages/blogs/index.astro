@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Container from "../../components/Container.astro";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const blogEntries = await getCollection("blogs");
+---
+
+<Layout title="博客列表">
+  <Header />
+  <Container>
+    <h1 class="text-4xl font-bold mb-3">博客列表</h1>
+      {
+        blogEntries.map((e) => (
+          <li>
+            <a href={"/blogs/" + e.slug} class="text-blue-500 dark:text-blue-100">{e.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </Container>
+</Layout>

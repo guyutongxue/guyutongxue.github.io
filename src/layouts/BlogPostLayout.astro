@@ -1,0 +1,16 @@
+---
+import "katex/dist/katex.min.css";
+import "../styles/markdown.css";
+import Header from "../components/Header.astro";
+import Layout from "./Layout.astro";
+import Container from "../components/Container.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <Header />
+  <Container>
+    {frontmatter.realTitle ? undefined : <h1>{frontmatter.title}</h1>}
+    <slot />
+  </Container>
+</Layout>
