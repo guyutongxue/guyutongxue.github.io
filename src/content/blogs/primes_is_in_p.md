@@ -2,12 +2,7 @@
 title: PRIMES is in P 中译
 ---
 
-<!-- Pseudocode JS -->
-<!-- <script src="https://unpkg.com/katex@0.11.0/dist/katex.min.js""></script>
 <link rel="stylesheet" href="https://unpkg.com/pseudocode@latest/build/pseudocode.min.css">
-<script src="https://unpkg.com/pseudocode@latest/build/pseudocode.min.js"></script> -->
-<!-- end -->
-<!-- JQuery -->
 <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="../js/markdown.js"></script>
 
@@ -27,15 +22,16 @@ title: PRIMES is in P 中译
         position: relative;
     }
     #algoWrapper #fixCheck {
+        display: none; /* TODO */
         position:absolute;
-        top:3px;
+        top: 3px;
         right:0;
         z-index:999;
     }
     #algoWrapper.fixed {
-        width: min(calc(100vw - 2em),42em);
+        width: 42em;
         position: fixed;
-        top: 0;
+        top: 3em;
         background: white;
         z-index: 599;
     }
@@ -334,38 +330,94 @@ $$
 
 <div id="anchor"></div>
 <div id="algoWrapper">
-<pre id="aksAlgorithm">
-    \begin{algorithm}
-    \caption{AKS 素性检测}
-    \begin{algorithmic}
-    \PROCEDURE{AksPrimalityTesting}{$n$}
-        \IF{存在 $a\in\mathbb N, b>1$, s.t. $n=a^b$}
-            \RETURN {$\tt COMPOSITE$}
-        \ENDIF
-        \STATE $r$ $\larr$ 满足 $\mathrm o_r(n)>\log^2n$ 的最小的 $r$
-        \IF{存在 $a\leqslant r$, s.t. $1<(a,n)< n$}
-            \RETURN {$\tt COMPOSITE$}
-        \ENDIF
-        \IF{$n\leqslant r$}
-            \RETURN {$\tt PRIME$}
-        \ENDIF
-        \FOR{$a \larr 1$ \TO $\lfloor\sqrt{\varphi(r)}\log n\rfloor$}
-            \IF{$(X+a)^n\not\equiv X^n+a\pmod{X^r-1,n}$}
-                \RETURN {$\tt COMPOSITE$}
-            \ENDIF
-        \ENDFOR
-        \RETURN {$\tt PRIME$}
-    \ENDPROCEDURE
-    \end{algorithmic}
-    \end{algorithm}
-</pre>
+<div class="ps-root">
+<div class="ps-algorithm with-caption">
+<p class="ps-line" style="text-indent:-1.2em;padding-left:1.2em;">
+<span class="ps-keyword">Algorithm 1 </span>AKS 素性检测</p>
+<div class="ps-algorithmic  with-linenum ">
+<div class="ps-block" style="margin-left:1.7999999999999998em;">
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:0em;">1:</span><span class="ps-keyword">procedure </span><span class="ps-funcname">AksPrimalityTesting</span>(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span>)</p>
+<div class="ps-block" style="margin-left:1.2em;">
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-1.5em;">2:</span><span class="ps-keyword">if </span>存在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mi mathvariant="double-struck">N</mi><mo separator="true">,</mo><mi>b</mi><mo>&gt;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a\in\mathbb N, b&gt;1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathbb">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">b</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span>, s.t. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><msup><mi>a</mi><mi>b</mi></msup></mrow><annotation encoding="application/x-tex">n=a^b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8491em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">b</span></span></span></span></span></span></span></span></span></span></span><span class="ps-keyword"> then</span></p>
+<div class="ps-block" style="margin-left:1.2em;">
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-3em;">3:</span><span class="ps-keyword">return </span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">C</mi><mi mathvariant="monospace">O</mi><mi mathvariant="monospace">M</mi><mi mathvariant="monospace">P</mi><mi mathvariant="monospace">O</mi><mi mathvariant="monospace">S</mi><mi mathvariant="monospace">I</mi><mi mathvariant="monospace">T</mi><mi mathvariant="monospace">E</mi></mrow><annotation encoding="application/x-tex">\tt COMPOSITE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord"><span class="mord mathtt">COMPOSITE</span></span></span></span></span></p>
+</div>
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-1.5em;">4:</span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>←</mo></mrow><annotation encoding="application/x-tex">\larr</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.3669em;"></span><span class="mrel">←</span></span></span></span> 满足 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="normal">o</mi><mi>r</mi></msub><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>&gt;</mo><msup><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msup><mi>n</mi></mrow><annotation encoding="application/x-tex">\mathrm o_r(n)&gt;\log^2n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathrm">o</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0929em;vertical-align:-0.1944em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984em;"><span style="top:-3.1473em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span></span></span></span> 的最小的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></p>
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-1.5em;">5:</span><span class="ps-keyword">if </span>存在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>⩽</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">a\leqslant r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7733em;vertical-align:-0.1367em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">⩽</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span>, s.t. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>&lt;</mo><mo stretchy="false">(</mo><mi>a</mi><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1&lt;(a,n)&lt; n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6835em;vertical-align:-0.0391em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span><span class="ps-keyword"> then</span></p>
+<div class="ps-block" style="margin-left:1.2em;">
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-3em;">6:</span><span class="ps-keyword">return </span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">C</mi><mi mathvariant="monospace">O</mi><mi mathvariant="monospace">M</mi><mi mathvariant="monospace">P</mi><mi mathvariant="monospace">O</mi><mi mathvariant="monospace">S</mi><mi mathvariant="monospace">I</mi><mi mathvariant="monospace">T</mi><mi mathvariant="monospace">E</mi></mrow><annotation encoding="application/x-tex">\tt COMPOSITE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord"><span class="mord mathtt">COMPOSITE</span></span></span></span></span></p>
+</div>
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-1.5em;">7:</span><span class="ps-keyword">if </span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>⩽</mo><mi>r</mi></mrow><annotation encoding="application/x-tex">n\leqslant r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7733em;vertical-align:-0.1367em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel amsrm">⩽</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span><span class="ps-keyword"> then</span></p>
+<div class="ps-block" style="margin-left:1.2em;">
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-3em;">8:</span><span class="ps-keyword">return </span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">P</mi><mi mathvariant="monospace">R</mi><mi mathvariant="monospace">I</mi><mi mathvariant="monospace">M</mi><mi mathvariant="monospace">E</mi></mrow><annotation encoding="application/x-tex">\tt PRIME</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord"><span class="mord mathtt">PRIME</span></span></span></span></span></p>
+</div>
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-1.5em;">9:</span><span class="ps-keyword">for </span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>←</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a \larr 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">←</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> <span class="ps-keyword">to</span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">⌊</mo><msqrt><mrow><mi>φ</mi><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo></mrow></msqrt><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">⌋</mo></mrow><annotation encoding="application/x-tex">\lfloor\sqrt{\varphi(r)}\log n\rfloor</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.24em;vertical-align:-0.305em;"></span><span class="mopen">⌊</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.935em;"><span class="svg-align" style="top:-3.2em;"><span class="pstrut" style="height:3.2em;"></span><span class="mord" style="padding-left:1em;"><span class="mord mathnormal">φ</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mclose">)</span></span></span><span style="top:-2.895em;"><span class="pstrut" style="height:3.2em;"></span><span class="hide-tail" style="min-width:1.02em;height:1.28em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.28em" viewBox="0 0 400000 1296" preserveAspectRatio="xMinYMin slice"><path d="M263,681c0.7,0,18,39.7,52,119
+c34,79.3,68.167,158.7,102.5,238c34.3,79.3,51.8,119.3,52.5,120
+c340,-704.7,510.7,-1060.3,512,-1067
+l0 -0
+c4.7,-7.3,11,-11,19,-11
+H40000v40H1012.3
+s-271.3,567,-271.3,567c-38.7,80.7,-84,175,-136,283c-52,108,-89.167,185.3,-111.5,232
+c-22.3,46.7,-33.8,70.3,-34.5,71c-4.7,4.7,-12.3,7,-23,7s-12,-1,-12,-1
+s-109,-253,-109,-253c-72.7,-168,-109.3,-252,-110,-252c-10.7,8,-22,16.7,-34,26
+c-22,17.3,-33.3,26,-34,26s-26,-26,-26,-26s76,-59,76,-59s76,-60,76,-60z
+M1001 80h400000v40h-400000z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.305em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">⌋</span></span></span></span><span class="ps-keyword"> do</span></p>
+<div class="ps-block" style="margin-left:1.2em;">
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-3em;">10:</span><span class="ps-keyword">if </span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>X</mi><mo>+</mo><mi>a</mi><msup><mo stretchy="false">)</mo><mi>n</mi></msup><mo>≢</mo><msup><mi>X</mi><mi>n</mi></msup><mo>+</mo><mi>a</mi><mspace></mspace><mspace width="0.4444em"></mspace><mo stretchy="false">(</mo><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow><mspace width="0.3333em"></mspace><msup><mi>X</mi><mi>r</mi></msup><mo>−</mo><mn>1</mn><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(X+a)^n\not\equiv X^n+a\pmod{X^r-1,n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"><span class="mord vbox"><span class="thinbox"><span class="rlap"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="inner"><span class="mord"><span class="mrel"></span></span></span><span class="fix"></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.4637em;"></span><span class="mrel">≡</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">a</span><span class="mspace allowbreak"></span><span class="mspace" style="margin-right:0.4444em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord"><span class="mord mathrm">mod</span></span></span><span class="mspace" style="margin-right:0.3333em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.02778em;">r</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span><span class="ps-keyword"> then</span></p>
+<div class="ps-block" style="margin-left:1.2em;">
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-4.5em;">11:</span><span class="ps-keyword">return </span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">C</mi><mi mathvariant="monospace">O</mi><mi mathvariant="monospace">M</mi><mi mathvariant="monospace">P</mi><mi mathvariant="monospace">O</mi><mi mathvariant="monospace">S</mi><mi mathvariant="monospace">I</mi><mi mathvariant="monospace">T</mi><mi mathvariant="monospace">E</mi></mrow><annotation encoding="application/x-tex">\tt COMPOSITE</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord"><span class="mord mathtt">COMPOSITE</span></span></span></span></span></p>
+</div>
+</div>
+<p class="ps-line ps-code">
+<span class="ps-linenum" style="left:-1.5em;">12:</span><span class="ps-keyword">return </span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="monospace">P</mi><mi mathvariant="monospace">R</mi><mi mathvariant="monospace">I</mi><mi mathvariant="monospace">M</mi><mi mathvariant="monospace">E</mi></mrow><annotation encoding="application/x-tex">\tt PRIME</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6111em;"></span><span class="mord"><span class="mord mathtt">PRIME</span></span></span></span></span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--
+  \begin{algorithm}
+  \caption{AKS 素性检测}
+  \begin{algorithmic}
+  \PROCEDURE{AksPrimalityTesting}{$n$}
+      \IF{存在 $a\in\mathbb N, b>1$, s.t. $n=a^b$}
+          \RETURN {$\tt COMPOSITE$}
+      \ENDIF
+      \STATE $r$ $\larr$ 满足 $\mathrm o_r(n)>\log^2n$ 的最小的 $r$
+      \IF{存在 $a\leqslant r$, s.t. $1<(a,n)< n$}
+          \RETURN {$\tt COMPOSITE$}
+      \ENDIF
+      \IF{$n\leqslant r$}
+          \RETURN {$\tt PRIME$}
+      \ENDIF
+      \FOR{$a \larr 1$ \TO $\lfloor\sqrt{\varphi(r)}\log n\rfloor$}
+          \IF{$(X+a)^n\not\equiv X^n+a\pmod{X^r-1,n}$}
+              \RETURN {$\tt COMPOSITE$}
+          \ENDIF
+      \ENDFOR
+      \RETURN {$\tt PRIME$}
+  \ENDPROCEDURE
+  \end{algorithmic}
+  \end{algorithm}
+{
+    lineNumber: true,
+    noEnd: true
+}
+-->
 <span id="fixCheck"><input type="checkbox">悬浮显示</span>
 <script>
     const fixed = false;
-    pseudocode.renderElement(document.getElementById("aksAlgorithm"), {
-        lineNumber: true,
-        noEnd: true
-    });
     function listener(e) {
         if ($(document).scrollTop() > $("#anchor").offset().top) {
             $("#algoWrapper").addClass("fixed");
