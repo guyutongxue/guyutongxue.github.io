@@ -35,7 +35,7 @@ function changeLang(text) {
         </div>\
         <div class='card-body'>\
             <h4 class='card-title'>"+ json[i].name + "</h4>\
-            <p class='card-text'>"+ json[i].discription + "</p>\
+            <p class='card-text'>"+ json[i].description + "</p>\
             <div class='d-flex justify-content-between align-items-center'>\
                 " + (typeof(json[i].link) != "undefined" ? "\
                 <a class='btn btn-sm btn-dark' target='_blank' href='"+ json[i].link + "'>查看</a>\

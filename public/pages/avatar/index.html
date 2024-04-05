@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="alert alert-light w-100">
                         <h4>简介</h4>
-                        <p id="discription"></p>
+                        <p id="description"></p>
                         <small id="duration"></small>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
         // $('.carousel-indicators').children().eq(0).addClass('active');
         $('.carousel-inner').children().eq(8).addClass('active');
         function showDetail(num) {
-            $('#discription').text(json[num].discription);
+            $('#description').text(json[num].description);
             $('#duration').text("20" + json[num].date.substr(0, 2) + "年" + json[num].date.substr(2, 2) + "月起使用")
             if (typeof (json[num].ps) != "undefined") {
                 $('#duration').append('<br>' + json[num].ps);

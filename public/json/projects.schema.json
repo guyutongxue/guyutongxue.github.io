@@ -17,9 +17,9 @@
                 "type": "string",
                 "title": "Showing Image"
             },
-            "discription": {
+            "description": {
                 "type": "string",
-                "title": "A brief discription to the project"
+                "title": "A brief description to the project"
             },
             "link": {
                 "type": "string",
