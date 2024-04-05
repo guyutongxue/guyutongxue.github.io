@@ -6,20 +6,20 @@ title: Configure WSL with beauty
 
 ## Enable features and reboot
 
-```PowerShell
+```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 ```
 ## Download Ubuntu from Microsoft Store.
 
-```PowerShell
+```powershell
 bash
 ```
 To initialize the OS.
 
 ## Upgrade version
 
-```PowerShell
+```powershell
 wsl --set-version Ubuntu 2
 ```
 
@@ -27,13 +27,13 @@ You may be asked to install a core update pack. Just follow the instruction.
 
 ## Transfer the filesystem to an other place
 
-```PowerShell
+```powershell
 wsl --export Ubuntu D:\ubuntu.tar
 ```
 
 Remove Ubuntu from Microsoft store.
 
-```PowerShell
+```powershell
 wsl --import Ubuntu /path/to/your/favorite D:\ubuntu.tar --version 2
 ```
 
@@ -48,7 +48,7 @@ Try again login by `bash` or `wsl`.
 Download Windows Terminal from Microsoft Store.
 
 Configure settings:
-```JSON
+```json
 {
     "defaultProfile": "{8bb950c2-4343-563a-9788-e8a1d22d142f}", // GUID to the WSL
     "initialCols": 100,
@@ -81,26 +81,26 @@ as the default value.
 
 ## Install zsh and configure with theme
 
-```Bash
+```bash
 sudo apt install zsh
 ```
 
-```Bash
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-```Bash
+```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
 
-```Bash
+```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 In file `~/.zshrc`:
 
-```Bash
+```bash
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=240"
