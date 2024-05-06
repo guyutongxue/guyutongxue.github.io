@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>帅 otto 帅</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      main {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+      }
+      .control-panel {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        background-color: white;
+        border: 2px black solid;
+        height: 50px;
+        z-index: 10;
+      }
+      #canvas {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <canvas id="canvas"></canvas>
+      <div class="control-panel">
+        <input type="file" accept="image/*" multiple id="fileInput" />
+        <input type="color" id="bgColorInput" value="#00ff00" />
+        <input
+          type="range"
+          id="speedInput"
+          min="0"
+          max="0.15"
+          step="any"
+          value="0.04"
+        />
+        <button id="export">导出视频</button>
+      </div>
+    </main>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import * as THREE from "three";
+
+      const canvas = document.querySelector("#canvas");
+
+      let camera, scene, renderer;
+      let mesh;
+      let color;
+      let rotationSpeed = 0.04;
+
+      init();
+      animate();
+
+      function init() {
+        color = new THREE.Color("lime");
+
+        camera = new THREE.PerspectiveCamera(
+          70,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          100,
+        );
+        camera.position.y = 0.5;
+        camera.position.z = 2;
+
+        scene = new THREE.Scene();
+        scene.background = color;
+
+        const images = ["./1.jpg", "./2.jpg", "./3.jpg", "./4.jpg"];
+
+        const textures = images.map((i) => new THREE.TextureLoader().load(i));
+        textures.forEach((t) => {
+          t.colorSpace = THREE.SRGBColorSpace;
+        });
+        const materials = textures.map(
+          (t) => new THREE.MeshBasicMaterial({ map: t }),
+        );
+
+        const geometry = new THREE.BufferGeometry();
+
+        const vertices = new Float32Array([
+          0, 0, -1, -1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 1, 1,
+          0, 0, 0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 1, 0,
+        ]);
+
+        const uvs = new Float32Array([
+          0, 0, 1, 0, 0.5, 1, 0, 0, 1, 0, 0.5, 1, 0, 0, 1, 0, 0.5, 1, 0, 0, 1,
+          0, 0.5, 1,
+        ]);
+
+        // itemSize = 3 because there are 3 values (components) per vertex
+        geometry.setAttribute(
+          "position",
+          new THREE.BufferAttribute(vertices, 3),
+        );
+        geometry.setAttribute("uv", new THREE.BufferAttribute(uvs, 2));
+
+        geometry.addGroup(0, 3, 0);
+        geometry.addGroup(3, 3, 1);
+        geometry.addGroup(6, 3, 2);
+        geometry.addGroup(9, 3, 3);
+
+        mesh = new THREE.Mesh(geometry, materials);
+        scene.add(mesh);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        window.addEventListener("resize", onWindowResize);
+        onWindowResize();
+      }
+
+      function onWindowResize() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height);
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        mesh.rotation.y += rotationSpeed;
+        scene.background = color;
+
+        renderer.render(scene, camera);
+      }
+
+      document.querySelector("#bgColorInput").addEventListener("input", (e) => {
+        color.set(e.target.value);
+      });
+      document.querySelector("#speedInput").addEventListener("input", (e) => {
+        rotationSpeed = Number(e.target.value);
+        console.log(rotationSpeed);
+      });
+
+      document
+        .querySelector("#fileInput")
+        .addEventListener("change", async (e) => {
+          const files = e.target.files;
+          if (files.length === 0) {
+            return;
+          }
+          let images = await Promise.all(
+            [...files].map((f) => URL.createObjectURL(f)),
+          );
+          images = [...images, ...images, ...images, ...images].slice(0, 4);
+          console.log(images);
+          mesh.material.forEach((m, i) => {
+            const texture = new THREE.TextureLoader().load(images[i]);
+            texture.colorSpace = THREE.SRGBColorSpace;
+            m.map = texture;
+            m.needsUpdate = true;
+          });
+        });
+
+      const exportBtn = document.querySelector("#export");
+
+      function startRecording() {
+        const stream = canvas.captureStream();
+        const rec = new MediaRecorder(stream, { mimeType: "video/webm" });
+        rec.ondataavailable = (e) => chunks.push(e.data);
+        rec.onstop = (e) => exportVideo(new Blob(chunks, { type: "video/webm" }));
+
+        rec.start();
+        exportBtn.setAttribute("disabled", true);
+        exportBtn.innerHTML = "录制中（共3s）..."
+        setTimeout(() => {
+          rec.stop();
+          exportBtn.removeAttribute("disabled");
+          exportBtn.innerHTML = "导出视频";
+        }, 3000); // stop recording in 3s
+      }
+
+      function exportVideo(blob) {
+        const video = document.createElement("video");
+        video.src = URL.createObjectURL(blob);
+        video.controls = true;
+        document.body.appendChild(video);
+        const a = document.createElement("a");
+        a.download = "video.webm";
+        a.href = video.src;
+        a.click();
+      }
+
+      exportBtn.addEventListener("click", startRecording);
+    </script>
+  </body>
+</html>
