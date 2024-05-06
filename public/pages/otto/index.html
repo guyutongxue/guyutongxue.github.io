@@ -116,8 +116,6 @@
           0, 0, 1, 0, 0.5, 1, 0, 0, 1, 0, 0.5, 1, 0, 0, 1, 0, 0.5, 1, 0, 0, 1,
           0, 0.5, 1,
         ]);
-
-        // itemSize = 3 because there are 3 values (components) per vertex
         geometry.setAttribute(
           "position",
           new THREE.BufferAttribute(vertices, 3),
@@ -185,11 +183,11 @@
       const exportBtn = document.querySelector("#export");
 
       function startRecording() {
+        const chunks = [];
         const stream = canvas.captureStream();
         const rec = new MediaRecorder(stream, { mimeType: "video/webm" });
         rec.ondataavailable = (e) => chunks.push(e.data);
         rec.onstop = (e) => exportVideo(new Blob(chunks, { type: "video/webm" }));
-
         rec.start();
         exportBtn.setAttribute("disabled", true);
         exportBtn.innerHTML = "录制中（共3s）..."
