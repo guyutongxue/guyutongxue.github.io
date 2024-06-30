@@ -6,7 +6,7 @@ import YAML from "yaml";
 const { anime } = YAML.parse(dataSrc);
 
 // TODO
-const allAnimes = anime.flat();
+const allAnimes = anime.flat(Infinity);
 ---
 
 <Layout title="ACGN List">
