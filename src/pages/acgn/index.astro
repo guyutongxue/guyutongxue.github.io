@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import dataSrc from "../../data/acgn/data.yml?raw";
+import YAML from "yaml";
+
+const { anime } = YAML.parse(dataSrc);
+
+// TODO
+const allAnimes = anime.flat();
+---
+
+<Layout title="ACGN List">
+  <table>
+    <thead>
+      <th>AniList ID</th>
+      <th>Moegirl Name</th>
+      <th>Watch Date</th>
+      <th>Note</th>
+    </thead>
+    <tbody>
+      {
+        allAnimes.map((anime: any) => (
+          <tr>
+            <td>{anime.id}</td>
+            <td>{anime.moegirl_name}</td>
+            <td>{anime.date}</td>
+            <td>{anime.status}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</Layout>

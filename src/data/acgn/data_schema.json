@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/acgn",
+  "$defs": {
+    "acgn": {
+      "type": "object",
+      "properties": {
+        "anime": {
+          "$ref": "#/$defs/animeOrAnimeArray"
+        }
+      }
+    },
+    "anime": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "AniList ID"
+        },
+        "moegirl_name": {
+          "type": "string",
+          "description": "zh.moegirl.org.cn item name"
+        },
+        "date": {
+          "type": "string"
+        },
+        "fav_char": {
+          "$ref": "#/$defs/character"
+        },
+        "status": {
+          "enum": [
+            "watching",
+            "completed",
+            "on_hold",
+            "dropped",
+            "plan_to_watch"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "date"
+          ]
+        },
+        {
+          "required": [
+            "status"
+          ]
+        }
+      ],
+      "additionalProperties": false
+    },
+    "animeOrAnimeArray": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/anime"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/animeOrAnimeArray"
+          },
+          "minItems": 2
+        }
+      ]
+    },
+    "character": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number",
+          "description": "AniList ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Character name, presented only if name of corresponding AniList ID not match"
+        },
+        "moegirl_name": {
+          "type": "string",
+          "description": "zh.moegirl.org.cn item name"
+        },
+        "height": {
+          "type": "number",
+          "description": "Character height by cm"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

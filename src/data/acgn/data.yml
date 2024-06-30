@@ -1,0 +1,694 @@
+# yaml-language-server: $schema=./data_schema.json
+anime:
+  - - id: 235
+      moegirl_name: 名侦探柯南
+      date: 约2010年起
+      fav_char:
+        id: 1743
+        moegirl_name: 灰原哀
+        height: 105
+    - - id: 8310
+        moegirl_name: 魔术快斗
+        date: 约2015年7月
+        fav_char: &AKAKO
+          id: 13974
+          moegirl_name: 小泉红子
+          height: 160
+      - id: 20790
+        moegirl_name: 魔术快斗1412
+        date: 约2015年7月
+        fav_char: *AKAKO
+  - - - id: 4654
+        moegirl_name: 魔法禁书目录
+        date: 约2016年1月
+        fav_char: &KOMOE
+          id: 16222
+          moegirl_name: 月咏小萌
+          height: 135
+      - id: 8937
+        moegirl_name: 魔法禁书目录
+        date: 约2016年1月
+        fav_char: *KOMOE
+      - id: 100185
+        moegirl_name: 魔法禁书目录
+        date: 2018年秋-2019年冬
+        fav_char:
+          id: 19737
+          moegirl_name: 最后之作
+          height: 143
+    - - id: 6213
+        moegirl_name: 某科学的超电磁炮
+        date: 2015年7月27日起
+        fav_char: &KUROKO
+          id: 17017
+          moegirl_name: 白井黑子
+          height: 152
+      - id: 16049
+        moegirl_name: 某科学的超电磁炮
+        date: 约2015年7月
+        fav_char: *KUROKO
+      - id: 104462
+        moegirl_name: 某科学的超电磁炮
+        date: 2020年冬起
+        status: on_hold
+        fav_char: *KUROKO
+    - id: 112031
+      moegirl_name: 某科学的一方通行
+      date: 2019年夏
+      fav_char:
+        id: 161007
+        name: ミサカ19090号
+        moegirl_name: 御坂妹妹
+        height: 161
+  - - - id: 15051
+        moegirl_name: LoveLive!/TV动画作品
+        date: 约2015年8月
+        fav_char: &MINAMI_KOTORI
+          id: 46013
+          moegirl_name: 南小鸟
+          height: 159
+      - id: 19111
+        moegirl_name: LoveLive!/TV动画作品
+        date: 约2015年8月
+        fav_char: *MINAMI_KOTORI
+    - - id: 21584
+        moegirl_name: LoveLive!Sunshine!!/TV动画作品
+        date: 2016年夏
+        fav_char: &RUBY
+          id: 89852
+          moegirl_name: 黑泽露比
+          height: 144
+      - id: 98349
+        moegirl_name: LoveLive!Sunshine!!/TV动画作品
+        date: 2017年秋
+        fav_char: *RUBY
+    - - id: 113970
+        moegirl_name: LoveLive!虹咲学园学园偶像同好会/TV动画作品
+        date: 2020年秋-2021年2月
+        fav_char: &YUU
+          id: 170349
+          moegirl_name: 高咲侑
+          height: 156
+      - id: 133891
+        moegirl_name: LoveLive!虹咲学园学园偶像同好会/TV动画作品
+        date: 2021年夏
+        fav_char: *YUU
+    - id: 114979
+      moegirl_name: LoveLive!Superstar!!/TV动画作品
+      date: 2022年夏
+      fav_char:
+        id: 170242
+        moegirl_name: 平安名堇
+        height: 161
+  - - id: 20987
+      moegirl_name: 干物妹小埋
+      date: 约2015年8月起
+      fav_char:
+        id: 89019
+        moegirl_name: 土间埋
+        height: 160
+    - id: 98572
+      moegirl_name: 干物妹小埋
+      date: 2017年秋
+      fav_char:
+        id: 124556
+        moegirl_name: 金刚光
+        height: 142
+  - - id: 8630
+      moegirl_name: 绯弹的亚里亚
+      date: 约2015年9月
+      fav_char:
+        id: 30046
+        moegirl_name: 神崎·H·亚里亚
+        height: 142
+    - id: 20991
+      moegirl_name: 绯弹的亚里亚AA
+      date: 2015年秋
+      fav_char:
+        id: 40712
+        moegirl_name: 蕾姬
+        height: 150
+  - id: 20754
+    moegirl_name: 学园孤岛
+    date: 约2015年9月
+    fav_char:
+      id: 89054
+      moegirl_name: 直树美纪
+      height: 145
+  - id: 45821
+    moegirl_name: 缘之空
+    date: 约2015年9月
+    fav_char:
+      id: 33221
+      moegirl_name: 春日野穹
+      height: 152
+  - id: 13125
+    moegirl_name: 来自新世界
+    date: 约2015年10月-12月
+    fav_char:
+      id: 57569
+      moegirl_name: 渡边早季
+      height: 155
+  - - id: 20517
+      moegirl_name: 请问您今天要来点兔子吗？
+      date: 约2015年11月
+      fav_char: &CHINO
+        id: 88032
+        moegirl_name: 香风智乃
+        height: 144
+    - id: 21034
+      moegirl_name: 请问您今天要来点兔子吗？
+      date: 约2015年11月
+      fav_char: *CHINO
+    - id: 104198
+      moegirl_name: 请问您今天要来点兔子吗？
+      date: 2020年秋
+      fav_char:
+        id: 88033
+        moegirl_name: 桐间纱路
+        height: 151
+  - - id: 11757
+      moegirl_name: 刀剑神域
+      date: 约2016年2月
+      fav_char:
+        id: 36828
+        moegirl_name: 结城明日奈
+        height: 163
+    - id: 20594
+      moegirl_name: 刀剑神域
+      date: 约2016年3月
+      fav_char:
+        id: 55147
+        moegirl_name: 朝田诗乃
+        height: 161
+    - - id: 100182
+        moegirl_name: 刀剑神域
+        date: 2018年秋-2019年冬
+        fav_char:
+          id: 123199
+          moegirl_name: 卡迪娜尔
+          height: 140
+      - id: 108759
+        moegirl_name: 刀剑神域
+        date: 2019年秋
+        fav_char:
+          id: 75450
+          moegirl_name: 爱丽丝·滋贝鲁库
+          height: 170
+  - id: 16009
+    moegirl_name: 神不在的星期天
+    date: 约2016年3月
+    fav_char:
+      id: 86345
+      moegirl_name: 蒂伊·恩吉·史特拉特米特斯
+      height: 155
+  - - id: 15583
+      moegirl_name: 约会大作战
+      date: 约2016年3月
+      fav_char: &ITSUKA_KOTORI
+        id: 65263
+        moegirl_name: 五河琴里
+        height: 165
+    - id: 15583
+      moegirl_name: 约会大作战
+      date: 约2016年4月
+      fav_char: *ITSUKA_KOTORI
+    - id: 100722
+      moegirl_name: 约会大作战
+      date: 2019年冬
+      fav_char: *ITSUKA_KOTORI
+    - id: 116605
+      moegirl_name: 约会大作战
+      date: 2022年春
+      fav_char:
+        id: 70069
+        moegirl_name: 时崎狂三
+        height: 157
+    - id: 151380
+      moegirl_name: 约会大作战
+      date: 2024年春
+      fav_char: *ITSUKA_KOTORI
+  - - id: 20755
+      moegirl_name: 暗杀教室
+      date: 约2016年4月
+      fav_char: &HINATA
+        id: 88804
+        moegirl_name: 冈野日向
+        height: 147
+    - id: 21170
+      moegirl_name: 暗杀教室
+      date: 约2016年4月
+      fav_char: *HINATA
+    - id: 97985
+      moegirl_name: 杀老师Q！
+      date: 2017年冬
+      fav_char: *HINATA
+  - - id: 9756
+      moegirl_name: 魔法少女小圆
+      date: 约2016年5月
+      fav_char:
+        id: 40006
+        moegirl_name: 佐仓杏子
+        height: 156
+    - - id: 104051
+        moegirl_name: 魔法纪录 魔法少女小圆外传#动画版
+        date: 2020年冬
+        fav_char: &RENA
+          id: 151333
+          moegirl_name: 水波玲奈
+          height: 156
+      - id: 117002
+        moegirl_name: 魔法纪录 魔法少女小圆外传#动画版
+        date: 2021年夏
+        fav_char: *RENA
+  - - id: 8769
+      moegirl_name: 我的妹妹哪有这么可爱！
+      date: 约2016年5月
+      fav_char: &KURONEKO
+        id: 31008
+        moegirl_name: 五更琉璃
+        height: 155
+    - id: 13659
+      moegirl_name: 我的妹妹哪有这么可爱！
+      date: 约2016年5月
+      fav_char: *KURONEKO
+  - - id: 355
+      moegirl_name: 灼眼的夏娜
+      date: 约2016年7月
+      fav_char: &SHANA
+        id: 1426
+        moegirl_name: 夏娜
+        height: 139
+    - id: 2787
+      moegirl_name: 灼眼的夏娜
+      date: 2016年7月22日-9月
+      fav_char: *SHANA
+    - id: 6773
+      moegirl_name: 灼眼的夏娜
+      status: plan_to_watch
+  - id: 10572
+    moegirl_name: 萝球社！
+    date: 2016年7月14日-9月
+    fav_char:
+      id: 42223
+      moegirl_name: 袴田日向
+      height: 131
+  - id: 20634
+    moegirl_name: 搞姬日常
+    date: 2016年7月19日
+    fav_char:
+      id: 88701
+      # moegirl_name: 有川辉夜
+      height: 175
+  - id: 21457
+    moegirl_name: 这个美术社大有问题！
+    date: 2016年夏
+    fav_char:
+      id: 82335
+      moegirl_name: 宇佐美瑞希
+      height: 158
+  - - id: 11617
+      moegirl_name: 恶魔高校
+      date: 2016年8月2日-26日
+      fav_char:
+        id: 51343
+        # moegirl_name: 塔城小猫
+        height: 150
+    - id: 145451
+      moegirl_name: 恶魔高校
+      status: plan_to_watch
+  - - id: 11785
+      moegirl_name: 潜行吧！奈亚子
+      date: 2016年8月28日-30日
+      fav_char: &NYARUKO
+        id: 31418
+        moegirl_name: 奈亚子
+        height: 170
+    - id: 15699
+      moegirl_name: 潜行吧！奈亚子
+      date: 2016年8月30日起
+      status: on_hold
+      fav_char: *NYARUKO
+  - - id: 21455
+      moegirl_name: NEW GAME!
+      date: 2016年夏
+      fav_char: &AOBA
+        id: 89641
+        moegirl_name: 凉风青叶
+        height: 149
+    - id: 98292
+      moegirl_name: NEW GAME!
+      date: 2017年夏
+      fav_char: *AOBA
+  - - id: 20984
+      moegirl_name: 我老婆是学生会长！
+      date: 约2016年10月
+      fav_char: &WAKANA_UI
+        id: 81703
+        moegirl_name: 若菜羽衣
+        # height: 95
+    - id: 21610
+      moegirl_name: 我老婆是学生会长！
+      date: 2016年秋
+      fav_char: *WAKANA_UI
+  - - id: 21422
+      moegirl_name: 魔法少女什么的已经够了啦
+      date: 约2016年10月
+      fav_char: &YUZUKA
+        id: 133877
+        # moegirl_name: 叶波柚香
+        height: 153
+    - id: 21892
+      moegirl_name: 魔法少女什么的已经够了啦
+      date: 2016年秋
+      fav_char: *YUZUKA
+  - - id: 21804
+      moegirl_name: 齐木楠雄的灾难
+      date: 2016年秋
+      fav_char:
+        id: 90115
+        # moegirl_name: 梦原知予
+        height: 164
+    - id: 98034
+      moegirl_name: 齐木楠雄的灾难
+      status: plan_to_watch
+  - id: 21655
+    moegirl_name: 喵楞
+    date: 2016年秋
+    fav_char:
+      id: 150030
+      # moegirl_name: 小虎皮
+  - - id: 21320
+      moegirl_name: 动画锻炼EX
+      date: 2016年10月26日
+      fav_char: &HIGUCHI_ERI
+        id: 123081
+        # moegirl_name: 樋口绘里
+        height: 152
+    - id: 21886
+      moegirl_name: 动画锻炼EX
+      date: 2018年7月2日
+      fav_char: *HIGUCHI_ERI
+  - id: 21627
+    moegirl_name: 少女编号
+    date: 2016年秋
+    fav_char:
+      id: 120240
+      moegirl_name: 苑生百花
+      height: 159
+  - id: 21878
+    moegirl_name: 珈百璃的堕落
+    date: 2017年冬
+    fav_char:
+      id: 120939
+      moegirl_name: 胡桃泽·萨塔妮基亚·麦克道威尔
+      height: 157
+  - id: 97673
+    moegirl_name: 猫咪日常
+    date: 2017年冬
+    fav_char:
+      id: 143316
+      # moegirl_name: 白鸟杏美
+      height: 155
+  - - id: 97857
+      moegirl_name: One Room
+      date: 2017年冬
+      fav_char: &NATSUKI
+        id: 127268
+        moegirl_name: 桃原奈月
+        height: 154
+    - id: 100133
+      moegirl_name: One Room
+      date: 2018年夏
+      fav_char:
+        id: 127479
+        moegirl_name: 天月真白
+        height: 183
+    - id: 116147
+      moegirl_name: One Room
+      date: 2020年秋
+      fav_char: *NATSUKI
+  - id: 21685
+    moegirl_name: 埃罗芒阿老师
+    date: 2017年春
+    fav_char:
+      id: 121473
+      moegirl_name: 山田妖精
+      height: 150
+  - id: 87517
+    moegirl_name: 雏子的笔记
+    date: 2017年春
+    fav_char:
+      id: 121495
+      moegirl_name: 柊真雪
+      height: 143
+  - id: 97821
+    moegirl_name: 爱丽丝与藏六
+    date: 2017年春
+    fav_char:
+      id: 121408
+      moegirl_name: 樫村纱名
+      height: 135
+  - id: 20047
+    moegirl_name: 樱Trick
+    date: 约2017年4月起
+    status: on_hold
+  - id: 20646
+    moegirl_name: 日常系的异能战斗
+    date: 约2017年4月起
+    status: on_hold
+    fav_char:
+      id: 88604
+      moegirl_name: 神崎灯代
+      height: 163
+  - id: 97683
+    moegirl_name: 天使的3P！
+    date: 2017年夏
+    fav_char:
+      id: 123267
+      moegirl_name: 五岛润
+      height: 138
+  - id: 97833
+    moegirl_name: 捏造陷阱 -NTR-
+    date: 2017年夏
+    fav_char:
+      id: 89976
+      moegirl_name: 水科萤
+      height: 167
+  - id: 98505
+    moegirl_name: Princess Principal
+    date: 2017年夏
+    fav_char:
+      id: 122800
+      moegirl_name: 安洁·勒卡雷
+      height: 163
+  - id: 97994
+    moegirl_name: 调教咖啡厅
+    date: 2017年秋
+    fav_char:
+      id: 123295
+      moegirl_name: 神崎日照
+      height: 163
+  - id: 98506
+    moegirl_name: 此花亭奇谭
+    date: 2017年秋
+    fav_char:
+      id: 123777
+      moegirl_name: 柚(此花亭奇谭)
+      height: 145
+  - id: 98951
+    moegirl_name: 关于我女友是个一本正经的碧池这件事
+    date: 2017年秋
+    fav_char:
+      id: 123890
+      # moegirl_name: 香坂秋穂
+      height: 160
+  - id: 98693
+    moegirl_name: Slow Start
+    date: 2018年冬
+    fav_char:
+      id: 124745
+      moegirl_name: 百地玉手
+      height: 158
+  - id: 99507
+    moegirl_name: 龙王的工作
+    date: 2018年冬
+    fav_char:
+      id: 124724
+      moegirl_name: 夜叉神天衣
+      height: 123
+  - id: 99131
+    moegirl_name: Comic Girls
+    date: 2018年春
+    fav_char:
+      id: 125014
+      moegirl_name: 萌田薰子
+      height: 140
+  - id: 100077
+    moegirl_name: 超能力女儿
+    date: 2018年春
+    fav_char:
+      id: 125362
+      moegirl_name: 杏子(黑社会的超能力女儿)
+      height: 155
+  - id: 99638
+    moegirl_name: ALICE or ALICE
+    date: 2018年春
+    fav_char:
+      id: 125357
+      height: 152
+  - id: 21712
+    moegirl_name: ISLAND
+    date: 2018年夏
+    fav_char:
+      id: 125001
+      name: 御原凛音
+      height: 150
+  - id: 99366
+    moegirl_name: 千绪的上学路
+    date: 2018年夏
+    fav_char:
+      id: 125854
+      name: 三谷裳千绪
+      height: 155
+  - - id: 100977
+      moegirl_name: 工作细胞
+      date: 2018年夏-12月
+      fav_char: &KESSHOUBAN
+        id: 127417
+        moegirl_name: 工作细胞:血小板
+        # height: 0
+    - id: 108631
+      moegirl_name: 工作细胞
+      date: 2021年冬
+      fav_char: *KESSHOUBAN
+  - id: 98658
+    moegirl_name: 少女☆歌剧 Revue Starlight
+    date: 2018年夏
+    fav_char:
+      id: 126668
+      moegirl_name: 神乐光
+      height: 155
+  - id: 101013
+    moegirl_name: Anima Yell!
+    date: 2018年秋
+    fav_char:
+      id: 127934
+      moegirl_name: 有马日诘
+      height: 163
+  - id: 102680
+    moegirl_name: 天使降临到了我身边
+    date: 2019年3月30日起
+    status: on_hold
+  - id: 101386
+    moegirl_name: 一个人的○○小日子
+    date: 2019年春
+    fav_char:
+      id: 128984
+      name: 砂尾奈子
+      height: 158
+  - id: 101922
+    moegirl_name: 鬼灭之刃
+    date: 2019年春-夏
+    fav_char:
+      id: 127518
+      moegirl_name: 灶门祢豆子
+      height: 153
+  - id: 108111
+    moegirl_name: 你遭难了吗？
+    date: 2019年夏起
+    status: on_hold
+    fav_char:
+      id: 136414
+      height: 162
+  - id: 108147
+    moegirl_name: 满月之战GRANBELM
+    date: 2019年夏
+    fav_char:
+      id: 140406
+      height: 145
+  - - id: 107490
+      moegirl_name: 街角魔族
+      date: 2019年夏
+      fav_char: &CHIYODA_MOMO
+        id: 141457
+        moegirl_name: 千代田桃
+        height: 163
+    - id: 123330
+      moegirl_name: 街角魔族
+      date: 2022年春
+      fav_char: *CHIYODA_MOMO
+  - id: 107956
+    moegirl_name: 为了女儿，我说不定连魔王都能干掉。
+    date: 2019年夏起
+    status: on_hold
+    fav_char:
+      id: 137630
+      name: 拉提娜
+      height: 110
+  - id: 107961
+    moegirl_name: 只要长得可爱，即使是变态你也喜欢吗？
+    date: 2019年夏起
+    status: on_hold
+    fav_char:
+      id: 135803
+      moegirl_name: 古贺唯花
+      height: 155
+  - id: 108092
+    moegirl_name: 恋爱小行星
+    date: 2020年冬
+    fav_char:
+      id: 140052
+      name: 真中苍
+      height: 155
+  - id: 108713
+    moegirl_name: 满溢的水果挞
+    date: 2020年秋-2021年6月6日
+    fav_char:
+      id: 164771
+      name: 贯井波游
+      height: 163
+  - - id: 98444
+      moegirl_name: 摇曳露营
+      date: 2021年1月19日-28日
+      fav_char: &SHIMA_RIN
+        id: 124586
+        moegirl_name: 志摩凛
+        height: 155
+    - id: 104459
+      moegirl_name: 摇曳露营
+      date: 2021年冬
+      fav_char: *SHIMA_RIN
+    - id: 155908
+      moegirl_name: 摇曳露营
+      date: 2024年春
+      fav_char: *SHIMA_RIN
+  - id: 98514
+    moegirl_name: 赛马娘
+    date: 2022年1月起
+    status: on_hold
+  - id: 130319
+    moegirl_name: RPG不动产
+    date: 2022年春起
+    status: on_hold
+  - id: 144509
+    moegirl_name: 天籁人偶
+    date: 2022年夏起
+    status: on_hold
+  - id: 149028
+    moegirl_name: 我的百合乃工作是也！
+    date: 2023年春起
+    status: on_hold
+  - id: 146975
+    moegirl_name: 偶像大师 灰姑娘女孩 U149
+    date: 2023年春
+    fav_char:
+      id: 129277
+      moegirl_name: 橘爱丽丝
+      height: 141
+  - id: 160589
+    moegirl_name: 蔚蓝档案/电视动画
+    date: 2024年春
+    fav_char:
+      id: 293143
+      moegirl_name: 浅黄睦月
