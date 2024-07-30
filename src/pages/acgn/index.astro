@@ -5,8 +5,62 @@ import YAML from "yaml";
 
 const { anime } = YAML.parse(dataSrc);
 
-// TODO
+async function fetchAnimeInfo(aniListIds: number[]) {
+  const GROUP_SIZE = 50;
+  const ids = [...aniListIds];
+  const result = [];
+  while (ids.length > 0) {
+    const group = ids.splice(0, GROUP_SIZE);
+    const groupResult = await fetchGroup(group);
+    result.push(...groupResult);
+  }
+  return result;
+}
+
+async function fetchGroup(aniListIds: number[]) {
+  let query = `query {`;
+  for (let i = 0; i < aniListIds.length; i++) {
+    const id = aniListIds[i];
+    query += `
+  m${i}: Media (id: ${id}) {
+    id
+    title {
+      native
+    }
+    coverImage {
+      large
+    }
+  }`;
+  }
+  query += `
+}`;
+  const response = await fetch(`https://graphql.anilist.co`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ query }),
+  }).then((r) => r.json());
+  if (!response.data) {
+    throw new Error(`Error while fetch anilist: ${JSON.stringify(response)}`);
+  }
+  return Object.values(response.data).map((item: any) => ({
+    id: item.id,
+    title: item.title.native,
+    cover: item.coverImage.large,
+  }));
+}
+
 const allAnimes = anime.flat(Infinity);
+const anilistData = await fetchAnimeInfo(allAnimes.map((item: any) => item.id));
+
+for (let i = 0; i < allAnimes.length; i++) {
+  allAnimes[i].title = anilistData[i].title;
+  allAnimes[i].cover = anilistData[i].cover;
+}
+
+
 ---
 
 <Layout title="ACGN List">
@@ -22,9 +76,10 @@ const allAnimes = anime.flat(Infinity);
         allAnimes.map((anime: any) => (
           <tr>
             <td>{anime.id}</td>
-            <td>{anime.moegirl_name}</td>
+            <td><a href={`https://zh.moegirl.org.cn/${encodeURIComponent(anime.moegirl_name)}`}>{anime.title}</a></td>
             <td>{anime.date}</td>
             <td>{anime.status}</td>
+            <td><img class="h-8" src={anime.cover}></td>
           </tr>
         ))
       }
