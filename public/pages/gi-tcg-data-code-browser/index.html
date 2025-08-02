@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@gi-tcg/data 代码浏览器</title>
+    <!-- Highlight.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/typescript.min.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        header {
+            margin-bottom: 20px;
+        }
+        
+        .search-container {
+            margin-bottom: 20px;
+        }
+        
+        .search-container input {
+            padding: 8px;
+            width: 150px;
+            font-size: 16px;
+        }
+        
+        .search-container button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .search-container button:hover {
+            background-color: #45a049;
+        }
+        
+        .entries-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .entry {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .entry-header {
+            background-color: #f5f5f5;
+            padding: 8px 12px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .entry-content {
+            display: flex;
+            flex-direction: row;
+        }
+
+        @media (max-width: 768px) {
+            .entry-content {
+                flex-direction: column;
+            }
+        }
+        
+        .entry-info {
+            flex: 1;
+            padding: 12px;
+            border-right: 1px solid #ddd;
+            background-color: #f9f9f9;
+            min-width: 250px;
+        }
+        
+        .entry-code {
+            flex: 2;
+            padding: 12px;
+            overflow-x: auto;
+        }
+        
+        .location-info {
+            font-family: monospace;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        .dependency-link {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>@gi-tcg/data 代码浏览器</h1>
+    </header>
+    
+    <div class="search-container">
+        <input type="number" id="search-input" placeholder="输入 ID...">
+        <button id="search-button">搜索</button>
+    </div>
+    
+    <div id="entries-container" class="entries-container">
+        <!-- Entries will be inserted here -->
+    </div>
+
+    <script>
+        // Main data storage
+        let allEntries = [];
+        let displayedEntries = new Set();
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                await loadEntries();
+                
+                // Set up search functionality
+                document.getElementById('search-button').addEventListener('click', searchEntry);
+                document.getElementById('search-input').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        searchEntry();
+                    }
+                });
+                
+                // Check URL for search param
+                const urlParams = new URLSearchParams(window.location.search);
+                const queryId = urlParams.get('q');
+                if (queryId) {
+                    document.getElementById('search-input').value = queryId;
+                    searchEntry();
+                }
+            } catch (error) {
+                console.error('Initialization error:', error);
+                document.getElementById('entries-container').innerHTML = `
+                    <div class="error">
+                        加载数据失败: ${error.message}
+                    </div>
+                `;
+            }
+        });
+
+        // Load all entries from the API
+        async function loadEntries() {
+            const response = await fetch('https://gi-tcg.guyutongxue.site/data-code-analyze-result.json');
+            if (!response.ok) {
+                throw new Error(`Failed to load entries: ${response.status} ${response.statusText}`);
+            }
+            allEntries = await response.json();
+            console.log(`Loaded ${allEntries.length} entries`);
+        }
+
+        // Search for an entry and its dependencies
+        async function searchEntry() {
+            const searchInput = document.getElementById('search-input');
+            const entryId = parseInt(searchInput.value);
+            
+            if (isNaN(entryId)) {
+                alert('请输入有效的 ID');
+                return;
+            }
+            
+            // Update URL
+            const url = new URL(window.location);
+            url.searchParams.set('q', entryId);
+            window.history.pushState({}, '', url);
+            
+            // Clear previous entries
+            document.getElementById('entries-container').innerHTML = '';
+            displayedEntries.clear();
+            
+            // Display main entry and dependencies
+            await displayEntryAndDependencies(entryId);
+        }
+
+        // Display an entry and all its dependencies
+        async function displayEntryAndDependencies(id) {
+            if (displayedEntries.has(id)) {
+                return; // Prevent circular dependencies causing infinite loops
+            }
+            
+            const entry = allEntries.find(e => e.id === id);
+            if (!entry) {
+                const entriesContainer = document.getElementById('entries-container');
+                entriesContainer.innerHTML += `
+                    <div class="error">
+                        未找到 ID: ${id} 的条目
+                    </div>
+                `;
+                return;
+            }
+            
+            displayedEntries.add(id);
+            await displayEntry(entry);
+            
+            // Process dependencies
+            for (const depId of entry.dependencies) {
+                await displayEntryAndDependencies(depId);
+            }
+        }
+
+        // Display a single entry
+        async function displayEntry(entry) {
+            const entriesContainer = document.getElementById('entries-container');
+            
+            // Create entry element
+            const entryElement = document.createElement('div');
+            entryElement.className = 'entry';
+            entryElement.id = `entry-${entry.id}`;
+            
+            // Add loading message
+            entryElement.innerHTML = `
+                <div class="entry-header">
+                    ID: ${entry.id}
+                </div>
+                <div class="entry-content">
+                    <div class="entry-info loading">
+                        加载中...
+                    </div>
+                    <div class="entry-code loading">
+                        加载中...
+                    </div>
+                </div>
+            `;
+            
+            entriesContainer.appendChild(entryElement);
+            
+            try {
+                // Fetch additional data from API
+                let dataInfo = { name: '未知', description: '未知' };
+                try {
+                    const dataResponse = await fetch(`https://assets.gi-tcg.guyutongxue.site/api/v3/data/${entry.id}`);
+                    if (dataResponse.ok) {
+                        dataInfo = await dataResponse.json();
+                    }
+                } catch (error) {
+                    console.error(`Failed to load data for ID ${entry.id}:`, error);
+                }
+                
+                // Generate reassembled code
+                let reassembledCode = '';
+                if (entry.nameIndex === null) {
+                    reassembledCode = `const ${entry.variableName} = ${entry.code};`;
+                } else {
+                    const commas = ','.repeat(entry.nameIndex);
+                    reassembledCode = `const [${commas} ${entry.variableName}] = ${entry.code};`;
+                }
+                
+                // Generate dependencies list
+                const dependenciesList = entry.dependencies.map(depId => 
+                    `<a class="dependency-link" href="#entry-${depId}" onclick="scrollToEntry(${depId})">${depId}</a>`
+                ).join(', ') || 'None';
+                
+                // Update entry content
+                entryElement.innerHTML = `
+                    <div class="entry-header">
+                        <span>ID: ${entry.id}</span>
+                        <span>变量名: ${entry.variableName}</span>
+                    </div>
+                    <div class="entry-content">
+                        <div class="entry-info">
+                            <h3>${dataInfo.name || '未知名称'}</h3>
+                            <p>${dataInfo.description || '无描述'}</p>
+                            <p><strong>依赖项:</strong> ${dependenciesList}</p>
+                        </div>
+                        <div class="entry-code">
+                            <div class="location-info">
+                                文件: ${entry.location.filename}<br>
+                                位置: 行 ${entry.location.line}, 列 ${entry.location.column}
+                            </div>
+                            <pre><code class="language-typescript">${escapeHtml(reassembledCode)}</code></pre>
+                        </div>
+                    </div>
+                `;
+                
+                // Apply syntax highlighting
+                hljs.highlightElement(entryElement.querySelector('code'));
+                
+            } catch (error) {
+                console.error(`Error displaying entry ${entry.id}:`, error);
+                entryElement.querySelector('.entry-info').innerHTML = `
+                    <div class="error">加载数据失败: ${error.message}</div>
+                `;
+                entryElement.querySelector('.entry-code').innerHTML = `
+                    <div class="error">加载代码失败: ${error.message}</div>
+                `;
+            }
+        }
+        
+        // Helper function to escape HTML
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+        
+        // Helper function to scroll to an entry
+        function scrollToEntry(id) {
+            const element = document.getElementById(`entry-${id}`);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+</html>
