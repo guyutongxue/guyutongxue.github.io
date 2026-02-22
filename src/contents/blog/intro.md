@@ -2,7 +2,7 @@
 title: 关于我
 ---
 
-我是谷雨同学，毕业于北京大学计算机科学技术专业。
+我是谷雨同学，毕业于北京大学计算机科学技术专业，研究生就读于中国科学院信息工程研究所。
 
 ## 特点
 
@@ -53,9 +53,13 @@ title: 关于我
 - 常用语言（包括标记型语言）：C#, C++, JavaScript, HTML, CSS, Markdown, Python, C, LilyPond, TypeScript。
 - 其余不常用语言：Visual Basic .NET, Java, LaTeX, Delphi, MediaWiki, Brainfuck 等。
 
+<!---->
+
 - 如果你用 VS Code，我们可以做朋友。
 - 如果你用 Dev-C++，在你换掉它之后我们还可以做朋友。
 - 如果你用 Visual C++ 6.0，再见了您嘞。
+
+<!---->
 
 - 我算法非常差。
 

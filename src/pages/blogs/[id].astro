@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import { getEntry } from "astro:content";
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { id } = Astro.params;
+const entry = await getEntry("blog", id!)!;
+
+const { Content, remarkPluginFrontmatter: frontmatter } = await render(entry);
+---
+
+<BlogPostLayout frontmatter={frontmatter}>
+  <Content />
+</BlogPostLayout>

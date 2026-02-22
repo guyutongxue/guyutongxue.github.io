@@ -1,9 +1,14 @@
 ---
 import "katex/dist/katex.min.css";
-import "../styles/markdown.css";
+import "#/styles/markdown.css";
 import Header from "../components/Header.astro";
 import Layout from "./Layout.astro";
 import Container from "../components/Container.astro";
+
+interface Props {
+  frontmatter: Record<string, any>;
+}
+
 const { frontmatter } = Astro.props;
 ---
 
