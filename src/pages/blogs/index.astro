@@ -11,10 +11,12 @@ const blogEntries = await getCollection("blog");
   <Header />
   <Container>
     <h1 class="text-4xl font-bold mb-3">博客列表</h1>
+    <ul class="list-disc list-inside">
       {
         blogEntries.map((e) => (
           <li>
             <a href={"/blogs/" + e.id} class="text-blue-500 dark:text-blue-100">{e.data.title}</a>
+            <span class="text-gray-400">（{e.data.updated_at.toLocaleDateString()}）</span>
           </li>
         ))
       }

@@ -1,0 +1,151 @@
+# yaml-language-server: $schema=./data.schema.json
+- name: 七圣召唤模拟器
+  description: 广受玩家欢迎、支持本地和联机的七圣召唤模拟器
+  lang: typescript
+  activity: 2
+  link: https://play.piovium.org
+  github: piovium/genius-invokation
+  img: https://raw.githubusercontent.com/piovium/genius-invokation/refs/heads/main/docs/images/logo.png
+
+- name: Clangd in browser
+  description: 在浏览器中运行的 Clangd
+  lang: typescript
+  activity: 3
+  link: https://clangd.guyutongxue.site
+  github: Guyutongxue/clangd-in-browser
+  img: https://clangd.llvm.org/logo.svg
+
+- name: 谷雨同学的 C++ 教程
+  description: 个人编写的、以教程形式整理的 C++ 知识
+  lang: markdown
+  activity: 4
+  link: https://learn-cpp.guyutongxue.site
+  img: https://learn-cpp.guyutongxue.site/assets/isocpplogo.svg
+  github: Guyutongxue/MyCppTutorial
+
+- name: VS Code Config Helper (v2)
+  lang: csharp
+  description: 简单、快捷的 VS Code C++ 配置工具（第 1/2 版）
+  activity: 5
+  link: https://github.com/VSCodeConfigHelper/v2
+  img: https://github.com/VSCodeConfigHelper/v2/blob/v2.x/docs/assets/VSCodeConfigHelper.png?raw=true
+  github: VSCodeConfigHelper/v2
+
+- name: VS Code Config Helper (v3)
+  lang: cpp
+  description: 简单、快捷的 VS Code C++ 配置工具（第 3 版）
+  activity: 5
+  img: https://github.com/VSCodeConfigHelper/v2/blob/v2.x/docs/assets/VSCodeConfigHelper.png?raw=true
+  link: https://github.com/VSCodeConfigHelper/v3
+  github: VSCodeConfigHelper/v3
+
+- name: VS Code Config Helper (v4)
+  lang: rust
+  img: https://cdn.jsdelivr.net/gh/VSCodeConfigHelper/v4@main/public/favicon.png
+  description: 功能强大的 VS Code C++ 配置工具（第 4 版）
+  activity: 4
+  link: https://vscch.guyutongxue.site
+  github: VSCodeConfigHelper/v4
+
+- name: 个人网站
+  description: 你现在看到的这个网站
+  activity: 3
+  lang: html
+  img: /pages/avatar/img/2007.png
+  github: Guyutongxue/guyutongxue.github.io
+
+- name: 越狱工具速查
+  description: 快速查询 iOS 越狱状态
+  lang: html
+  activity: 5
+  img: https://ipsw.me/assets/devices/iPhone12,3.png
+  link: https://guyutongxue.github.io/JailbreakQuery
+  github: Guyutongxue/JailbreakQuery
+
+- name: Dev-C++ Theme
+  description: 仿 Dev-C++ 的 VS Code 主题
+  activity: 4
+  lang: json
+  img: https://cdn.jsdelivr.net/gh/Guyutongxue/DevCppTheme@master/icon.png
+  link: https://marketplace.visualstudio.com/items?itemName=Guyutongxue.devcpp-theme
+  github: Guyutongxue/DevCppTheme
+
+- name: VSC Cpp Reference
+  description: 在 VS Code 中快速查阅 C++ 文档
+  activity: 4
+  lang: typescript
+  img: https://cdn.jsdelivr.net/gh/Guyutongxue/VSC_CppReference@master/img/logo.png
+  github: Guyutongxue/VSC_CppReference
+  link: https://marketplace.visualstudio.com/items?itemName=Guyutongxue.cpp-reference
+
+- name: Amazons
+  description: 《计算概论 A》大作业：亚马逊棋，Windows平台下的纯控制台程序
+  activity: 5
+  lang: cpp
+  img: https://s1.ax1x.com/2020/06/12/tXfFZ6.png
+  link: https://github.com/Guyutongxue/Amazons
+  github: Guyutongxue/Amazons
+
+- name: copyfile 2
+  description: 自动复制插入计算机的存储设备的内容（中学时用来对付某些老师的课件）
+  activity: 5
+  lang: csharp
+  img: https://s1.ax1x.com/2020/06/14/NSISzV.png
+  link: https://github.com/Guyutongxue/copyfile2
+  github: Guyutongxue/copyfile2
+
+- name: Statistics Tool
+  description: 快速统计人名的工具。中学时经常用于统计回执、作业的收集情况
+  activity: 5
+  lang: csharp
+  img: https://s1.ax1x.com/2020/06/14/NSINSP.png
+  link: https://github.com/Guyutongxue/StatisticsTool
+  github: Guyutongxue/StatisticsTool
+
+- name: 摇号器
+  description: 简单的摇号器，支持一些高级选项如避开某号或确定某号
+  activity: 5
+  lang: vb
+  img: https://s1.ax1x.com/2020/06/14/NSonts.png
+  link: https://github.com/Guyutongxue/RandomTool
+  github: Guyutongxue/RandomTool
+
+- name: SorA
+  description: 'SorA: a homework Tracking App 可记录历史的作业管理工具'
+  activity: 5
+  lang: java
+  img: https://guyutongxue.github.io/SorA/assets/AppIcon~1000x1000@Rect.png
+  link: https://guyutongxue.github.io/SorA
+  github: Guyutongxue/SorA
+
+- name: 七言绝句生成项目
+  description: 《人工智能引论》合作作业：给出主题句生成一首七绝
+  activity: 5
+  lang: python
+  img: https://s1.ax1x.com/2020/08/25/dghVqH.png
+  link: pdf/ai_intro.pdf
+  github: Guyutongxue/ChinesePoetryGeneration
+
+- name: Dev-C++ 7
+  description: 使用 Angular + Electron 构建的小型 C++ 开发环境
+  activity: 5
+  lang: typescript
+  img: https://cdn.jsdelivr.net/gh/Guyutongxue/devcpp7@master/src/assets/icons/favicon.png
+  link: https://github.com/Guyutongxue/devcpp7
+  github: Guytongxue/devcpp7
+
+- name: clavicode
+  description: 《软件工程》合作项目：使用 TypeScript 构建的在线 C++/Python 开发环境
+  activity: 5
+  lang: typescript
+  img: https://via.placeholder.com/300.png?text=clavicode
+  link: https://github.com/Guyutongxue/clavicode-backend
+  github: Guytongxue/clavicode-backend
+
+- name: sysyc
+  description: 《编译原理》实践项目：SysY（类 C）语言编译器
+  activity: 5
+  lang: rust
+  img: https://avatars.githubusercontent.com/u/73884631
+  link: https://github.com/Guyutongxue/Compiler_Principles
+  github: Guyutongxue/Compiler_Principles

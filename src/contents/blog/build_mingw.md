@@ -1,5 +1,6 @@
 ---
 title: 搭建你自己的 MinGW
+updated_at: 2020-09-05
 ---
 
 ## 前言

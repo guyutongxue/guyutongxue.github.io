@@ -1,5 +1,6 @@
 ---
 title: WSL2 with GUI using Xvnc
+updated_at: 2020-12-27
 ---
 
 In this tutorial, we will setup GUI in WSL2, and access it using VNC. No additional software outside WSL (like VcXsrv) is required, except, of course, a VNC Viewer ([RealVNC](https://www.realvnc.com/pt/connect/download/viewer/), [TightVNC](https://www.tightvnc.com/download.php), [TigerVNC](https://bintray.com/tigervnc/stable/tigervnc/1.10.1), [UVNC](https://www.uvnc.com/downloads/ultravnc.html), etc, all of them might work flawlessly).

@@ -1,5 +1,6 @@
 ---
 title: GCC 10 installation (Ubuntu)
+updated_at: 2020-06-03
 ---
 
 ```sh

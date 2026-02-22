@@ -1,6 +1,11 @@
 ---
 import "#/styles/global.css";
-import Card from "../components/Card.astro";
+import ProjectCarousel from "../components/ProjectCarousel.astro";
+import { getCollection } from "astro:content";
+
+const blogEntries = (await getCollection("blog"))
+  .sort((a, b) => b.data.updated_at.getTime() - a.data.updated_at.getTime())
+  .slice(0, 3);
 ---
 
 <!DOCTYPE html>
@@ -13,31 +18,67 @@ import Card from "../components/Card.astro";
     <meta name="generator" content={Astro.generator} />
     <title>谷雨同学</title>
   </head>
-  <body class="bg-white dark:bg-gray-800 text-black dark:text-white">
-    <header
-      class="mt-16 mx-auto container p-4 sm:p-8 md:p-16 flex flex-col-reverse md:flex-row justify-center items-center md:justify-between gap-6 md:gap-2"
-    >
-      <div
-        class="flex flex-col items-center md:items-start text-5xl md:text-6xl font-extrabold gap-2"
+  <body class="bg-white dark:bg-gray-800 text-black dark:text-white min-h-dvh">
+    <div class="py-16 mx-auto container">
+      <header
+        class="p-4 sm:p-8 md:p-16 flex flex-col-reverse md:flex-row justify-center items-center md:justify-between gap-6 md:gap-2"
       >
-        <div>guyutongxue</div>
         <div
-          class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-amber-500"
+          class="flex flex-col items-center md:items-start text-5xl md:text-6xl font-extrabold gap-2"
         >
-          .site
+          <div>guyutongxue</div>
+          <div
+            class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-amber-500"
+          >
+            .site
+          </div>
         </div>
-      </div>
-      <img src="/img/logo.png" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl" />
-    </header>
-    <main class="container mx-auto">
-      <div class="text-center mb-5"></div>
-      <ul class="flex justify-around items-center">
-        <Card href="/blogs" title="博客列表">
-        </Card>
-        <Card href="/legacy/index.html" title="旧版主页">
-          <p class="text-gray-400">此新版网站还在建设中……</p>
-        </Card>
-      </ul>
-    </main>
+        <img src="/img/logo.png" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl" />
+      </header>
+      <main>
+        <hr class="border-t mb-8 border-gray-200 dark:border-gray-600">
+        <h2
+          class="block mx-16 mt-6 text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100"
+        >
+          Coding
+        </h2>
+        <ProjectCarousel />
+        <h2
+          class="block mx-16 mt-6 text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100"
+        >
+          Blogs
+        </h2>
+        <ul class="mx-16 mt-4 list-disc list-inside">
+          {
+            blogEntries.map((e) => (
+              <li>
+                <a href={"/blogs/" + e.id} class="text-blue-500 dark:text-blue-100">{e.data.title}</a>
+                <span class="text-gray-400">（{e.data.updated_at.toLocaleDateString()}）</span>
+              </li>
+            ))
+          }
+          <li>
+            <a href="/blogs" class="text-blue-500 dark:text-blue-100 underline">查看更多...</a>
+          </li>
+        </ul>
+        <h2
+          class="block mx-16 mt-6 text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100"
+        >
+          Article
+        </h2>
+        <p class="mx-16 mt-4">
+          Gu, Y., Liu, M. BONC: a framework for automatic cryptanalysis using the implementation code.
+          <i>Cybersecurity</i> <b>9</b>, 121 (2026). <a href="https://doi.org/10.1186/s42400-026-00556-9" target="_blank" rel="noopener noreferrer" class="text-blue-500 dark:text-blue-100 underline">doi.org/10.1186/s42400-026-00556-9</a>
+        </p>
+        <h2
+          class="block mx-16 mt-6 text-2xl md:text-3xl font-bold text-blue-500 dark:text-blue-100 underline"
+        >
+          <a href="/legacy/index.html">
+            前往旧版主页...
+          </a>
+        </h2>
+        <p class="mx-16 mt-4 text-gray-400">此新版网站还在长期建设中——</p>
+      </main>
+    </div>
   </body>
 </html>

@@ -1,5 +1,6 @@
 ---
 title: Configure WSL with beauty
+updated_at: 2020-06-03
 ---
 
 ## Update to newer Windows version (>= 18917).

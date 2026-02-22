@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=./data_schema.json
+# yaml-language-server: $schema=./data.schema.json
 anime:
   - - id: 235
       moegirl_name: 名侦探柯南

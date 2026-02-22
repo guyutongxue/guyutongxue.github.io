@@ -1,5 +1,6 @@
 ---
 title: 个人网站搭建记录
+updated_at: 2017-11-04
 ---
 
 当时看到陆子杰同学的[个人博客网站](https://halu.lu/)之后，便想要自己建一个网站。然而事实上我没有能力去租用云主机，抑或是租用域名。直到后来 iOS 10.2.1 的越狱工具 [Saïgon](https://iabem97.github.io/saigon_website) 发布，又联想到网易云音乐大佬[\@阿卡琳](http://music.163.com/#/user/home?id=45441555)的"[歌词滚动姬](https://lrc-maker.github.io/)"和之前在知乎看到的"[记忆转换](https://faded12.github.io/conversion/)"工具，想到 GitHub 或许可以帮助我。

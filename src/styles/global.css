@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@plugin "daisyui" {
+  themes: bumblebee --default, sunset --prefersdark;
+}
 
 @theme {
   --color-gbg: #f6f7f8;

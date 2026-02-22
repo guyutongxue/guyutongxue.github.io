@@ -1,5 +1,6 @@
 ---
 title: Vue 初次使用
+updated_at: 2024-02-16
 ---
 
 ## TLDR
