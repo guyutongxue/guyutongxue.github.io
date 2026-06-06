@@ -269,9 +269,9 @@ Tagged Template Literal 是 ES6 / ES2015 引入的语法，距今恰好十年左
 
 ## X. 安可
 
-等等，为什么 Prettier 没有中招呢？我又去看了一眼，结果诞生了新发现：
+等等，为什么 Prettier 没有中招呢？我又去看了一眼，发现七年前他们就已经考虑到了这种情形。但与此同时，诞生了新发现：
 
-Prettier 的维护者 [@fisker](https://github.com/fisker) 提交了一个 PR [prettier#19295](https://github.com/prettier/prettier/pull/19295)，说这是受 Babel 修复的*启发* 发现的 bug。是什么呢？说他们在判断括号的时候漏掉了 `ImportExpression`，也就是说
+Prettier 的维护者 [@fisker](https://github.com/fisker) 提交了一个 PR [prettier#19295](https://github.com/prettier/prettier/pull/19295)，说这是受 Babel 修复的*启发*发现的 bug。是什么呢？说他们在判断括号的时候漏掉了 `ImportExpression`，也就是说
 
 ```js
 new import("x").y();
