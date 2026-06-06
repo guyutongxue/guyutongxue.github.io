@@ -132,7 +132,7 @@ new (a().b)();
 
 那具体落在实现上，检查内层表达式是否存在调用形式只需要查 `MemberExpression` 同一优先级的表达式形式就可以了。根据 ESTree 事实标准一共有这些形式：
 
-- `MetaProperty`: `impor.meta` 肯定不会引入括号
+- `MetaProperty`: `import.meta`/`new.target`... 肯定不会引入括号
 - `MemberExpression`: `obj.prop` 左侧操作数可能引入括号，需要继续查
 - `TSNonNullExpression`: `expr!`被断言的表达式可能引入括号，需要继续查
 - `NewExpression`: 自指了，这一层不用管
